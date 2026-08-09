@@ -1,193 +1,343 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f5ede5">
-<title>Neslişah &amp; Aydın | Düğün Davetiyesi</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neslişah & Aydın | Düğün Davetiyesi</title>
+<meta name="description" content="Neslişah & Aydın düğün davetiyesi">
 <style>
-:root{--bg:#f5ede5;--paper:#fffdf9;--ink:#40352f;--muted:#75675f;--line:#d8c7bb;--accent:#8a6a5b;--soft:#efe1d6}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
-.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:28px 18px;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 20%,#fffaf5 0 18%,transparent 42%),radial-gradient(circle at 85% 75%,#ead9cc 0 12%,transparent 42%),var(--bg)}
-.hero:before,.hero:after{content:"";position:absolute;border:1px solid #d8c8bc;border-radius:50%;width:280px;height:280px;opacity:.5}.hero:before{left:-160px;bottom:8%}.hero:after{right:-170px;top:12%}
-.hero-card{text-align:center;max-width:680px;position:relative;z-index:2}.kicker{letter-spacing:5px;font-size:12px;color:var(--muted);margin-bottom:20px}.names{font-size:clamp(44px,12vw,82px);font-weight:400;margin:0 0 12px}.date{font-size:20px;letter-spacing:2px}.venue{margin:12px 0 28px;color:var(--muted)}
-.open,.copy{border:1px solid var(--accent);border-radius:999px;padding:14px 25px;cursor:pointer}.open{background:transparent;color:#6f5145;letter-spacing:2px}
-main{max-width:760px;margin:auto;padding:0 16px 50px}.card{background:var(--paper);border:1px solid #eaded5;border-radius:28px;padding:34px 22px;margin:18px 0;box-shadow:0 10px 35px rgba(70,50,40,.05)}
-h2{text-align:center;font-size:34px;font-weight:400;margin:0 0 18px}p{font-size:18px;line-height:1.65;text-align:center;margin:8px 0;color:var(--muted)}
-.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}.time{background:var(--soft);border-radius:18px;padding:16px 5px;text-align:center}.time b{display:block;font-size:30px;font-weight:400}.time span{font-size:11px;letter-spacing:1px;color:var(--muted)}
-.info{text-align:center}.info strong{font-size:21px}.btn{display:inline-block;margin:12px 5px 0;padding:12px 18px;border-radius:999px;border:1px solid var(--accent);color:var(--ink);text-decoration:none;background:transparent}
-.gift{background:linear-gradient(145deg,#fffdf9,#f1e4d9)}.iban{background:var(--soft);padding:16px 10px;border-radius:15px;text-align:center;font-size:16px;word-break:break-all;letter-spacing:1px;margin:18px 0}.copy{display:block;margin:0 auto;background:var(--accent);color:white}
-.rsvp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.rsvp{border:1px solid var(--line);background:#fff;border-radius:18px;padding:18px;text-align:center;text-decoration:none;color:var(--ink)}.rsvp:hover{background:var(--soft)}
-.note{font-size:13px!important}footer{text-align:center;color:var(--muted);padding:20px 0 40px;font-size:13px}
-.music{position:fixed;right:16px;bottom:18px;width:52px;height:52px;border-radius:50%;border:1px solid var(--accent);background:var(--paper);color:#6f5145;z-index:5}
-@media(max-width:430px){.family-grid{grid-template-columns:1fr}.countdown{gap:5px}.time b{font-size:25px}.rsvp-grid{grid-template-columns:1fr}h2{font-size:30px}}
-
-/* Zarf + araba açılışı */
-.envelope-screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;background:linear-gradient(145deg,#f7efe7,#eadbd0);transition:opacity .8s,visibility .8s}
-.envelope-glow{position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.45);filter:blur(35px)}
-.envelope{width:290px;height:190px;position:relative;cursor:pointer;perspective:700px;filter:drop-shadow(0 20px 25px rgba(70,50,40,.18));animation:floatEnvelope 2.8s ease-in-out infinite}
-.envelope-back,.envelope-front{position:absolute;inset:0;border-radius:10px;background:#ead3c4;border:1px solid #c8aa98}
-.envelope-front{clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);background:#e7cdbd;z-index:4}
-.envelope-back{z-index:1}
-.envelope-flap{position:absolute;left:0;top:0;width:100%;height:100%;background:#f0dcd0;clip-path:polygon(0 0,100% 0,50% 57%);transform-origin:top;z-index:5;transition:transform 1s cubic-bezier(.2,.8,.2,1);border-radius:10px}
-.envelope-letter{position:absolute;left:17px;right:17px;top:18px;height:155px;background:#fffdf9;border-radius:6px;text-align:center;padding-top:30px;z-index:2;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
-.mini-kicker{font-size:9px;letter-spacing:3px;color:#8a6a5b}.mini-names{font-size:28px;margin-top:12px;color:#40352f}
-.wax{position:absolute;z-index:6;left:50%;top:50%;transform:translate(-50%,-10%);width:48px;height:48px;border-radius:50%;background:#9a7564;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 3px 8px rgba(0,0,0,.15);transition:opacity .4s}
-.touch-text{position:relative;margin-top:34px;font-size:15px;letter-spacing:3px;color:#6f5145;animation:pulseTouch 1.5s ease-in-out infinite}
-.envelope.opened .envelope-flap{transform:rotateX(180deg)}
-.envelope.opened .envelope-letter{transform:translateY(-125px)}
-.envelope.opened .wax{opacity:0}
-.envelope-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
-.road-scene{position:absolute;inset:0;opacity:0;visibility:hidden;overflow:hidden;background:linear-gradient(#f8f0e8 0 54%,#e9ddd3 54% 100%);transition:opacity .5s}
-.road-scene.show{opacity:1;visibility:visible}
-.road{position:absolute;left:0;right:0;top:39%;height:270px;background:#6f6863;box-shadow:0 -6px 0 #d6c5ba,0 6px 0 #d6c5ba;overflow:hidden}
-.road-line{position:absolute;left:-10%;right:-10%;top:50%;height:7px;background:repeating-linear-gradient(90deg,#f8eadb 0 65px,transparent 65px 125px);opacity:.9}
-.car{position:absolute;left:-140px;top:36%;font-size:82px;z-index:3;filter:drop-shadow(0 10px 7px rgba(0,0,0,.25));transition:none}
-.flowers{position:absolute;top:-32px;font-size:34px;letter-spacing:5px;white-space:nowrap;opacity:.8}.flowers-left{left:2%}.flowers-right{right:2%}
-.joy-text{position:absolute;left:50%;top:25%;transform:translate(-50%,-50%) scale(.4);opacity:0;font-size:clamp(46px,13vw,88px);letter-spacing:5px;color:#8a6a5b;text-shadow:0 2px 0 #fff;white-space:nowrap;z-index:4}
-.hero-after{position:absolute;left:50%;bottom:5%;transform:translateX(-50%);text-align:center;width:94%;max-width:680px;opacity:0;z-index:5}
-.hero-after.visible{animation:fadeUp .9s .2s forwards}
-@keyframes floatEnvelope{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes pulseTouch{0%,100%{opacity:.55}50%{opacity:1;transform:scale(1.03)}}
-@keyframes fadeUp{to{opacity:1;transform:translateX(-50%) translateY(0)}}
-@keyframes joyIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}55%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-@media(max-width:430px){.envelope{width:270px;height:175px}.mini-names{font-size:25px}.road{top:37%;height:245px}.car{font-size:72px}}
-
-
-.family-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
-.family-box{background:#fbf3ec;border:1px solid #ead9ce;border-radius:22px;padding:24px 12px;text-align:center}
-.family-label{font-size:11px;letter-spacing:4px;color:var(--muted);margin-bottom:14px}
-.family-name{font-size:21px;line-height:1.55}
-.gift-btn{display:block;margin:22px auto 0;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:999px;padding:14px 22px;font-family:inherit;font-size:15px;cursor:pointer;letter-spacing:.5px}
-.gift-details{display:none;margin-top:18px;padding-top:8px;border-top:1px solid var(--line);animation:fadeUpSimple .5s ease forwards}
-.gift-details.show{display:block}
-@keyframes fadeUpSimple{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
+  :root{
+    --bg:#f6eee7;
+    --paper:#fffdf9;
+    --ink:#3f3833;
+    --muted:#786e66;
+    --line:#d8c8bb;
+    --accent:#8a6b59;
+    --accent2:#b9977d;
+    --shadow:0 12px 35px rgba(72,52,40,.10);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:linear-gradient(180deg,#f2e8df,#faf5ef);
+    color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif;
+  }
+  .hero{
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px 18px;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 15% 15%,rgba(255,255,255,.9),transparent 30%),
+      radial-gradient(circle at 90% 65%,rgba(214,191,173,.45),transparent 34%),
+      linear-gradient(135deg,#f8f0e9,#ead9ca);
+  }
+  .hero:before,.hero:after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(138,107,89,.25);
+    border-radius:50%;
+  }
+  .hero:before{width:420px;height:420px;right:-170px;bottom:-130px}
+  .hero:after{width:300px;height:300px;left:-180px;top:-120px}
+  .hero-inner{text-align:center;max-width:650px;position:relative;z-index:2}
+  .smallcaps{letter-spacing:5px;font-size:13px;text-transform:uppercase;color:var(--accent)}
+  h1{
+    font-size:clamp(48px,13vw,88px);
+    line-height:.95;
+    font-weight:400;
+    margin:22px 0 12px;
+  }
+  .amp{font-style:italic;color:var(--accent)}
+  .date{
+    font-size:18px;
+    letter-spacing:3px;
+    margin:25px 0;
+  }
+  .venue{font-size:18px;color:var(--muted)}
+  .open-btn{
+    margin-top:34px;
+    border:1px solid var(--accent);
+    background:rgba(255,250,244,.55);
+    color:#5d4b40;
+    border-radius:50px;
+    padding:15px 28px;
+    font-size:16px;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.25s;
+  }
+  .open-btn:hover{transform:translateY(-2px);background:#fffaf4}
+  section{padding:24px 16px}
+  .card{
+    max-width:760px;
+    margin:0 auto 22px;
+    background:rgba(255,253,249,.95);
+    border:1px solid rgba(216,200,187,.75);
+    border-radius:28px;
+    padding:34px 22px;
+    box-shadow:var(--shadow);
+    text-align:center;
+  }
+  .icon{font-size:30px;margin-bottom:12px}
+  h2{font-size:34px;font-weight:400;margin:5px 0 18px}
+  h3{font-size:22px;font-weight:400;margin:8px 0}
+  p{line-height:1.7;color:var(--muted);font-size:16px}
+  .divider{width:70px;height:1px;background:var(--line);margin:20px auto}
+  .info-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;
+  }
+  .info{
+    padding:18px;border:1px solid #e1d5cb;border-radius:18px;background:#fffaf5;
+  }
+  .label{
+    font-size:11px;letter-spacing:2px;color:#a28d7e;text-transform:uppercase;margin-bottom:8px;
+  }
+  .family-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .family{
+    border:1px solid #e1d5cb;border-radius:20px;padding:22px 12px;background:#fffaf5;
+  }
+  .family strong{font-size:20px;font-weight:400}
+  .timeline{display:grid;gap:12px}
+  .event{
+    display:flex;gap:14px;align-items:center;text-align:left;
+    border:1px solid #e1d5cb;border-radius:18px;padding:14px;
+    background:#fffaf5;
+  }
+  .time{
+    min-width:70px;border:1px solid #d8c8bb;border-radius:12px;padding:8px 5px;text-align:center;
+    color:#6d5b4e;
+  }
+  .event-title{font-size:17px}
+  .action{
+    display:inline-block;
+    border:0;border-radius:50px;padding:13px 24px;
+    background:var(--accent);color:white;font-family:inherit;font-size:16px;
+    cursor:pointer;margin-top:10px;
+  }
+  .action.secondary{background:#fffaf5;color:#654f42;border:1px solid #cdb9a8}
+  .gift-box{
+    display:none;margin-top:20px;padding:20px;border-radius:20px;
+    background:#f8efe8;border:1px dashed #bca28e;
+  }
+  .iban{font-family:Arial,sans-serif;font-size:18px;letter-spacing:1px;word-break:break-word;color:#3e3732}
+  .copy{margin-top:12px}
+  .survey{display:grid;gap:10px;max-width:440px;margin:20px auto 0}
+  .choice{
+    border:1px solid #d8c8bb;background:#fffaf5;border-radius:16px;padding:14px;
+    cursor:pointer;font-family:inherit;font-size:16px;color:var(--ink);
+  }
+  .choice.selected{background:#ead9ca;border-color:#a98a74}
+  .toast{
+    position:fixed;left:50%;bottom:22px;transform:translate(-50%,120px);
+    background:#403832;color:#fff;padding:12px 18px;border-radius:30px;
+    transition:.3s;z-index:30;font-family:Arial,sans-serif;font-size:14px;
+  }
+  .toast.show{transform:translate(-50%,0)}
+  .envelope-wrap{height:170px;position:relative;overflow:hidden;margin:10px auto 0}
+  .envelope{
+    position:absolute;left:50%;top:28px;transform:translateX(-50%);
+    width:120px;height:80px;background:#ead8c8;border:1px solid #b79c89;
+    border-radius:7px;cursor:pointer;box-shadow:0 8px 20px rgba(70,50,35,.12);
+  }
+  .envelope:before{
+    content:"";position:absolute;left:0;right:0;top:0;margin:auto;
+    width:0;height:0;border-left:59px solid transparent;border-right:59px solid transparent;
+    border-top:45px solid #d7bca7;
+  }
+  .seal{
+    position:absolute;left:50%;top:35px;transform:translateX(-50%);
+    width:30px;height:30px;border-radius:50%;background:#8a6b59;color:#fff;
+    display:grid;place-items:center;font-size:13px;z-index:2;
+  }
+  .car-area{height:130px;position:relative;overflow:hidden;margin-top:8px}
+  .road{position:absolute;left:0;right:0;bottom:22px;border-top:2px dashed #bda898}
+  .car{
+    position:absolute;bottom:30px;left:-130px;font-size:54px;
+    transition:left 2.5s cubic-bezier(.2,.7,.2,1);
+  }
+  .car.go{left:calc(100% + 130px)}
+  .happiness{
+    opacity:0;transform:translateY(15px);
+    font-size:30px;color:#7c5e4e;transition:1s;
+  }
+  .happiness.show{opacity:1;transform:translateY(0)}
+  footer{text-align:center;padding:25px 15px 45px;color:#8c7d72;font-size:13px}
+  @media(max-width:560px){
+    .info-grid,.family-grid{grid-template-columns:1fr}
+    .card{padding:30px 17px}
+    h2{font-size:30px}
+  }
 </style>
+
+<style>
+.events{padding:55px 20px;max-width:760px;margin:auto}
+.section-title{text-align:center;margin-bottom:28px}
+.section-title span{font-size:24px}
+.section-title h2{font-family:Georgia,serif;font-size:34px;margin:8px 0}
+.section-title p{margin:0;opacity:.7}
+.timeline{display:flex;flex-direction:column;gap:12px}
+.event{display:flex;align-items:center;gap:16px;padding:17px 18px;border:1px solid rgba(100,70,55,.16);border-radius:18px;background:rgba(255,255,255,.72);box-shadow:0 5px 18px rgba(80,55,40,.05)}
+.event-time{min-width:125px;font-weight:700}
+.event-name{font-size:16px}
+@media(max-width:520px){.event{display:block}.event-time{min-width:0;margin-bottom:5px}.section-title h2{font-size:30px}}
+</style>
+
 </head>
 <body>
-<section class="hero" id="top">
-  <div class="envelope-screen" id="envelopeScreen">
-    <div class="envelope-glow"></div>
-    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Davetiye zarfını aç">
-      <div class="envelope-back"></div>
-      <div class="envelope-letter">
-        <div class="mini-kicker">DÜĞÜN DAVETİYESİ</div>
-        <div class="mini-names">Neslişah &amp; Aydın</div>
-      </div>
-      <div class="envelope-flap"></div>
-      <div class="envelope-front"></div>
-      <div class="wax">N♡A</div>
-    </div>
-    <div class="touch-text">✦ ZARFA DOKUNUN ✦</div>
-  </div>
 
-  <div class="road-scene" id="roadScene" aria-hidden="true">
-    <div class="road">
-      <div class="road-line"></div>
-      <div class="car" id="car">🚗</div>
-      <div class="flowers flowers-left">✿ ❀ ✿ ❁ ✿</div>
-      <div class="flowers flowers-right">✿ ❁ ✿ ❀ ✿</div>
-    </div>
-    <div class="joy-text" id="joyText">Mutluluklar</div>
-    <div class="hero-after">
-      <div class="kicker">DÜĞÜN DAVETİYESİ</div>
-      <h1 class="names">Neslişah &amp; Aydın</h1>
-      <div class="date">24 Eylül 2026 · 19:00</div>
-      <div class="venue">GRANDPARK Düğün Salonu</div>
-      <button class="open" onclick="document.getElementById('davetiye').scrollIntoView()">✦ DAVETİYEMİZİ AÇ ✦</button>
-    </div>
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="smallcaps">Düğün Davetiyesi</div>
+    <h1>Neslişah <span class="amp">&amp;</span> Aydın</h1>
+    <div class="divider"></div>
+    <div class="date">24 EYLÜL 2026 · 19:00</div>
+    <div class="venue">GRANDPARK Düğün Salonu</div>
+    <button class="open-btn" onclick="document.getElementById('davetiye').scrollIntoView({behavior:'smooth'})">
+      ✦ DAVETİYEMİZİ AÇ ✦
+    </button>
   </div>
-</section>
+</header>
 
 <main id="davetiye">
-<section class="card"><div style="text-align:center;font-size:30px">♡</div><h2>Bu özel günümüzde<br>sizleri de aramızda görmekten mutluluk duyarız.</h2><p>Sevgiyle başlayan hikâyemizi, siz değerli sevdiklerimizle birlikte kutlamak dileğiyle…</p></section>
-
-<section class="card"><h2>Düğünümüze Kalan</h2><div class="countdown">
-<div class="time"><b id="days">0</b><span>GÜN</span></div><div class="time"><b id="hours">0</b><span>SAAT</span></div><div class="time"><b id="mins">0</b><span>DAKİKA</span></div><div class="time"><b id="secs">0</b><span>SANİYE</span></div>
-</div></section>
-
-<section class="card info"><h2>📍 Düğün Bilgileri</h2><p><strong>24 Eylül 2026 Perşembe</strong><br>19:00</p><p>GRANDPARK Düğün Salonu</p>
-<a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=GRANDPARK+Düğün+Salonu">📍 Konumu Aç</a></section>
-
-
-<section class="card families">
-  <h2>Ailelerimiz</h2>
-  <div class="family-grid">
-    <div class="family-box">
-      <div class="family-label">GELİN TARAFI</div>
-      <div class="family-name">Nesrin &amp; Ahmet<br>Azaklı</div>
+  <section>
+    <div class="card">
+      <div class="icon">♡</div>
+      <h2>Bu özel günümüzde<br>sizleri de aramızda görmekten<br>mutluluk duyarız.</h2>
+      <div class="divider"></div>
+      <p>Sevgiyle başlayan hikâyemizi, siz değerli sevdiklerimizle birlikte kutlamak dileğiyle…</p>
     </div>
-    <div class="family-box">
-      <div class="family-label">DAMAT TARAFI</div>
-      <div class="family-name">Cemile &amp; Cemal<br>Yıldız</div>
+
+    <div class="card">
+      <h2>Düğünümüze Kalan</h2>
+      <div class="info-grid">
+        <div class="info"><div class="label">Tarih</div><strong>24 Eylül 2026</strong></div>
+        <div class="info"><div class="label">Saat</div><strong>19:00</strong></div>
+        <div class="info"><div class="label">Yer</div><strong>GRANDPARK Düğün Salonu</strong></div>
+        <div class="info"><div class="label">Çift</div><strong>Neslişah &amp; Aydın</strong></div>
+      </div>
     </div>
+
+    <div class="card">
+      <h2>Ailelerimiz</h2>
+      <div class="family-grid">
+        <div class="family">
+          <div class="label">Gelin</div>
+          <strong>Nesrin ve Ahmet Azaklı</strong>
+        </div>
+        <div class="family">
+          <div class="label">Damat</div>
+          <strong>Cemile ve Cemal Yıldız</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Davetiye</h2>
+      <p>Zarfa dokunun; ardından mutluluk sizin için yola çıksın. ♡</p>
+      <div class="envelope-wrap">
+        <div class="envelope" onclick="openEnvelope()">
+          <div class="seal">♡</div>
+        </div>
+      </div>
+      <div class="car-area">
+        <div class="road"></div>
+        <div id="car" class="car">🚗</div>
+      </div>
+      <div id="happiness" class="happiness">Mutluluklarınız bizimle çoğalsın ✨</div>
+    </div>
+
+    <div class="card">
+      <h2>Hediye</h2>
+      <p>En güzel hediyeniz güzel dilekleriniz. Dilerseniz aşağıdaki butondan hediye bilgilerine ulaşabilirsiniz.</p>
+      <button class="action" onclick="toggleGift()">🎁 Hediye Bilgileri</button>
+      <div id="gift" class="gift-box">
+        <div class="label">IBAN</div>
+        <div class="iban" id="iban">TR85 0004 6002 3088 8000 3127 39</div>
+        <p><strong>Aydın Yıldız</strong></p>
+        <button class="action secondary copy" onclick="copyIBAN()">IBAN'ı Kopyala</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Katılım Durumu</h2>
+      <p>Düğünümüzde sizi aramızda görebilecek miyiz?</p>
+      <div class="survey">
+        <button class="choice" onclick="answer(this,'Katılacağım')">💍 Katılacağım</button>
+        <button class="choice" onclick="answer(this,'Katılamayacağım')">🤍 Katılamayacağım</button>
+      </div>
+      <p id="answerText" style="margin-bottom:0"></p>
+    </div>
+
+    <div class="card">
+      <h2>Sizi Bekliyoruz</h2>
+      <p>24 Eylül 2026 Perşembe günü saat 19:00'da<br>GRANDPARK Düğün Salonu'nda buluşmak dileğiyle…</p>
+      <button class="action" onclick="window.scrollTo({top:0,behavior:'smooth'})">Başa Dön</button>
+    </div>
+  </section>
+<section class="events" id="etkinlikler">
+  <div class="section-title">
+    <span>✦</span>
+    <h2>Etkinliklerimiz</h2>
+    <p>Bu güzel günümüzde bizi bekleyen anlar...</p>
+  </div>
+
+  <div class="timeline">
+    <div class="event"><div class="event-time">Başlangıç</div><div class="event-name">Hoş Geldiniz</div></div>
+    <div class="event"><div class="event-time">Kına</div><div class="event-name">Kına Gecemiz</div></div>
+    <div class="event"><div class="event-time">Dans</div><div class="event-name">Dans</div></div>
+    <div class="event"><div class="event-time">Eğlence</div><div class="event-name">Eğlence</div></div>
+    <div class="event"><div class="event-time">Düğün</div><div class="event-name">Düğünümüz</div></div>
+    <div class="event"><div class="event-time">İlk Dans &amp; Pasta</div><div class="event-name">İlk Dans ve Pasta Kesimi</div></div>
+    <div class="event"><div class="event-time">Takı</div><div class="event-name">Takı Töreni</div></div>
+    <div class="event"><div class="event-time">23:00</div><div class="event-name">Kapanış</div></div>
   </div>
 </section>
 
-
-<section class="card gift">
-  <h2>🎁 Hediyeler</h2>
-  <p>Bizim için en güzel hediye, mutluluğumuzu sizinle paylaşmanızdır.</p>
-  <button class="gift-btn" id="giftBtn" onclick="showIban()">🎁 Hediye Bilgilerini Gör</button>
-  <div class="gift-details" id="giftDetails">
-    <p class="note">Dileyen misafirlerimiz için banka bilgilerimiz:</p>
-    <div class="iban" id="iban">TR85 0004 6002 3088 8000 3127 39</div>
-    <p><strong>Aydın Yıldız</strong></p>
-    <button class="copy" onclick="copyIban()">IBAN'ı Kopyala</button>
-    <p class="note" id="copyMsg"></p>
-  </div>
-</section>
-
-
-<section class="card"><h2>💌 Katılım Durumu</h2><p>Düğünümüze katılıp katılamayacağınızı bize bildirirseniz çok seviniriz.</p>
-<div class="rsvp-grid"><a class="rsvp" href="#rsvp-form">💗 Katılacağım</a><a class="rsvp" href="#rsvp-form">🤍 Katılamayacağım</a></div>
-<p class="note" id="rsvp-form">Katılım formu bir sonraki adımda ücretsiz Google Forms ile bağlanacak.</p></section>
-
-<section class="card"><h2>🤍 Sizi Bekliyoruz</h2><p>Neslişah &amp; Aydın</p><a class="btn" href="#top">Başa Dön</a></section>
 </main>
+
+
+
+<div id="toast" class="toast"></div>
+
 <footer>Neslişah &amp; Aydın · 24.09.2026</footer>
-<button class="music" aria-label="Müzik">♫</button>
 
 <script>
-const envelope = document.getElementById("envelope");
-const envelopeScreen = document.getElementById("envelopeScreen");
-const roadScene = document.getElementById("roadScene");
-const car = document.getElementById("car");
-const joyText = document.getElementById("joyText");
-const heroAfter = document.querySelector(".hero-after");
-
-function openInvitation(){
-  if(envelope.classList.contains("opened")) return;
-  envelope.classList.add("opened");
-  setTimeout(()=>{
-    envelopeScreen.classList.add("hide");
-    roadScene.classList.add("show");
-    setTimeout(()=>{
-      car.animate(
-        [{left:"-140px"},{left:"115%"}],
-        {duration:4800,easing:"cubic-bezier(.2,.65,.25,1)",fill:"forwards"}
-      );
-      setTimeout(()=>{
-        joyText.style.animation="joyIn 1.3s cubic-bezier(.2,.8,.2,1) forwards";
-      },2100);
-      setTimeout(()=>{
-        heroAfter.classList.add("visible");
-      },3600);
-    },350);
-  },900);
+function showToast(text){
+  const t=document.getElementById('toast');
+  t.textContent=text;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
 }
-envelope.addEventListener("click",openInvitation);
-envelope.addEventListener("keydown",(e)=>{if(e.key==="Enter"||e.key===" ")openInvitation()});
-
-const target=new Date("2026-09-24T19:00:00+03:00").getTime();
-function update(){let x=Math.max(0,target-Date.now());document.getElementById("days").textContent=Math.floor(x/86400000);document.getElementById("hours").textContent=Math.floor(x%86400000/3600000);document.getElementById("mins").textContent=Math.floor(x%3600000/60000);document.getElementById("secs").textContent=Math.floor(x%60000/1000)}update();setInterval(update,1000);
-function showIban(){
-  const box=document.getElementById("giftDetails");
-  const btn=document.getElementById("giftBtn");
-  box.classList.toggle("show");
-  btn.textContent=box.classList.contains("show") ? "🎁 Hediye Bilgilerini Gizle" : "🎁 Hediye Bilgilerini Gör";
+function openEnvelope(){
+  document.getElementById('car').classList.remove('go');
+  void document.getElementById('car').offsetWidth;
+  document.getElementById('car').classList.add('go');
+  setTimeout(()=>document.getElementById('happiness').classList.add('show'),1700);
+  showToast('Mutluluk yola çıktı! ♡');
 }
-async function copyIban(){try{await navigator.clipboard.writeText("TR850004600230888000312739");document.getElementById("copyMsg").textContent="IBAN kopyalandı ✓"}catch(e){document.getElementById("copyMsg").textContent="IBAN: TR850004600230888000312739"}}
+function toggleGift(){
+  const box=document.getElementById('gift');
+  box.style.display=box.style.display==='block'?'none':'block';
+}
+function copyIBAN(){
+  const iban=document.getElementById('iban').textContent;
+  navigator.clipboard.writeText(iban).then(()=>showToast('IBAN kopyalandı.'));
+}
+function answer(btn,text){
+  document.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('answerText').textContent='Cevabınız: '+text+' 💕';
+}
 </script>
-</body></html>
+
+
+
+</body>
+</html>
