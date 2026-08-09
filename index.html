@@ -3,13 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Neslişah & Aydın | Düğün Davetiyesi</title>
-
 <meta name="description" content="Neslişah & Aydın düğün davetiyesi">
-
 <style>
-
 :root{
   --bg:#f6eee7;
   --paper:#fffdf9;
@@ -20,22 +16,14 @@
   --accent2:#b9977d;
   --shadow:0 12px 35px rgba(72,52,40,.10);
 }
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   background:linear-gradient(180deg,#f2e8df,#faf5ef);
   color:var(--ink);
   font-family:Georgia,"Times New Roman",serif;
 }
-
 .hero{
   min-height:100svh;
   display:flex;
@@ -44,72 +32,60 @@ body{
   padding:30px 18px;
   position:relative;
   overflow:hidden;
-
   background:
     radial-gradient(circle at 15% 15%,rgba(255,255,255,.9),transparent 30%),
     radial-gradient(circle at 90% 65%,rgba(214,191,173,.45),transparent 34%),
     linear-gradient(135deg,#f8f0e9,#ead9ca);
 }
-
-.hero:before,
-.hero:after{
+.hero:before,.hero:after{
   content:"";
   position:absolute;
   border:1px solid rgba(138,107,89,.25);
   border-radius:50%;
 }
-
 .hero:before{
   width:420px;
   height:420px;
   right:-170px;
   bottom:-130px;
 }
-
 .hero:after{
   width:300px;
   height:300px;
   left:-180px;
   top:-120px;
 }
-
 .hero-inner{
   text-align:center;
   max-width:650px;
   position:relative;
   z-index:2;
 }
-
 .smallcaps{
   letter-spacing:5px;
   font-size:13px;
   text-transform:uppercase;
   color:var(--accent);
 }
-
 h1{
   font-size:clamp(48px,13vw,88px);
   line-height:.95;
   font-weight:400;
   margin:22px 0 12px;
 }
-
 .amp{
   font-style:italic;
   color:var(--accent);
 }
-
 .date{
   font-size:18px;
   letter-spacing:3px;
   margin:25px 0;
 }
-
 .venue{
   font-size:18px;
   color:var(--muted);
 }
-
 .open-btn{
   margin-top:34px;
   border:1px solid var(--accent);
@@ -122,16 +98,13 @@ h1{
   cursor:pointer;
   transition:.25s;
 }
-
 .open-btn:hover{
   transform:translateY(-2px);
   background:#fffaf4;
 }
-
 section{
   padding:24px 16px;
 }
-
 .card{
   max-width:760px;
   margin:0 auto 22px;
@@ -142,51 +115,38 @@ section{
   box-shadow:var(--shadow);
   text-align:center;
 }
-
 .icon{
   font-size:30px;
   margin-bottom:12px;
 }
-
 h2{
   font-size:34px;
   font-weight:400;
   margin:5px 0 18px;
 }
-
-h3{
-  font-size:22px;
-  font-weight:400;
-  margin:8px 0;
-}
-
 p{
   line-height:1.7;
   color:var(--muted);
   font-size:16px;
 }
-
 .divider{
   width:70px;
   height:1px;
   background:var(--line);
   margin:20px auto;
 }
-
 .info-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
   text-align:left;
 }
-
 .info{
   padding:18px;
   border:1px solid #e1d5cb;
   border-radius:18px;
   background:#fffaf5;
 }
-
 .label{
   font-size:11px;
   letter-spacing:2px;
@@ -194,54 +154,21 @@ p{
   text-transform:uppercase;
   margin-bottom:8px;
 }
-
 .family-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:14px;
 }
-
 .family{
   border:1px solid #e1d5cb;
   border-radius:20px;
   padding:22px 12px;
   background:#fffaf5;
 }
-
 .family strong{
   font-size:20px;
   font-weight:400;
 }
-
-.timeline{
-  display:grid;
-  gap:12px;
-}
-
-.event{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  text-align:left;
-  border:1px solid #e1d5cb;
-  border-radius:18px;
-  padding:14px;
-  background:#fffaf5;
-}
-
-.time{
-  min-width:70px;
-  border:1px solid #d8c8bb;
-  border-radius:12px;
-  padding:8px 5px;
-  text-align:center;
-  color:#6d5b4e;
-}
-
-.event-title{
-  font-size:17px;
-}
-
 .action{
   display:inline-block;
   border:0;
@@ -254,13 +181,11 @@ p{
   cursor:pointer;
   margin-top:10px;
 }
-
 .action.secondary{
   background:#fffaf5;
   color:#654f42;
   border:1px solid #cdb9a8;
 }
-
 .gift-box{
   display:none;
   margin-top:20px;
@@ -269,7 +194,6 @@ p{
   background:#f8efe8;
   border:1px dashed #bca28e;
 }
-
 .iban{
   font-family:Arial,sans-serif;
   font-size:18px;
@@ -277,18 +201,15 @@ p{
   word-break:break-word;
   color:#3e3732;
 }
-
 .copy{
   margin-top:12px;
 }
-
 .survey{
   display:grid;
   gap:10px;
   max-width:440px;
   margin:20px auto 0;
 }
-
 .choice{
   border:1px solid #d8c8bb;
   background:#fffaf5;
@@ -299,33 +220,100 @@ p{
   font-size:16px;
   color:var(--ink);
 }
-
-.toast{
+.events{
+  padding:55px 20px;
+  max-width:760px;
+  margin:auto;
+}
+.section-title{
+  text-align:center;
+  margin-bottom:28px;
+}
+.section-title span{
+  font-size:24px;
+}
+.section-title h2{
+  font-family:Georgia,serif;
+  font-size:34px;
+  margin:8px 0;
+}
+.section-title p{
+  margin:0;
+  opacity:.7;
+}
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.event{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:17px 18px;
+  border:1px solid rgba(100,70,55,.16);
+  border-radius:18px;
+  background:rgba(255,255,255,.72);
+  box-shadow:0 5px 18px rgba(80,55,40,.05);
+}
+.event-time{
+  min-width:125px;
+  font-weight:700;
+}
+.event-name{
+  font-size:16px;
+}
+/* FOTOĞRAF GALERİSİ */
+.photo-gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:20px;
+}
+.photo-gallery img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:20px;
+  border:1px solid #e1d5cb;
+  box-shadow:0 6px 18px rgba(70,50,35,.10);
+  cursor:pointer;
+  transition:.25s;
+}
+.photo-gallery img:hover{
+  transform:scale(1.02);
+}
+/* BÜYÜK FOTOĞRAF */
+.photo-modal{
+  display:none;
   position:fixed;
-  left:50%;
-  bottom:22px;
-  transform:translate(-50%,120px);
-  background:#403832;
-  color:#fff;
-  padding:12px 18px;
-  border-radius:30px;
-  transition:.3s;
-  z-index:30;
-  font-family:Arial,sans-serif;
-  font-size:14px;
+  inset:0;
+  background:rgba(40,30,25,.90);
+  z-index:100;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
-
-.toast.show{
-  transform:translate(-50%,0);
+.photo-modal img{
+  max-width:95%;
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:18px;
 }
-
+.photo-close{
+  position:absolute;
+  top:15px;
+  right:20px;
+  color:white;
+  font-size:38px;
+  cursor:pointer;
+}
 .envelope-wrap{
   height:170px;
   position:relative;
   overflow:hidden;
   margin:10px auto 0;
 }
-
 .envelope{
   position:absolute;
   left:50%;
@@ -339,7 +327,6 @@ p{
   cursor:pointer;
   box-shadow:0 8px 20px rgba(70,50,35,.12);
 }
-
 .envelope:before{
   content:"";
   position:absolute;
@@ -353,7 +340,6 @@ p{
   border-right:59px solid transparent;
   border-top:45px solid #d7bca7;
 }
-
 .seal{
   position:absolute;
   left:50%;
@@ -369,14 +355,12 @@ p{
   font-size:13px;
   z-index:2;
 }
-
 .car-area{
   height:130px;
   position:relative;
   overflow:hidden;
   margin-top:8px;
 }
-
 .road{
   position:absolute;
   left:0;
@@ -384,7 +368,6 @@ p{
   bottom:22px;
   border-top:2px dashed #bda898;
 }
-
 .car{
   position:absolute;
   bottom:30px;
@@ -392,11 +375,9 @@ p{
   font-size:54px;
   transition:left 2.5s cubic-bezier(.2,.7,.2,1);
 }
-
 .car.go{
   left:calc(100% + 130px);
 }
-
 .happiness{
   opacity:0;
   transform:translateY(15px);
@@ -404,740 +385,419 @@ p{
   color:#7c5e4e;
   transition:1s;
 }
-
 .happiness.show{
   opacity:1;
   transform:translateY(0);
 }
-
-/* FOTOĞRAF GALERİSİ */
-
-.photo-gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:20px;
-}
-
-.photo-gallery img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:18px;
-  border:1px solid #e1d5cb;
-  box-shadow:0 5px 15px rgba(70,50,35,.08);
-  cursor:pointer;
-  transition:.25s;
-}
-
-.photo-gallery img:hover{
-  transform:scale(1.02);
-}
-
-/* BÜYÜK FOTOĞRAF */
-
-.photo-modal{
-  display:none;
+.toast{
   position:fixed;
-  inset:0;
-  background:rgba(40,30,25,.88);
-  z-index:100;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+  left:50%;
+  bottom:22px;
+  transform:translate(-50%,120px);
+  background:#403832;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:30px;
+  transition:.3s;
+  z-index:30;
+  font-family:Arial,sans-serif;
+  font-size:14px;
 }
-
-.photo-modal img{
-  max-width:95%;
-  max-height:90vh;
-  object-fit:contain;
-  border-radius:18px;
+.toast.show{
+  transform:translate(-50%,0);
 }
-
-.photo-close{
-  position:absolute;
-  top:18px;
-  right:20px;
-  color:white;
-  font-size:34px;
-  cursor:pointer;
-}
-
-/* ETKİNLİKLER */
-
-.events{
-  padding:55px 20px;
-  max-width:760px;
-  margin:auto;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:28px;
-}
-
-.section-title span{
-  font-size:24px;
-}
-
-.section-title h2{
-  font-family:Georgia,serif;
-  font-size:34px;
-  margin:8px 0;
-}
-
-.section-title p{
-  margin:0;
-  opacity:.7;
-}
-
-.events .timeline{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.events .event{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  padding:17px 18px;
-  border:1px solid rgba(100,70,55,.16);
-  border-radius:18px;
-  background:rgba(255,255,255,.72);
-  box-shadow:0 5px 18px rgba(80,55,40,.05);
-}
-
-.event-time{
-  min-width:125px;
-  font-weight:700;
-}
-
-.event-name{
-  font-size:16px;
-}
-
 footer{
   text-align:center;
   padding:25px 15px 45px;
   color:#8c7d72;
   font-size:13px;
 }
-
 @media(max-width:560px){
-
   .info-grid,
   .family-grid{
     grid-template-columns:1fr;
   }
-
   .card{
     padding:30px 17px;
   }
-
   h2{
     font-size:30px;
   }
-
   .photo-gallery{
     gap:9px;
   }
 }
-
 @media(max-width:520px){
-
-  .events .event{
+  .event{
     display:block;
   }
-
   .event-time{
     min-width:0;
     margin-bottom:5px;
   }
-
   .section-title h2{
     font-size:30px;
   }
 }
-
 </style>
 </head>
-
 <body>
-
 <header class="hero" id="top">
-
-  <div class="hero-inner">
-
-    <div class="smallcaps">
-      Düğün Davetiyesi
-    </div>
-
-    <h1>
-      Neslişah <span class="amp">&amp;</span> Aydın
-    </h1>
-
-    <div class="divider"></div>
-
-    <div class="date">
-      24 EYLÜL 2026 · 19:00
-    </div>
-
-    <div class="venue">
-      GRANDPARK Düğün Salonu
-    </div>
-
-    <button
-      class="open-btn"
-      onclick="document.getElementById('davetiye').scrollIntoView({behavior:'smooth'})">
-      ✦ DAVETİYEMİZİ AÇ ✦
-    </button>
-
-  </div>
-
+<div class="hero-inner">
+<div class="smallcaps">
+Düğün Davetiyesi
+</div>
+<h1>
+Neslişah <span class="amp">&amp;</span> Aydın
+</h1>
+<div class="divider"></div>
+<div class="date">
+24 EYLÜL 2026 · 19:00
+</div>
+<div class="venue">
+GRANDPARK Düğün Salonu
+</div>
+<button
+class="open-btn"
+onclick="document.getElementById('davetiye').scrollIntoView({behavior:'smooth'})">
+✦ DAVETİYEMİZİ AÇ ✦
+</button>
+</div>
 </header>
-
 <main id="davetiye">
-
 <section>
-
 <div class="card">
-
-  <div class="icon">
-    ♡
-  </div>
-
-  <h2>
-    Bu özel günümüzde<br>
-    sizleri de aramızda görmekten<br>
-    mutluluk duyarız.
-  </h2>
-
-  <div class="divider"></div>
-
-  <p>
-    Sevgiyle başlayan hikâyemizi,
-    siz değerli sevdiklerimizle birlikte
-    kutlamak dileğiyle…
-  </p>
-
+<div class="icon">
+♡
 </div>
-
-
+<h2>
+Bu özel günümüzde<br>
+sizleri de aramızda görmekten<br>
+mutluluk duyarız.
+</h2>
+<div class="divider"></div>
+<p>
+Sevgiyle başlayan hikâyemizi,
+siz değerli sevdiklerimizle birlikte
+kutlamak dileğiyle…
+</p>
+</div>
 <div class="card">
-
-  <h2>
-    Düğünümüze Kalan
-  </h2>
-
-  <div class="info-grid">
-
-    <div class="info">
-      <div class="label">
-        Tarih
-      </div>
-      <strong>
-        24 Eylül 2026
-      </strong>
-    </div>
-
-    <div class="info">
-      <div class="label">
-        Saat
-      </div>
-      <strong>
-        19:00
-      </strong>
-    </div>
-
-    <div class="info">
-      <div class="label">
-        Yer
-      </div>
-      <strong>
-        GRANDPARK Düğün Salonu
-      </strong>
-    </div>
-
-    <div class="info">
-      <div class="label">
-        Çift
-      </div>
-      <strong>
-        Neslişah &amp; Aydın
-      </strong>
-    </div>
-
-  </div>
-
+<h2>
+Düğünümüze Kalan
+</h2>
+<div class="info-grid">
+<div class="info">
+<div class="label">
+Tarih
 </div>
-
-
+<strong>
+24 Eylül 2026
+</strong>
+</div>
+<div class="info">
+<div class="label">
+Saat
+</div>
+<strong>
+19:00
+</strong>
+</div>
+<div class="info">
+<div class="label">
+Yer
+</div>
+<strong>
+GRANDPARK Düğün Salonu
+</strong>
+</div>
+<div class="info">
+<div class="label">
+Çift
+</div>
+<strong>
+Neslişah &amp; Aydın
+</strong>
+</div>
+</div>
+</div>
 <div class="card">
-
-  <h2>
-    Ailelerimiz
-  </h2>
-
-  <div class="family-grid">
-
-    <div class="family">
-
-      <div class="label">
-        Gelin
-      </div>
-
-      <strong>
-        Nesrin ve Ahmet Azaklı
-      </strong>
-
-    </div>
-
-    <div class="family">
-
-      <div class="label">
-        Damat
-      </div>
-
-      <strong>
-        Cemile ve Cemal Yıldız
-      </strong>
-
-    </div>
-
-  </div>
-
+<h2>
+Ailelerimiz
+</h2>
+<div class="family-grid">
+<div class="family">
+<div class="label">
+Gelin
 </div>
-
-
-<!-- FOTOĞRAF GALERİSİ -->
-
+<strong>
+Nesrin ve Ahmet Azaklı
+</strong>
+</div>
+<div class="family">
+<div class="label">
+Damat
+</div>
+<strong>
+Cemile ve Cemal Yıldız
+</strong>
+</div>
+</div>
+</div>
+<!-- FOTOĞRAFLAR -->
 <div class="card">
-
-  <div class="icon">
-    📸
-  </div>
-
-  <h2>
-    Bizden Kareler
-  </h2>
-
-  <p>
-    Birlikte biriktirdiğimiz güzel anılardan… ♡
-  </p>
-
-  <div class="photo-gallery">
-
-    <img
-      src="foto1.jpg"
-      alt="Neslişah ve Aydın"
-      onclick="openPhoto(this.src)">
-
-    <img
-      src="foto2.jpg"
-      alt="Neslişah ve Aydın"
-      onclick="openPhoto(this.src)">
-
-    <img
-      src="foto3.jpg"
-      alt="Neslişah ve Aydın"
-      onclick="openPhoto(this.src)">
-
-    <img
-      src="foto4.jpg"
-      alt="Neslişah ve Aydın"
-      onclick="openPhoto(this.src)">
-
-  </div>
-
+<div class="icon">
+📸
 </div>
-
-
+<h2>
+Bizden Kareler
+</h2>
+<p>
+Birlikte biriktirdiğimiz güzel anılardan… ♡
+</p>
+<div class="photo-gallery">
+<img
+src="IMG_9588.jpeg"
+alt="Neslişah ve Aydın"
+onclick="openPhoto(this.src)">
+<img
+src="IMG_9322.jpeg"
+alt="Neslişah ve Aydın"
+onclick="openPhoto(this.src)">
+<img
+src="IMG_5306.jpeg"
+alt="Neslişah ve Aydın"
+onclick="openPhoto(this.src)">
+<img
+src="9828ee68-2f0e-4068-984c-0f3944c55b77.jpeg"
+alt="Neslişah ve Aydın"
+onclick="openPhoto(this.src)">
+</div>
+</div>
 <div class="card">
-
-  <h2>
-    Davetiye
-  </h2>
-
-  <p>
-    Zarfa dokunun; ardından mutluluk sizin için yola çıksın. ♡
-  </p>
-
-  <div class="envelope-wrap">
-
-    <div
-      class="envelope"
-      onclick="openEnvelope()">
-
-      <div class="seal">
-        ♡
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="car-area">
-
-    <div class="road"></div>
-
-    <div id="car" class="car">
-      🚗
-    </div>
-
-  </div>
-
-  <div id="happiness" class="happiness">
-    Mutluluklarınız bizimle çoğalsın ✨
-  </div>
-
+<h2>
+Davetiye
+</h2>
+<p>
+Zarfa dokunun; ardından mutluluk sizin için yola çıksın. ♡
+</p>
+<div class="envelope-wrap">
+<div
+class="envelope"
+onclick="openEnvelope()">
+<div class="seal">
+♡
 </div>
-
-
+</div>
+</div>
+<div class="car-area">
+<div class="road"></div>
+<div id="car" class="car">
+🚗
+</div>
+</div>
+<div id="happiness" class="happiness">
+Mutluluklarınız bizimle çoğalsın ✨
+</div>
+</div>
 <div class="card">
-
-  <h2>
-    Hediye
-  </h2>
-
-  <p>
-    En güzel hediyeniz güzel dilekleriniz.
-    Dilerseniz aşağıdaki butondan
-    hediye bilgilerine ulaşabilirsiniz.
-  </p>
-
-  <button
-    class="action"
-    onclick="toggleGift()">
-    🎁 Hediye Bilgileri
-  </button>
-
-  <div id="gift" class="gift-box">
-
-    <div class="label">
-      IBAN
-    </div>
-
-    <div
-      class="iban"
-      id="iban">
-      TR85 0004 6002 3088 8000 3127 39
-    </div>
-
-    <p>
-      <strong>
-        Aydın Yıldız
-      </strong>
-    </p>
-
-    <button
-      class="action secondary copy"
-      onclick="copyIBAN()">
-      IBAN'ı Kopyala
-    </button>
-
-  </div>
-
+<h2>
+Hediye
+</h2>
+<p>
+En güzel hediyeniz güzel dilekleriniz.
+Dilerseniz aşağıdaki butondan hediye bilgilerine ulaşabilirsiniz.
+</p>
+<button
+class="action"
+onclick="toggleGift()">
+🎁 Hediye Bilgileri
+</button>
+<div id="gift" class="gift-box">
+<div class="label">
+IBAN
 </div>
-
-
+<div
+class="iban"
+id="iban">
+TR85 0004 6002 3088 8000 3127 39
+</div>
+<p>
+<strong>
+Aydın Yıldız
+</strong>
+</p>
+<button
+class="action secondary copy"
+onclick="copyIBAN()">
+IBAN'ı Kopyala
+</button>
+</div>
+</div>
 <div class="card">
-
-  <h2>
-    Katılım Durumu
-  </h2>
-
-  <p>
-    Düğünümüzde sizi aramızda görebilecek miyiz?
-  </p>
-
-  <div class="survey">
-
-    <button
-      class="choice"
-      onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1laca%C4%9F%C4%B1m+%E2%9D%A4%EF%B8%8F'">
-
-      💍 Katılacağım
-
-    </button>
-
-    <button
-      class="choice"
-      onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1lamayaca%C4%9F%C4%B1m+%F0%9F%92%94'">
-
-      🤍 Katılamayacağım
-
-    </button>
-
-  </div>
-
+<h2>
+Katılım Durumu
+</h2>
+<p>
+Düğünümüzde sizi aramızda görebilecek miyiz?
+</p>
+<div class="survey">
+<button
+class="choice"
+onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1laca%C4%9F%C4%B1m+%E2%9D%A4%EF%B8%8F'">
+💍 Katılacağım
+</button>
+<button
+class="choice"
+onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1lamayaca%C4%9F%C4%B1m+%F0%9F%92%94'">
+🤍 Katılamayacağım
+</button>
 </div>
-
-
+</div>
 <div class="card">
-
-  <h2>
-    Sizi Bekliyoruz
-  </h2>
-
-  <p>
-    24 Eylül 2026 Perşembe günü saat 19:00'da<br>
-    GRANDPARK Düğün Salonu'nda buluşmak dileğiyle…
-  </p>
-
-  <button
-    class="action"
-    onclick="window.scrollTo({top:0,behavior:'smooth'})">
-
-    Başa Dön
-
-  </button>
-
+<h2>
+Sizi Bekliyoruz
+</h2>
+<p>
+24 Eylül 2026 Perşembe günü saat 19:00'da<br>
+GRANDPARK Düğün Salonu'nda buluşmak dileğiyle…
+</p>
+<button
+class="action"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+Başa Dön
+</button>
 </div>
-
 </section>
-
-
 <section
-  class="events"
-  id="etkinlikler">
-
-  <div class="section-title">
-
-    <span>
-      ✦
-    </span>
-
-    <h2>
-      Etkinliklerimiz
-    </h2>
-
-    <p>
-      Bu güzel günümüzde bizi bekleyen anlar...
-    </p>
-
-  </div>
-
-  <div class="timeline">
-
-    <div class="event">
-      <div class="event-time">
-        Başlangıç
-      </div>
-      <div class="event-name">
-        Hoş Geldiniz
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">
-        Kına
-      </div>
-      <div class="event-name">
-        Kına Gecemiz
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">
-        Dans
-      </div>
-      <div class="event-name">
-        Dans
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">
-        Eğlence
-      </div>
-      <div class="event-name">
-        Eğlence
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">
-        Düğün
-      </div>
-      <div class="event-name">
-        Düğünümüz
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">
-        İlk Dans &amp; Pasta
-      </div>
-      <div class="event-name">
-        İlk Dans ve Pasta Kesimi
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">
-        Takı
-      </div>
-      <div class="event-name">
-        Takı Töreni
-      </div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">
-        23:00
-      </div>
-      <div class="event-name">
-        Kapanış
-      </div>
-    </div>
-
-  </div>
-
+class="events"
+id="etkinlikler">
+<div class="section-title">
+<span>
+✦
+</span>
+<h2>
+Etkinliklerimiz
+</h2>
+<p>
+Bu güzel günümüzde bizi bekleyen anlar...
+</p>
+</div>
+<div class="timeline">
+<div class="event">
+<div class="event-time">Başlangıç</div>
+<div class="event-name">Hoş Geldiniz</div>
+</div>
+<div class="event">
+<div class="event-time">Kına</div>
+<div class="event-name">Kına Gecemiz</div>
+</div>
+<div class="event">
+<div class="event-time">Dans</div>
+<div class="event-name">Dans</div>
+</div>
+<div class="event">
+<div class="event-time">Eğlence</div>
+<div class="event-name">Eğlence</div>
+</div>
+<div class="event">
+<div class="event-time">Düğün</div>
+<div class="event-name">Düğünümüz</div>
+</div>
+<div class="event">
+<div class="event-time">İlk Dans &amp; Pasta</div>
+<div class="event-name">İlk Dans ve Pasta Kesimi</div>
+</div>
+<div class="event">
+<div class="event-time">Takı</div>
+<div class="event-name">Takı Töreni</div>
+</div>
+<div class="event">
+<div class="event-time">23:00</div>
+<div class="event-name">Kapanış</div>
+</div>
+</div>
 </section>
-
 </main>
-
-
-<!-- BÜYÜK FOTOĞRAF PENCERESİ -->
-
+<!-- BÜYÜK FOTOĞRAF -->
 <div
-  id="photoModal"
-  class="photo-modal"
-  onclick="closePhoto()">
-
-  <span
-    class="photo-close">
-    ×
-  </span>
-
-  <img
-    id="largePhoto"
-    src=""
-    alt="Büyük fotoğraf">
-
+id="photoModal"
+class="photo-modal"
+onclick="closePhoto()">
+<span
+class="photo-close">
+×
+</span>
+<img
+id="largePhoto"
+src=""
+alt="Büyük fotoğraf">
 </div>
-
-
 <div
-  id="toast"
-  class="toast">
+id="toast"
+class="toast">
 </div>
-
-
 <footer>
-  Neslişah &amp; Aydın · 24.09.2026
+Neslişah &amp; Aydın · 24.09.2026
 </footer>
-
-
 <script>
-
 function showToast(text){
-
-  const t =
-    document.getElementById('toast');
-
-  t.textContent = text;
-
-  t.classList.add('show');
-
-  setTimeout(function(){
-
-    t.classList.remove('show');
-
-  },2200);
-
+const t=document.getElementById('toast');
+t.textContent=text;
+t.classList.add('show');
+setTimeout(function(){
+t.classList.remove('show');
+},2200);
 }
-
-
 function openEnvelope(){
-
-  document
-    .getElementById('car')
-    .classList.remove('go');
-
-  void document
-    .getElementById('car')
-    .offsetWidth;
-
-  document
-    .getElementById('car')
-    .classList.add('go');
-
-  setTimeout(function(){
-
-    document
-      .getElementById('happiness')
-      .classList.add('show');
-
-  },1700);
-
-  showToast(
-    'Mutluluk yola çıktı! ♡'
-  );
-
+document
+.getElementById('car')
+.classList.remove('go');
+void document
+.getElementById('car')
+.offsetWidth;
+document
+.getElementById('car')
+.classList.add('go');
+setTimeout(function(){
+document
+.getElementById('happiness')
+.classList.add('show');
+},1700);
+showToast('Mutluluk yola çıktı! ♡');
 }
-
-
 function toggleGift(){
-
-  const box =
-    document.getElementById('gift');
-
-  box.style.display =
-    box.style.display === 'block'
-      ? 'none'
-      : 'block';
-
+const box=document.getElementById('gift');
+box.style.display=
+box.style.display==='block'
+?'none'
+:'block';
 }
-
-
 function copyIBAN(){
-
-  const iban =
-    document
-      .getElementById('iban')
-      .textContent;
-
-  navigator.clipboard
-    .writeText(iban)
-    .then(function(){
-
-      showToast(
-        'IBAN kopyalandı.'
-      );
-
-    });
-
+const iban=document
+.getElementById('iban')
+.textContent;
+navigator.clipboard
+.writeText(iban)
+.then(function(){
+showToast('IBAN kopyalandı.');
+});
 }
-
-
 /* FOTOĞRAFI BÜYÜT */
-
 function openPhoto(src){
-
-  document
-    .getElementById('largePhoto')
-    .src = src;
-
-  document
-    .getElementById('photoModal')
-    .style.display = 'flex';
-
+document
+.getElementById('largePhoto')
+.src=src;
+document
+.getElementById('photoModal')
+.style.display='flex';
 }
-
-
 /* FOTOĞRAFI KAPAT */
-
 function closePhoto(){
-
-  document
-    .getElementById('photoModal')
-    .style.display = 'none';
-
+document
+.getElementById('photoModal')
+.style.display='none';
 }
-
 </script>
-
 </body>
 </html>
