@@ -9,23 +9,87 @@
 :root{
   --bg:#f6eee7;
   --paper:#fffdf9;
-  --ink:#3f3833;
+  --ink:#403731;
   --muted:#786e66;
   --line:#d8c8bb;
   --accent:#8a6b59;
+  --accent2:#b9977d;
   --shadow:0 12px 35px rgba(72,52,40,.10);
 }
 
 *{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
   background:linear-gradient(180deg,#f2e8df,#faf5ef);
   color:var(--ink);
   font-family:Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
 }
+
+/* AÇILIŞ */
+
+#intro{
+  position:fixed;
+  inset:0;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#f8f0e9,#ead9ca);
+  transition:opacity 1s,visibility 1s;
+}
+
+#intro.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.intro-content{
+  text-align:center;
+  padding:30px;
+}
+
+.intro-heart{
+  font-size:65px;
+  animation:heartbeat 1.5s infinite;
+}
+
+.intro-title{
+  font-size:clamp(38px,10vw,70px);
+  margin:15px 0;
+  font-weight:400;
+}
+
+.intro-sub{
+  letter-spacing:4px;
+  color:var(--accent);
+  font-size:13px;
+}
+
+.intro-button{
+  margin-top:30px;
+  padding:15px 28px;
+  border-radius:50px;
+  border:1px solid var(--accent);
+  background:#fffaf5;
+  color:#654f42;
+  font-family:inherit;
+  font-size:16px;
+  cursor:pointer;
+}
+
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.18)}
+}
+
+
+/* HERO */
 
 .hero{
   min-height:100svh;
@@ -65,7 +129,7 @@ body{
 
 .hero-inner{
   text-align:center;
-  max-width:650px;
+  max-width:700px;
   position:relative;
   z-index:2;
 }
@@ -100,17 +164,30 @@ h1{
   color:var(--muted);
 }
 
+.open-btn,
+.action{
+  border-radius:50px;
+  cursor:pointer;
+  font-family:inherit;
+}
+
 .open-btn{
   margin-top:34px;
   border:1px solid var(--accent);
-  background:rgba(255,250,244,.55);
+  background:rgba(255,250,244,.65);
   color:#5d4b40;
-  border-radius:50px;
   padding:15px 28px;
   font-size:16px;
   letter-spacing:2px;
-  cursor:pointer;
+  transition:.3s;
 }
+
+.open-btn:hover{
+  transform:translateY(-3px);
+}
+
+
+/* GENEL */
 
 section{
   padding:24px 16px;
@@ -151,6 +228,38 @@ p{
   margin:20px auto;
 }
 
+
+/* GERİ SAYIM */
+
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:20px;
+}
+
+.count-box{
+  padding:16px 8px;
+  background:#fffaf5;
+  border:1px solid #e1d5cb;
+  border-radius:18px;
+}
+
+.count-number{
+  font-size:28px;
+  color:#654f42;
+}
+
+.count-label{
+  font-size:10px;
+  letter-spacing:1px;
+  color:#a28d7e;
+  margin-top:5px;
+}
+
+
+/* BİLGİLER */
+
 .info-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -173,6 +282,9 @@ p{
   margin-bottom:8px;
 }
 
+
+/* AİLELER */
+
 .family-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -191,63 +303,6 @@ p{
   font-weight:400;
 }
 
-.action{
-  display:inline-block;
-  border:0;
-  border-radius:50px;
-  padding:13px 24px;
-  background:var(--accent);
-  color:white;
-  font-family:inherit;
-  font-size:16px;
-  cursor:pointer;
-  margin-top:10px;
-}
-
-.action.secondary{
-  background:#fffaf5;
-  color:#654f42;
-  border:1px solid #cdb9a8;
-}
-
-.gift-box{
-  display:none;
-  margin-top:20px;
-  padding:20px;
-  border-radius:20px;
-  background:#f8efe8;
-  border:1px dashed #bca28e;
-}
-
-.iban{
-  font-family:Arial,sans-serif;
-  font-size:18px;
-  letter-spacing:1px;
-  word-break:break-word;
-  color:#3e3732;
-}
-
-.survey{
-  display:grid;
-  gap:10px;
-  max-width:440px;
-  margin:20px auto 0;
-}
-
-.choice{
-  border:1px solid #d8c8bb;
-  background:#fffaf5;
-  border-radius:16px;
-  padding:14px;
-  cursor:pointer;
-  font-family:inherit;
-  font-size:16px;
-  color:var(--ink);
-}
-
-.choice:hover{
-  background:#ead9ca;
-}
 
 /* FOTOĞRAFLAR */
 
@@ -265,7 +320,80 @@ p{
   border-radius:20px;
   border:1px solid #e1d5cb;
   box-shadow:0 6px 18px rgba(70,50,35,.10);
+  cursor:pointer;
+  transition:.3s;
 }
+
+.photo-gallery img:hover{
+  transform:scale(1.02);
+}
+
+
+/* FOTOĞRAF TAM EKRAN */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(35,28,24,.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:900;
+  padding:20px;
+}
+
+.lightbox.show{
+  display:flex;
+}
+
+.lightbox img{
+  max-width:95%;
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:15px;
+}
+
+.lightbox-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  border:0;
+  background:#fffaf5;
+  color:#654f42;
+  font-size:25px;
+}
+
+
+/* HİKAYEMİZ */
+
+.story{
+  display:grid;
+  gap:12px;
+  margin-top:20px;
+}
+
+.story-item{
+  text-align:left;
+  padding:18px;
+  border-left:3px solid #b9977d;
+  background:#fffaf5;
+  border-radius:0 18px 18px 0;
+}
+
+.story-year{
+  font-size:12px;
+  letter-spacing:2px;
+  color:#a28d7e;
+}
+
+.story-title{
+  font-size:20px;
+  margin:5px 0;
+}
+
 
 /* ZARF */
 
@@ -288,7 +416,7 @@ p{
   border-radius:7px;
   cursor:pointer;
   box-shadow:0 8px 20px rgba(70,50,35,.12);
-  z-index:5;
+  z-index:20;
 }
 
 .envelope:before{
@@ -318,55 +446,34 @@ p{
   display:grid;
   place-items:center;
   font-size:13px;
-  z-index:2;
+  z-index:25;
 }
 
-/* KALP */
 
-.heart-area{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:20;
-}
+/* KALPLER */
 
 .big-heart,
 .small-heart{
   position:absolute;
   left:50%;
-  top:100px;
   opacity:0;
+  pointer-events:none;
 }
 
 .big-heart{
-  font-size:70px;
-  transform:translate(-50%,0) scale(.2);
+  top:115px;
+  font-size:65px;
+  z-index:10;
+}
+
+.small-heart{
+  top:125px;
+  font-size:23px;
+  z-index:9;
 }
 
 .big-heart.fly{
   animation:heartFly 2.3s ease-out forwards;
-}
-
-@keyframes heartFly{
-  0%{
-    opacity:0;
-    transform:translate(-50%,0) scale(.2);
-  }
-  15%{
-    opacity:1;
-    transform:translate(-50%,0) scale(1.2);
-  }
-  35%{
-    transform:translate(-50%,-20px) scale(1);
-  }
-  100%{
-    opacity:0;
-    transform:translate(-50%,-145px) scale(.55);
-  }
-}
-
-.small-heart{
-  font-size:25px;
 }
 
 .small-heart.fly1{
@@ -385,28 +492,34 @@ p{
   animation:heart4 2.5s ease-out forwards;
 }
 
+@keyframes heartFly{
+  0%{transform:translate(-50%,0) scale(.2);opacity:0}
+  15%{opacity:1;transform:translate(-50%,0) scale(1.2)}
+  100%{transform:translate(-50%,-150px) scale(.55);opacity:0}
+}
+
 @keyframes heart1{
-  0%{opacity:0;transform:translate(0,0) scale(.3)}
+  0%{transform:translate(0,0);opacity:0}
   20%{opacity:1}
-  100%{opacity:0;transform:translate(-80px,-120px) scale(.8)}
+  100%{transform:translate(-90px,-130px);opacity:0}
 }
 
 @keyframes heart2{
-  0%{opacity:0;transform:translate(0,0) scale(.3)}
+  0%{transform:translate(0,0);opacity:0}
   20%{opacity:1}
-  100%{opacity:0;transform:translate(75px,-140px) scale(.7)}
+  100%{transform:translate(80px,-145px);opacity:0}
 }
 
 @keyframes heart3{
-  0%{opacity:0;transform:translate(0,0) scale(.3)}
+  0%{transform:translate(0,0);opacity:0}
   20%{opacity:1}
-  100%{opacity:0;transform:translate(-115px,-65px) scale(.6)}
+  100%{transform:translate(-120px,-75px);opacity:0}
 }
 
 @keyframes heart4{
-  0%{opacity:0;transform:translate(0,0) scale(.3)}
+  0%{transform:translate(0,0);opacity:0}
   20%{opacity:1}
-  100%{opacity:0;transform:translate(110px,-75px) scale(.65)}
+  100%{transform:translate(115px,-80px);opacity:0}
 }
 
 .happiness{
@@ -421,6 +534,76 @@ p{
   opacity:1;
   transform:translateY(0);
 }
+
+
+/* BUTONLAR */
+
+.action{
+  display:inline-block;
+  border:0;
+  padding:13px 24px;
+  background:var(--accent);
+  color:white;
+  font-size:16px;
+  margin-top:10px;
+}
+
+.action.secondary{
+  background:#fffaf5;
+  color:#654f42;
+  border:1px solid #cdb9a8;
+}
+
+.map-button{
+  display:inline-block;
+  text-decoration:none;
+  margin-top:12px;
+  padding:13px 24px;
+  border-radius:50px;
+  background:#8a6b59;
+  color:white;
+}
+
+
+/* HEDİYE */
+
+.gift-box{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  border-radius:20px;
+  background:#f8efe8;
+  border:1px dashed #bca28e;
+}
+
+.iban{
+  font-family:Arial,sans-serif;
+  font-size:18px;
+  letter-spacing:1px;
+  word-break:break-word;
+}
+
+
+/* KATILIM */
+
+.survey{
+  display:grid;
+  gap:10px;
+  max-width:440px;
+  margin:20px auto 0;
+}
+
+.choice{
+  border:1px solid #d8c8bb;
+  background:#fffaf5;
+  border-radius:16px;
+  padding:14px;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:16px;
+  color:var(--ink);
+}
+
 
 /* ETKİNLİKLER */
 
@@ -440,7 +623,6 @@ p{
 }
 
 .section-title h2{
-  font-size:34px;
   margin:8px 0;
 }
 
@@ -475,13 +657,14 @@ p{
   font-size:16px;
 }
 
+
 /* MÜZİK */
 
 .music-button{
   position:fixed;
   right:18px;
   bottom:18px;
-  z-index:50;
+  z-index:500;
   width:55px;
   height:55px;
   border-radius:50%;
@@ -493,14 +676,6 @@ p{
   box-shadow:0 6px 20px rgba(70,50,35,.15);
 }
 
-.music-button.playing{
-  animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.08)}
-}
 
 /* TOAST */
 
@@ -514,7 +689,7 @@ p{
   padding:12px 18px;
   border-radius:30px;
   transition:.3s;
-  z-index:60;
+  z-index:1000;
   font-family:Arial,sans-serif;
   font-size:14px;
 }
@@ -523,14 +698,35 @@ p{
   transform:translate(-50%,0);
 }
 
-footer{
-  text-align:center;
-  padding:25px 15px 45px;
-  color:#8c7d72;
-  font-size:13px;
+
+/* YÜZEN KALPLER */
+
+.floating-heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:20px;
+  pointer-events:none;
+  animation:floatHeart 5s linear forwards;
+  z-index:100;
 }
 
+@keyframes floatHeart{
+  0%{
+    transform:translateY(0) scale(.7);
+    opacity:0;
+  }
+  15%{opacity:.8}
+  100%{
+    transform:translateY(-110vh) translateX(40px) scale(1.1);
+    opacity:0;
+  }
+}
+
+
+/* MOBİL */
+
 @media(max-width:560px){
+
   .info-grid,
   .family-grid{
     grid-template-columns:1fr;
@@ -543,9 +739,14 @@ footer{
   h2{
     font-size:30px;
   }
+
+  .countdown{
+    grid-template-columns:1fr 1fr;
+  }
 }
 
 @media(max-width:520px){
+
   .event{
     display:block;
   }
@@ -554,24 +755,56 @@ footer{
     min-width:0;
     margin-bottom:5px;
   }
-
-  .section-title h2{
-    font-size:30px;
-  }
 }
 </style>
 </head>
 
 <body>
 
+
+<!-- AÇILIŞ -->
+
+<div id="intro">
+
+  <div class="intro-content">
+
+    <div class="intro-heart">❤️</div>
+
+    <div class="intro-sub">
+      DÜĞÜN DAVETİYESİ
+    </div>
+
+    <div class="intro-title">
+      Neslişah &amp; Aydın
+    </div>
+
+    <div class="divider"></div>
+
+    <div>
+      24 EYLÜL 2026
+    </div>
+
+    <button class="intro-button" onclick="openInvitation()">
+      ✦ Davetiyeyi Aç ✦
+    </button>
+
+  </div>
+
+</div>
+
+
 <!-- MÜZİK -->
+
 <audio id="weddingMusic" loop preload="auto">
-  <source
-    src="vidssave.com%20Nazende%20Sevgilim%20%28%20Instrumental%20%29%20256KBPS.mp3"
-    type="audio/mpeg">
+
+  <!-- BURAYA MÜZİK DOSYANIN GERÇEK ADINI YAZ -->
+  <source src="muzik.mp3" type="audio/mpeg">
+
 </audio>
 
+
 <!-- KAPAK -->
+
 <header class="hero" id="top">
 
   <div class="hero-inner">
@@ -596,21 +829,19 @@ footer{
       GRANDPARK Düğün Salonu
     </div>
 
-    <button
-      class="open-btn"
-      onclick="openInvitation()">
-
+    <button class="open-btn" onclick="openInvitation()">
       ✦ DAVETİYEMİZİ AÇ ✦
-
     </button>
 
   </div>
 
 </header>
 
+
 <main id="davetiye">
 
 <section>
+
 
 <!-- HOŞ GELDİNİZ -->
 
@@ -634,11 +865,49 @@ footer{
 
 </div>
 
+
+<!-- GERİ SAYIM -->
+
+<div class="card">
+
+  <div class="icon">⏳</div>
+
+  <h2>
+    Büyük Güne Kalan
+  </h2>
+
+  <div class="countdown">
+
+    <div class="count-box">
+      <div id="days" class="count-number">0</div>
+      <div class="count-label">GÜN</div>
+    </div>
+
+    <div class="count-box">
+      <div id="hours" class="count-number">0</div>
+      <div class="count-label">SAAT</div>
+    </div>
+
+    <div class="count-box">
+      <div id="minutes" class="count-number">0</div>
+      <div class="count-label">DAKİKA</div>
+    </div>
+
+    <div class="count-box">
+      <div id="seconds" class="count-number">0</div>
+      <div class="count-label">SANİYE</div>
+    </div>
+
+  </div>
+
+</div>
+
+
 <!-- BİLGİLER -->
 
 <div class="card">
 
-  <h2>Düğünümüze Kalan</h2>
+  <h2>Düğünümüz</h2>
 
   <div class="info-grid">
 
@@ -666,6 +935,54 @@ footer{
 
 </div>
 
+
+<!-- KONUM -->
+
+<div class="card">
+
+  <div class="icon">📍</div>
+
+  <h2>
+    Bizi Nasıl Bulabilirsiniz?
+  </h2>
+
+  <p>
+    Düğünümüzde buluşmak üzere…
+  </p>
+
+  <!-- GRANDPARK'ın doğru Google Maps bağlantısını buraya koyabilirsin -->
+  <a
+    class="map-button"
+    href="https://www.google.com/maps/search/?api=1&query=GRANDPARK+D%C3%BC%C4%9F%C3%BCn+Salonu"
+    target="_blank">
+    📍 Yol Tarifi Al
+  </a>
+
+</div>
+
+
+<!-- TAKVİM -->
+
+<div class="card">
+
+  <div class="icon">📅</div>
+
+  <h2>
+    Tarihi Takvimine Ekle
+  </h2>
+
+  <p>
+    24 Eylül 2026 tarihini telefonundaki
+    takvime ekleyebilirsin.
+  </p>
+
+  <button class="action" onclick="addToCalendar()">
+    📅 Takvime Ekle
+  </button>
+
+</div>
+
+
 <!-- AİLELER -->
 
 <div class="card">
@@ -675,26 +992,45 @@ footer{
   <div class="family-grid">
 
     <div class="family">
-      <div class="label">Gelin</div>
-      <strong>Nesrin ve Ahmet Azaklı</strong>
+
+      <div class="label">
+        Gelin
+      </div>
+
+      <strong>
+        Nesrin ve Ahmet Azaklı
+      </strong>
+
     </div>
 
     <div class="family">
-      <div class="label">Damat</div>
-      <strong>Cemile ve Cemal Yıldız</strong>
+
+      <div class="label">
+        Damat
+      </div>
+
+      <strong>
+        Cemile ve Cemal Yıldız
+      </strong>
+
     </div>
 
   </div>
 
 </div>
 
+
 <!-- FOTOĞRAFLAR -->
 
 <div class="card">
 
-  <div class="icon">📸</div>
+  <div class="icon">
+    📸
+  </div>
 
-  <h2>Bizden Kareler</h2>
+  <h2>
+    Bizden Kareler
+  </h2>
 
   <p>
     Birlikte biriktirdiğimiz güzel anılardan… ♡
@@ -702,51 +1038,86 @@ footer{
 
   <div class="photo-gallery">
 
-    <img src="IMG_9588.jpeg" alt="Neslişah ve Aydın">
+    <img src="IMG_9588.jpeg" alt="Neslişah ve Aydın" onclick="openPhoto(this.src)">
 
-    <img src="IMG_9322.jpeg" alt="Neslişah ve Aydın">
+    <img src="IMG_9322.jpeg" alt="Neslişah ve Aydın" onclick="openPhoto(this.src)">
 
-    <img src="IMG_5306.jpeg" alt="Neslişah ve Aydın">
+    <img src="IMG_5306.jpeg" alt="Neslişah ve Aydın" onclick="openPhoto(this.src)">
 
-    <img
-      src="9828ee68-2f0e-4068-984c-0f3944c55b77.jpeg"
-      alt="Neslişah ve Aydın">
+    <img src="9828ee68-2f0e-4068-984c-0f3944c55b77.jpeg" alt="Neslişah ve Aydın" onclick="openPhoto(this.src)">
 
   </div>
 
 </div>
 
+
+<!-- HİKAYEMİZ -->
+
+<div class="card">
+
+  <div class="icon">💍</div>
+
+  <h2>
+    Hikâyemiz
+  </h2>
+
+  <div class="story">
+
+    <div class="story-item">
+      <div class="story-year">BAŞLANGIÇ</div>
+      <div class="story-title">Birlikte başlayan hikâyemiz</div>
+      <div>İki güzel kalbin yollarının kesiştiği an… ♡</div>
+    </div>
+
+    <div class="story-item">
+      <div class="story-year">NİŞAN</div>
+      <div class="story-title">Birlikte yeni bir adım</div>
+      <div>Hayatımızı birlikte sürdürme kararımızı kutladık.</div>
+    </div>
+
+    <div class="story-item">
+      <div class="story-year">24 EYLÜL 2026</div>
+      <div class="story-title">Düğünümüz</div>
+      <div>Hikâyemizin en güzel gününü sizlerle kutluyoruz. ❤️</div>
+    </div>
+
+  </div>
+
+</div>
+
+
 <!-- ZARF -->
 
 <div class="card">
 
-  <h2>Davetiye</h2>
+  <h2>
+    Davetiye
+  </h2>
 
   <p>
-    Zarfa dokunun; ardından sevgimiz sizin için yola çıksın. ♡
+    Zarfa dokunun; sevgi kalpten kalbe uçsun. ♡
   </p>
 
   <div class="envelope-wrap">
 
-    <div class="heart-area">
-
-      <div id="bigHeart" class="big-heart">❤️</div>
-
-      <div id="heart1" class="small-heart">💕</div>
-
-      <div id="heart2" class="small-heart">💗</div>
-
-      <div id="heart3" class="small-heart">♡</div>
-
-      <div id="heart4" class="small-heart">💕</div>
-
+    <div
+      id="bigHeart"
+      class="big-heart">
+      ❤️
     </div>
+
+    <div id="heart1" class="small-heart">💕</div>
+    <div id="heart2" class="small-heart">💗</div>
+    <div id="heart3" class="small-heart">♡</div>
+    <div id="heart4" class="small-heart">💕</div>
 
     <div
       class="envelope"
       onclick="openEnvelope()">
 
-      <div class="seal">♡</div>
+      <div class="seal">
+        ♡
+      </div>
 
     </div>
 
@@ -758,11 +1129,14 @@ footer{
 
 </div>
 
+
 <!-- HEDİYE -->
 
 <div class="card">
 
-  <h2>Hediye</h2>
+  <h2>
+    Hediye
+  </h2>
 
   <p>
     En güzel hediyeniz güzel dilekleriniz.
@@ -770,17 +1144,15 @@ footer{
     bilgilerine ulaşabilirsiniz.
   </p>
 
-  <button
-    class="action"
-    onclick="toggleGift()">
-
+  <button class="action" onclick="toggleGift()">
     🎁 Hediye Bilgileri
-
   </button>
 
   <div id="gift" class="gift-box">
 
-    <div class="label">IBAN</div>
+    <div class="label">
+      IBAN
+    </div>
 
     <div class="iban" id="iban">
       TR85 0004 6002 3088 8000 3127 39
@@ -793,20 +1165,21 @@ footer{
     <button
       class="action secondary"
       onclick="copyIBAN()">
-
       IBAN'ı Kopyala
-
     </button>
 
   </div>
 
 </div>
 
+
 <!-- KATILIM -->
 
 <div class="card">
 
-  <h2>Katılım Durumu</h2>
+  <h2>
+    Katılım Durumu
+  </h2>
 
   <p>
     Düğünümüzde sizi aramızda görebilecek miyiz?
@@ -817,47 +1190,19 @@ footer{
     <button
       class="choice"
       onclick="goToForm('yes')">
-
       💍 Katılacağım
-
     </button>
 
     <button
       class="choice"
       onclick="goToForm('no')">
-
       🤍 Katılamayacağım
-
     </button>
 
   </div>
 
 </div>
 
-<!-- SON -->
-
-<div class="card">
-
-  <h2>Sizi Bekliyoruz</h2>
-
-  <p>
-    24 Eylül 2026 Perşembe günü
-    saat 19:00'da<br>
-    GRANDPARK Düğün Salonu'nda
-    buluşmak dileğiyle…
-  </p>
-
-  <button
-    class="action"
-    onclick="window.scrollTo({top:0,behavior:'smooth'})">
-
-    Başa Dön
-
-  </button>
-
-</div>
-
-</section>
 
 <!-- ETKİNLİKLER -->
 
@@ -867,7 +1212,9 @@ footer{
 
     <span>✦</span>
 
-    <h2>Etkinliklerimiz</h2>
+    <h2>
+      Etkinliklerimiz
+    </h2>
 
     <p>
       Bu güzel günümüzde bizi bekleyen anlar...
@@ -921,27 +1268,73 @@ footer{
 
 </section>
 
+
+<!-- SON -->
+
+<div class="card">
+
+  <h2>
+    Sizi Bekliyoruz
+  </h2>
+
+  <p>
+    24 Eylül 2026 Perşembe günü
+    saat 19:00'da<br>
+    GRANDPARK Düğün Salonu'nda
+    buluşmak dileğiyle…
+  </p>
+
+  <button
+    class="action"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    Başa Dön
+  </button>
+
+</div>
+
+
+</section>
+
 </main>
+
+
+<!-- FOTOĞRAF PENCERESİ -->
+
+<div
+  id="lightbox"
+  class="lightbox"
+  onclick="closePhoto()">
+
+  <button
+    class="lightbox-close"
+    onclick="closePhoto()">
+    ×
+  </button>
+
+  <img id="lightboxImage" src="" alt="Fotoğraf">
+
+</div>
+
 
 <!-- TOAST -->
 
 <div id="toast" class="toast"></div>
+
 
 <!-- MÜZİK BUTONU -->
 
 <button
   id="musicButton"
   class="music-button"
-  onclick="toggleMusic()"
-  aria-label="Müziği aç veya kapat">
-
+  onclick="toggleMusic()">
   🎵
-
 </button>
+
 
 <footer>
   Neslişah &amp; Aydın · 24.09.2026
 </footer>
+
 
 <script>
 
@@ -949,77 +1342,62 @@ footer{
 
 function showToast(text){
 
-  const toast =
-    document.getElementById("toast");
+  const toast=document.getElementById("toast");
 
-  toast.textContent = text;
+  toast.textContent=text;
 
   toast.classList.add("show");
 
   setTimeout(function(){
     toast.classList.remove("show");
   },2200);
-
 }
 
 
 /* MÜZİK */
 
-const weddingMusic =
-  document.getElementById("weddingMusic");
-
-const musicButton =
-  document.getElementById("musicButton");
-
+const weddingMusic=document.getElementById("weddingMusic");
+const musicButton=document.getElementById("musicButton");
 
 function startMusic(){
 
   weddingMusic.play()
-    .then(function(){
+  .then(function(){
 
-      musicButton.classList.add("playing");
-      musicButton.textContent = "🎵";
+    musicButton.textContent="🎵";
 
-    })
-    .catch(function(){
+  })
+  .catch(function(){
 
-      /*
-      iPhone Safari otomatik müziği
-      engelleyebilir.
-      Kullanıcı ekrana dokunduğunda
-      aşağıdaki olaylar müziği başlatır.
-      */
+    // iPhone otomatik müziği engellerse
+    // kullanıcı müzik butonuna basabilir.
 
-    });
+  });
 
 }
-
 
 function toggleMusic(){
 
   if(weddingMusic.paused){
 
     weddingMusic.play()
-      .then(function(){
+    .then(function(){
 
-        musicButton.classList.add("playing");
-        musicButton.textContent = "🎵";
+      musicButton.textContent="🎵";
+      showToast("Müzik açıldı ♡");
 
-        showToast("Müzik açıldı ♡");
+    })
+    .catch(function(){
 
-      })
-      .catch(function(){
+      showToast("Müzik dosyasını kontrol et.");
 
-        showToast("Müzik dosyası bulunamadı.");
-
-      });
+    });
 
   }else{
 
     weddingMusic.pause();
 
-    musicButton.classList.remove("playing");
-    musicButton.textContent = "🔇";
+    musicButton.textContent="🔇";
 
     showToast("Müzik kapatıldı");
 
@@ -1028,107 +1406,139 @@ function toggleMusic(){
 }
 
 
-/* DAVETİYEYİ AÇINCA MÜZİK */
+/* DAVETİYEYİ AÇ */
 
 function openInvitation(){
 
-  document
-    .getElementById("davetiye")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+  document.getElementById("intro").classList.add("hide");
+
+  document.getElementById("davetiye").scrollIntoView({
+    behavior:"smooth"
+  });
 
   startMusic();
 
 }
 
 
-/* İLK DOKUNUŞTA MÜZİK */
+/* GERİ SAYIM */
 
-document.addEventListener(
-  "touchstart",
-  function(){
-    startMusic();
-  },
-  {once:true}
-);
+const weddingDate =
+  new Date("2026-09-24T19:00:00").getTime();
 
-document.addEventListener(
-  "click",
-  function(){
-    startMusic();
-  },
-  {once:true}
-);
+function updateCountdown(){
 
+  const now=new Date().getTime();
 
-/* GOOGLE FORM */
+  const distance=weddingDate-now;
 
-function goToForm(type){
+  if(distance<=0){
 
-  if(type === "yes"){
+    document.getElementById("days").textContent="0";
+    document.getElementById("hours").textContent="0";
+    document.getElementById("minutes").textContent="0";
+    document.getElementById("seconds").textContent="0";
 
-    window.location.href =
-    "https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1laca%C4%9F%C4%B1m+%E2%9D%A4%EF%B8%8F";
-
+    return;
   }
 
-  if(type === "no"){
+  const days=Math.floor(
+    distance/(1000*60*60*24)
+  );
 
-    window.location.href =
-    "https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1lamayaca%C4%9F%C4%B1m+%F0%9F%92%94";
+  const hours=Math.floor(
+    (distance%(1000*60*60*24))/(1000*60*60)
+  );
 
-  }
+  const minutes=Math.floor(
+    (distance%(1000*60*60))/(1000*60)
+  );
+
+  const seconds=Math.floor(
+    (distance%(1000*60))/1000
+  );
+
+  document.getElementById("days").textContent=days;
+  document.getElementById("hours").textContent=hours;
+  document.getElementById("minutes").textContent=minutes;
+  document.getElementById("seconds").textContent=seconds;
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+
+/* FOTOĞRAF */
+
+function openPhoto(src){
+
+  document.getElementById("lightboxImage").src=src;
+
+  document.getElementById("lightbox").classList.add("show");
+
+}
+
+function closePhoto(){
+
+  document.getElementById("lightbox").classList.remove("show");
 
 }
 
 
-/* ZARFA DOKUNUNCA KALPLER */
+/* TAKVİME EKLE */
+
+function addToCalendar(){
+
+  const title="Neslişah & Aydın Düğünü";
+
+  const start="20260924T190000";
+
+  const end="20260924T230000";
+
+  const url=
+    "https://calendar.google.com/calendar/render?action=TEMPLATE"+
+    "&text="+encodeURIComponent(title)+
+    "&dates="+start+"/"+end+
+    "&details="+encodeURIComponent("Neslişah & Aydın düğün davetiyesi")+
+    "&location="+encodeURIComponent("GRANDPARK Düğün Salonu");
+
+  window.open(url,"_blank");
+
+}
+
+
+/* ZARF / KALPLER */
 
 function openEnvelope(){
 
-  const bigHeart =
-    document.getElementById("bigHeart");
+  const ids=[
+    ["bigHeart","fly"],
+    ["heart1","fly1"],
+    ["heart2","fly2"],
+    ["heart3","fly3"],
+    ["heart4","fly4"]
+  ];
 
-  const heart1 =
-    document.getElementById("heart1");
+  ids.forEach(function(item){
 
-  const heart2 =
-    document.getElementById("heart2");
+    const el=document.getElementById(item[0]);
 
-  const heart3 =
-    document.getElementById("heart3");
+    el.classList.remove(item[1]);
 
-  const heart4 =
-    document.getElementById("heart4");
+    void el.offsetWidth;
 
-  const happiness =
-    document.getElementById("happiness");
+    el.classList.add(item[1]);
 
-
-  bigHeart.classList.remove("fly");
-  heart1.classList.remove("fly1");
-  heart2.classList.remove("fly2");
-  heart3.classList.remove("fly3");
-  heart4.classList.remove("fly4");
-
-  void bigHeart.offsetWidth;
-
-  bigHeart.classList.add("fly");
-  heart1.classList.add("fly1");
-  heart2.classList.add("fly2");
-  heart3.classList.add("fly3");
-  heart4.classList.add("fly4");
-
-  happiness.classList.remove("show");
+  });
 
   setTimeout(function(){
 
-    happiness.classList.add("show");
+    document
+      .getElementById("happiness")
+      .classList.add("show");
 
-  },1200);
-
-  startMusic();
+  },1000);
 
   showToast("Sevgi kalpten kalbe uçtu! ❤️");
 
@@ -1139,11 +1549,10 @@ function openEnvelope(){
 
 function toggleGift(){
 
-  const box =
-    document.getElementById("gift");
+  const box=document.getElementById("gift");
 
-  box.style.display =
-    box.style.display === "block"
+  box.style.display=
+    box.style.display==="block"
     ? "none"
     : "block";
 
@@ -1154,26 +1563,73 @@ function toggleGift(){
 
 function copyIBAN(){
 
-  const iban =
-    document
-      .getElementById("iban")
-      .textContent
-      .trim();
+  const iban=
+    document.getElementById("iban").textContent.trim();
 
-  navigator.clipboard
-    .writeText(iban)
-    .then(function(){
+  navigator.clipboard.writeText(iban)
+  .then(function(){
 
-      showToast("IBAN kopyalandı.");
+    showToast("IBAN kopyalandı.");
 
-    })
-    .catch(function(){
+  })
+  .catch(function(){
 
-      showToast("IBAN kopyalanamadı.");
+    showToast("IBAN kopyalanamadı.");
 
-    });
+  });
 
 }
+
+
+/* GOOGLE FORM */
+
+function goToForm(type){
+
+  if(type==="yes"){
+
+    window.location.href=
+    "https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1laca%C4%9F%C4%B1m+%E2%9D%A4%EF%B8%8F";
+
+  }
+
+  if(type==="no"){
+
+    window.location.href=
+    "https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1lamayaca%C4%9F%C4%B1m+%F0%9F%92%94";
+
+  }
+
+}
+
+
+/* SAYFA AÇILINCA HAFİF KALP */
+
+setInterval(function(){
+
+  const heart=document.createElement("div");
+
+  heart.className="floating-heart";
+
+  const hearts=["♡","💕","🤍","💗"];
+
+  heart.textContent=
+    hearts[Math.floor(Math.random()*hearts.length)];
+
+  heart.style.left=
+    Math.random()*100+"vw";
+
+  heart.style.fontSize=
+    (14+Math.random()*12)+"px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(function(){
+
+    heart.remove();
+
+  },5000);
+
+},1800);
 
 </script>
 
