@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neslişah & Aydın | Düğün Davetiyesi</title>
-<meta name="description" content="Neslişah & Aydın düğün davetiyesi">
 
 <style>
 :root{
@@ -42,7 +41,8 @@ body{
     linear-gradient(135deg,#f8f0e9,#ead9ca);
 }
 
-.hero:before,.hero:after{
+.hero:before,
+.hero:after{
   content:"";
   position:absolute;
   border:1px solid rgba(138,107,89,.25);
@@ -110,12 +110,6 @@ h1{
   font-size:16px;
   letter-spacing:2px;
   cursor:pointer;
-  transition:.25s;
-}
-
-.open-btn:hover{
-  transform:translateY(-2px);
-  background:#fffaf4;
 }
 
 section{
@@ -255,58 +249,6 @@ p{
   background:#ead9ca;
 }
 
-.events{
-  padding:55px 20px;
-  max-width:760px;
-  margin:auto;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:28px;
-}
-
-.section-title span{
-  font-size:24px;
-}
-
-.section-title h2{
-  font-family:Georgia,serif;
-  font-size:34px;
-  margin:8px 0;
-}
-
-.section-title p{
-  margin:0;
-  opacity:.7;
-}
-
-.timeline{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.event{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  padding:17px 18px;
-  border:1px solid rgba(100,70,55,.16);
-  border-radius:18px;
-  background:rgba(255,255,255,.72);
-  box-shadow:0 5px 18px rgba(80,55,40,.05);
-}
-
-.event-time{
-  min-width:125px;
-  font-weight:700;
-}
-
-.event-name{
-  font-size:16px;
-}
-
 /* FOTOĞRAFLAR */
 
 .photo-gallery{
@@ -323,41 +265,6 @@ p{
   border-radius:20px;
   border:1px solid #e1d5cb;
   box-shadow:0 6px 18px rgba(70,50,35,.10);
-  cursor:pointer;
-  transition:.25s;
-}
-
-.photo-gallery img:hover{
-  transform:scale(1.02);
-}
-
-/* FOTOĞRAF BÜYÜTME */
-
-.photo-modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(40,30,25,.90);
-  z-index:100;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.photo-modal img{
-  max-width:95%;
-  max-height:90vh;
-  object-fit:contain;
-  border-radius:18px;
-}
-
-.photo-close{
-  position:absolute;
-  top:15px;
-  right:20px;
-  color:white;
-  font-size:38px;
-  cursor:pointer;
 }
 
 /* ZARF */
@@ -380,7 +287,6 @@ p{
   border:1px solid #b79c89;
   border-radius:7px;
   cursor:pointer;
-  box-shadow:0 8px 20px rgba(70,50,35,.12);
 }
 
 .envelope:before{
@@ -453,18 +359,71 @@ p{
   transform:translateY(0);
 }
 
-/* MÜZİK BUTONU */
+/* ETKİNLİKLER */
+
+.events{
+  padding:55px 20px;
+  max-width:760px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.section-title span{
+  font-size:24px;
+}
+
+.section-title h2{
+  font-size:34px;
+  margin:8px 0;
+}
+
+.section-title p{
+  margin:0;
+  opacity:.7;
+}
+
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.event{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:17px 18px;
+  border:1px solid rgba(100,70,55,.16);
+  border-radius:18px;
+  background:rgba(255,255,255,.72);
+  box-shadow:0 5px 18px rgba(80,55,40,.05);
+}
+
+.event-time{
+  min-width:125px;
+  font-weight:700;
+}
+
+.event-name{
+  font-size:16px;
+}
+
+/* MÜZİK */
 
 .music-button{
   position:fixed;
   right:18px;
   bottom:18px;
   z-index:50;
-  width:54px;
-  height:54px;
+  width:55px;
+  height:55px;
   border-radius:50%;
   border:1px solid #c8b09f;
-  background:rgba(255,250,245,.95);
+  background:rgba(255,250,245,.97);
   color:#654f42;
   font-size:23px;
   cursor:pointer;
@@ -472,10 +431,10 @@ p{
 }
 
 .music-button.playing{
-  animation:musicPulse 1.5s infinite;
+  animation:pulse 1.5s infinite;
 }
 
-@keyframes musicPulse{
+@keyframes pulse{
   0%,100%{transform:scale(1)}
   50%{transform:scale(1.08)}
 }
@@ -521,9 +480,6 @@ footer{
     font-size:30px;
   }
 
-  .photo-gallery{
-    gap:9px;
-  }
 }
 
 @media(max-width:520px){
@@ -540,16 +496,18 @@ footer{
   .section-title h2{
     font-size:30px;
   }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- MÜZİK -->
+<!-- MÜZİK DOSYASI -->
 <audio id="weddingMusic" loop preload="auto">
-  <source src="vidssave.com Nazende Sevgilim ( Instrumental ) 256KBPS.mp3" type="audio/mpeg">
+  <source src="muzik.mp3" type="audio/mpeg">
 </audio>
+
 
 <header class="hero" id="top">
 
@@ -649,23 +607,13 @@ footer{
     <div class="family-grid">
 
       <div class="family">
-
         <div class="label">Gelin</div>
-
-        <strong>
-          Nesrin ve Ahmet Azaklı
-        </strong>
-
+        <strong>Nesrin ve Ahmet Azaklı</strong>
       </div>
 
       <div class="family">
-
         <div class="label">Damat</div>
-
-        <strong>
-          Cemile ve Cemal Yıldız
-        </strong>
-
+        <strong>Cemile ve Cemal Yıldız</strong>
       </div>
 
     </div>
@@ -689,23 +637,19 @@ footer{
 
       <img
         src="IMG_9588.jpeg"
-        alt="Neslişah ve Aydın"
-        onclick="openPhoto(this.src)">
+        alt="Neslişah ve Aydın">
 
       <img
         src="IMG_9322.jpeg"
-        alt="Neslişah ve Aydın"
-        onclick="openPhoto(this.src)">
+        alt="Neslişah ve Aydın">
 
       <img
         src="IMG_5306.jpeg"
-        alt="Neslişah ve Aydın"
-        onclick="openPhoto(this.src)">
+        alt="Neslişah ve Aydın">
 
       <img
         src="9828ee68-2f0e-4068-984c-0f3944c55b77.jpeg"
-        alt="Neslişah ve Aydın"
-        onclick="openPhoto(this.src)">
+        alt="Neslişah ve Aydın">
 
     </div>
 
@@ -728,9 +672,7 @@ footer{
         class="envelope"
         onclick="openEnvelope()">
 
-        <div class="seal">
-          ♡
-        </div>
+        <div class="seal">♡</div>
 
       </div>
 
@@ -746,12 +688,8 @@ footer{
 
     </div>
 
-    <div
-      id="happiness"
-      class="happiness">
-
+    <div id="happiness" class="happiness">
       Mutluluklarınız bizimle çoğalsın ✨
-
     </div>
 
   </div>
@@ -780,12 +718,8 @@ footer{
 
       <div class="label">IBAN</div>
 
-      <div
-        class="iban"
-        id="iban">
-
+      <div class="iban" id="iban">
         TR85 0004 6002 3088 8000 3127 39
-
       </div>
 
       <p>
@@ -819,7 +753,7 @@ footer{
 
       <button
         class="choice"
-        onclick="goToForm('attending')">
+        onclick="goToForm('yes')">
 
         💍 Katılacağım
 
@@ -827,7 +761,7 @@ footer{
 
       <button
         class="choice"
-        onclick="goToForm('notAttending')">
+        onclick="goToForm('no')">
 
         🤍 Katılamayacağım
 
@@ -837,8 +771,6 @@ footer{
 
   </div>
 
-
-  <!-- BEKLİYORUZ -->
 
   <div class="card">
 
@@ -864,9 +796,7 @@ footer{
 
 <!-- ETKİNLİKLER -->
 
-<section
-  class="events"
-  id="etkinlikler">
+<section class="events" id="etkinlikler">
 
   <div class="section-title">
 
@@ -932,26 +862,10 @@ footer{
 </main>
 
 
-<!-- BÜYÜK FOTOĞRAF -->
-
-<div
-  id="photoModal"
-  class="photo-modal"
-  onclick="closePhoto()">
-
-  <span class="photo-close">
-    ×
-  </span>
-
-  <img
-    id="largePhoto"
-    src=""
-    alt="Büyük fotoğraf">
-
-</div>
+<div id="toast" class="toast"></div>
 
 
-<!-- MÜZİK BUTONU -->
+<!-- MÜZİK KONTROL -->
 
 <button
   id="musicButton"
@@ -962,12 +876,6 @@ footer{
   🎵
 
 </button>
-
-
-<div
-  id="toast"
-  class="toast">
-</div>
 
 
 <footer>
@@ -981,32 +889,18 @@ footer{
 
 function showToast(text){
 
-  const t=document.getElementById('toast');
+  const toast =
+    document.getElementById("toast");
 
-  t.textContent=text;
+  toast.textContent=text;
 
-  t.classList.add('show');
+  toast.classList.add("show");
 
   setTimeout(function(){
 
-    t.classList.remove('show');
+    toast.classList.remove("show");
 
   },2200);
-
-}
-
-
-/* DAVETİYEYİ AÇ */
-
-function openInvitation(){
-
-  document
-    .getElementById('davetiye')
-    .scrollIntoView({
-      behavior:'smooth'
-    });
-
-  startMusic();
 
 }
 
@@ -1014,27 +908,27 @@ function openInvitation(){
 /* MÜZİK */
 
 const weddingMusic =
-  document.getElementById('weddingMusic');
+  document.getElementById("weddingMusic");
 
 const musicButton =
-  document.getElementById('musicButton');
+  document.getElementById("musicButton");
 
 
 function startMusic(){
 
   weddingMusic.play()
-    .then(function(){
+  .then(function(){
 
-      musicButton.classList.add('playing');
-      musicButton.textContent='🎵';
+    musicButton.classList.add("playing");
+    musicButton.textContent="🎵";
 
-    })
-    .catch(function(){
+  })
+  .catch(function(){
 
-      /* iPhone otomatik oynatmayı engellerse
-         kullanıcının ilk dokunuşunda tekrar denenir */
+    /* iPhone otomatik oynatmayı engellerse
+       ilk kullanıcı dokunuşunda tekrar denenir */
 
-    });
+  });
 
 }
 
@@ -1044,70 +938,88 @@ function toggleMusic(){
   if(weddingMusic.paused){
 
     weddingMusic.play()
-      .then(function(){
+    .then(function(){
 
-        musicButton.classList.add('playing');
-        musicButton.textContent='🎵';
+      musicButton.classList.add("playing");
+      musicButton.textContent="🎵";
 
-        showToast('Müzik açıldı ♡');
+      showToast("Müzik açıldı ♡");
 
-      });
+    })
+    .catch(function(){
+
+      showToast("Müzik dosyası bulunamadı.");
+
+    });
 
   }else{
 
     weddingMusic.pause();
 
-    musicButton.classList.remove('playing');
-    musicButton.textContent='🔇';
+    musicButton.classList.remove("playing");
+    musicButton.textContent="🔇";
 
-    showToast('Müzik kapatıldı');
+    showToast("Müzik kapatıldı");
 
   }
 
 }
 
 
-/*
-  Site açıldığında müziği otomatik başlatmayı dene.
-  Tarayıcı izin vermezse ilk dokunuşta başlar.
-*/
+/* SITE AÇILINCA OTOMATİK BAŞLAT */
 
-window.addEventListener('load',function(){
+window.addEventListener("load",function(){
 
   startMusic();
 
 });
 
 
+/* İLK DOKUNUŞTA BAŞLAT */
+
 document.addEventListener(
-  'touchstart',
+  "touchstart",
+  startMusic,
+  {once:true}
+);
+
+document.addEventListener(
+  "click",
   startMusic,
   {once:true}
 );
 
 
-document.addEventListener(
-  'click',
-  startMusic,
-  {once:true}
-);
+/* DAVETİYEYİ AÇ */
+
+function openInvitation(){
+
+  document
+    .getElementById("davetiye")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+  startMusic();
+
+}
 
 
 /* GOOGLE FORMS */
 
 function goToForm(type){
 
-  if(type==='attending'){
+  if(type==="yes"){
 
     window.location.href =
-    'https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1laca%C4%9F%C4%B1m+%E2%9D%A4%EF%B8%8F';
+    "https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1laca%C4%9F%C4%B1m+%E2%9D%A4%EF%B8%8F";
 
   }
 
-  if(type==='notAttending'){
+  if(type==="no"){
 
     window.location.href =
-    'https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1lamayaca%C4%9F%C4%B1m+%F0%9F%92%94';
+    "https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1lamayaca%C4%9F%C4%B1m+%F0%9F%92%94";
 
   }
 
@@ -1118,27 +1030,24 @@ function goToForm(type){
 
 function openEnvelope(){
 
-  document
-    .getElementById('car')
-    .classList.remove('go');
+  const car =
+    document.getElementById("car");
 
-  void document
-    .getElementById('car')
-    .offsetWidth;
+  car.classList.remove("go");
 
-  document
-    .getElementById('car')
-    .classList.add('go');
+  void car.offsetWidth;
+
+  car.classList.add("go");
 
   setTimeout(function(){
 
     document
-      .getElementById('happiness')
-      .classList.add('show');
+      .getElementById("happiness")
+      .classList.add("show");
 
   },1700);
 
-  showToast('Mutluluk yola çıktı! ♡');
+  showToast("Mutluluk yola çıktı! ♡");
 
 }
 
@@ -1148,23 +1057,23 @@ function openEnvelope(){
 function toggleGift(){
 
   const box =
-    document.getElementById('gift');
+    document.getElementById("gift");
 
   box.style.display =
-    box.style.display==='block'
-    ?'none'
-    :'block';
+    box.style.display==="block"
+    ? "none"
+    : "block";
 
 }
 
 
-/* IBAN KOPYALA */
+/* IBAN */
 
 function copyIBAN(){
 
   const iban =
     document
-      .getElementById('iban')
+      .getElementById("iban")
       .textContent
       .trim();
 
@@ -1172,40 +1081,14 @@ function copyIBAN(){
     .writeText(iban)
     .then(function(){
 
-      showToast('IBAN kopyalandı.');
+      showToast("IBAN kopyalandı.");
 
     })
     .catch(function(){
 
-      showToast('IBAN kopyalanamadı.');
+      showToast("IBAN kopyalanamadı.");
 
     });
-
-}
-
-
-/* FOTOĞRAF AÇ */
-
-function openPhoto(src){
-
-  document
-    .getElementById('largePhoto')
-    .src=src;
-
-  document
-    .getElementById('photoModal')
-    .style.display='flex';
-
-}
-
-
-/* FOTOĞRAF KAPAT */
-
-function closePhoto(){
-
-  document
-    .getElementById('photoModal')
-    .style.display='none';
 
 }
 
