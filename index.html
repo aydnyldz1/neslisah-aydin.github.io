@@ -67,6 +67,28 @@ radial-gradient(circle at 50% 20%,rgba(190,150,120,.15),transparent 30%),
 linear-gradient(135deg,#211918,#30231f);
 }
 
+.hero:before,
+.hero:after{
+content:"";
+position:absolute;
+border:1px solid rgba(138,107,89,.22);
+border-radius:50%;
+}
+
+.hero:before{
+width:420px;
+height:420px;
+right:-170px;
+bottom:-130px;
+}
+
+.hero:after{
+width:300px;
+height:300px;
+left:-180px;
+top:-120px;
+}
+
 .hero-inner{
 text-align:center;
 max-width:720px;
@@ -223,6 +245,35 @@ transition:.3s;
 transform:scale(1.02);
 }
 
+.countdown{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+margin-top:20px;
+}
+
+.count{
+padding:15px 5px;
+background:#fffaf5;
+border:1px solid #e1d5cb;
+border-radius:16px;
+}
+
+.dark .count{
+background:#302522;
+border-color:#5c4a40;
+}
+
+.count strong{
+display:block;
+font-size:25px;
+}
+
+.count span{
+font-size:11px;
+color:var(--muted);
+}
+
 .envelope-wrap{
 height:250px;
 position:relative;
@@ -306,15 +357,32 @@ animation:heartSmall 2.3s ease-out forwards;
 }
 
 @keyframes heartFly{
-0%{transform:translate(-50%,0) scale(.2);opacity:0}
-15%{opacity:1;transform:translate(-50%,0) scale(1.2)}
-100%{transform:translate(-50%,-145px) scale(.55);opacity:0}
+0%{
+transform:translate(-50%,0) scale(.2);
+opacity:0;
+}
+15%{
+opacity:1;
+transform:translate(-50%,0) scale(1.2);
+}
+100%{
+transform:translate(-50%,-145px) scale(.55);
+opacity:0;
+}
 }
 
 @keyframes heartSmall{
-0%{opacity:0;transform:translate(0,0) scale(.3)}
-20%{opacity:1}
-100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.7)}
+0%{
+opacity:0;
+transform:translate(0,0) scale(.3);
+}
+20%{
+opacity:1;
+}
+100%{
+opacity:0;
+transform:translate(var(--x),var(--y)) scale(.7);
+}
 }
 
 .happiness{
@@ -328,35 +396,6 @@ transition:1s;
 .happiness.show{
 opacity:1;
 transform:translateY(0);
-}
-
-.countdown{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:8px;
-margin-top:20px;
-}
-
-.count{
-padding:15px 5px;
-background:#fffaf5;
-border:1px solid #e1d5cb;
-border-radius:16px;
-}
-
-.dark .count{
-background:#302522;
-border-color:#5c4a40;
-}
-
-.count strong{
-display:block;
-font-size:25px;
-}
-
-.count span{
-font-size:11px;
-color:var(--muted);
 }
 
 .timeline{
@@ -439,6 +478,7 @@ border-radius:16px;
 padding:14px;
 font-size:16px;
 color:var(--ink);
+margin:4px;
 }
 
 .dark .choice{
@@ -516,8 +556,14 @@ animation:tapHeart 1.4s ease-out forwards;
 }
 
 @keyframes tapHeart{
-0%{opacity:1;transform:scale(.3)}
-100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(1.2)}
+0%{
+opacity:1;
+transform:scale(.3);
+}
+100%{
+opacity:0;
+transform:translate(var(--tx),var(--ty)) scale(1.2);
+}
 }
 
 .confetti{
@@ -587,37 +633,74 @@ font-size:13px;
 }
 
 @media(max-width:560px){
-.info-grid,.family-grid{grid-template-columns:1fr}
-.card{padding:30px 17px}
-h2{font-size:30px}
-.count strong{font-size:21px}
+
+.info-grid,
+.family-grid{
+grid-template-columns:1fr;
+}
+
+.card{
+padding:30px 17px;
+}
+
+h2{
+font-size:30px;
+}
+
+.count strong{
+font-size:21px;
+}
+
 }
 
 @media(max-width:520px){
-.event{display:block}
-.event-time{margin-bottom:5px}
+
+.event{
+display:block;
+}
+
+.event-time{
+margin-bottom:5px;
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- MÜZİK -->
+<!-- ==================================================
+     MÜZİK
+     ================================================== -->
+
 <audio id="weddingMusic" loop preload="auto">
-<source src="vidssave.com%20Nazende%20Sevgilim%20(%20Instrumental%20)%20256KBPS.mp3" type="audio/mpeg">
+
+<source
+src="vidssave.com%20Nazende%20Sevgilim%20(%20Instrumental%20)%20256KBPS.mp3"
+type="audio/mpeg">
+
 </audio>
+
 
 <div id="heartsLayer"></div>
 
-<!-- KAPAK -->
+
+<!-- ==================================================
+     KAPAK
+     ================================================== -->
+
 <header class="hero">
 
 <div class="hero-inner">
 
-<div class="smallcaps">Düğün Davetiyesi</div>
+<div class="smallcaps">
+Düğün Davetiyesi
+</div>
 
 <h1>
-Neslişah <span class="amp">&amp;</span> Aydın
+Neslişah
+<span class="amp">&amp;</span>
+Aydın
 </h1>
 
 <div class="divider"></div>
@@ -630,21 +713,33 @@ Neslişah <span class="amp">&amp;</span> Aydın
 GRANDPARK Düğün Salonu
 </div>
 
-<button class="open-btn" onclick="openInvitation()">
+<button
+class="open-btn"
+onclick="openInvitation()">
+
 ♡ DAVETİYEMİZİ AÇ ♡
+
 </button>
 
 </div>
+
 </header>
+
 
 <main id="davetiye">
 
 <section>
 
-<!-- HOŞ GELDİNİZ -->
+
+<!-- ==================================================
+     HOŞ GELDİNİZ
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">♡</div>
+<div class="icon">
+♡
+</div>
 
 <h2>
 Bu özel günümüzde<br>
@@ -662,12 +757,20 @@ kutlamak dileğiyle…
 
 </div>
 
-<!-- GERİ SAYIM -->
+
+<!-- ==================================================
+     GERİ SAYIM
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">⏳</div>
+<div class="icon">
+⏳
+</div>
 
-<h2>Büyük Güne Kalan</h2>
+<h2>
+Büyük Güne Kalan
+</h2>
 
 <div class="countdown">
 
@@ -695,140 +798,272 @@ kutlamak dileğiyle…
 
 </div>
 
-<!-- BİRLİKTE GEÇEN GÜNLER -->
+
+<!-- ==================================================
+     BİRLİKTE GEÇEN GÜNLER
+     TARİH: 27 KASIM 2021
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">🌹</div>
+<div class="icon">
+🌹
+</div>
 
-<h2>Birlikte Geçen Günlerimiz</h2>
+<h2>
+Birlikte Geçen Günlerimiz
+</h2>
 
 <p>
-Sevgimizin başladığı günden bugüne…
+27 Kasım 2021'den bugüne…
 </p>
 
-<h2 id="loveDays">0</h2>
+<h2 id="loveDays">
+0
+</h2>
 
-<p>gündür birlikteyiz. ❤️</p>
+<p>
+gündür birlikteyiz. ❤️
+</p>
 
 </div>
 
-<!-- BİLGİLER -->
+
+<!-- ==================================================
+     DÜĞÜN BİLGİLERİ
+     ================================================== -->
+
 <div class="card">
 
-<h2>Düğün Bilgileri</h2>
+<h2>
+Düğün Bilgileri
+</h2>
 
 <div class="info-grid">
 
 <div class="info">
-<div class="label">Tarih</div>
-<strong>24 Eylül 2026</strong>
+<div class="label">
+Tarih
+</div>
+<strong>
+24 Eylül 2026
+</strong>
 </div>
 
 <div class="info">
-<div class="label">Saat</div>
-<strong>19:00</strong>
+<div class="label">
+Saat
+</div>
+<strong>
+19:00
+</strong>
 </div>
 
 <div class="info">
-<div class="label">Yer</div>
-<strong>GRANDPARK Düğün Salonu</strong>
+<div class="label">
+Yer
+</div>
+<strong>
+GRANDPARK Düğün Salonu
+</strong>
 </div>
 
 <div class="info">
-<div class="label">Çift</div>
-<strong>Neslişah &amp; Aydın</strong>
+<div class="label">
+Çift
+</div>
+<strong>
+Neslişah &amp; Aydın
+</strong>
 </div>
 
 </div>
 
-<button class="action" onclick="openMaps()">
+<button
+class="action"
+onclick="openMaps()">
+
 📍 Yol Tarifi
+
 </button>
 
-<button class="action" onclick="addCalendar()">
+<button
+class="action"
+onclick="addCalendar()">
+
 📅 Takvime Ekle
+
 </button>
 
 </div>
 
-<!-- AİLELER -->
+
+<!-- ==================================================
+     AİLELER
+     ================================================== -->
+
 <div class="card">
 
-<h2>Ailelerimiz</h2>
+<h2>
+Ailelerimiz
+</h2>
 
 <div class="family-grid">
 
 <div class="family">
-<div class="label">Gelin</div>
-<strong>Nesrin ve Ahmet Azaklı</strong>
+
+<div class="label">
+Gelin
+</div>
+
+<strong>
+Nesrin ve Ahmet Azaklı
+</strong>
+
 </div>
 
 <div class="family">
-<div class="label">Damat</div>
-<strong>Cemile ve Cemal Yıldız</strong>
+
+<div class="label">
+Damat
 </div>
+
+<strong>
+Cemile ve Cemal Yıldız
+</strong>
 
 </div>
 
 </div>
 
-<!-- FOTOĞRAFLAR -->
+</div>
+
+
+<!-- ==================================================
+     FOTOĞRAFLAR
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">📸</div>
+<div class="icon">
+📸
+</div>
 
-<h2>Bizden Kareler</h2>
+<h2>
+Bizden Kareler
+</h2>
 
-<p>Birlikte biriktirdiğimiz güzel anılardan… ♡</p>
+<p>
+Birlikte biriktirdiğimiz güzel anılardan… ♡
+</p>
 
 <div class="photo-gallery">
 
-<img src="IMG_9588.jpeg" onclick="showPhoto(this.src)">
-<img src="IMG_9322.jpeg" onclick="showPhoto(this.src)">
-<img src="IMG_5306.jpeg" onclick="showPhoto(this.src)">
-<img src="9828ee68-2f0e-4068-984c-0f3944c55b77.jpeg" onclick="showPhoto(this.src)">
+<img
+src="IMG_9588.jpeg"
+alt="Neslişah ve Aydın"
+onclick="showPhoto(this.src)">
+
+<img
+src="IMG_9322.jpeg"
+alt="Neslişah ve Aydın"
+onclick="showPhoto(this.src)">
+
+<img
+src="IMG_5306.jpeg"
+alt="Neslişah ve Aydın"
+onclick="showPhoto(this.src)">
+
+<img
+src="9828ee68-2f0e-4068-984c-0f3944c55b77.jpeg"
+alt="Neslişah ve Aydın"
+onclick="showPhoto(this.src)">
 
 </div>
 
 </div>
 
-<!-- HİKAYEMİZ -->
+
+<!-- ==================================================
+     HİKÂYEMİZ
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">📖</div>
+<div class="icon">
+📖
+</div>
 
-<h2>Hikâyemiz</h2>
+<h2>
+Hikâyemiz
+</h2>
 
 <div class="story">
 
 <div class="story-item">
-<strong>İlk Tanışma</strong>
-<p>Her güzel hikâye gibi bizim hikâyemiz de küçük bir anla başladı.</p>
+
+<strong>
+27 Kasım 2021
+</strong>
+
+<p>
+Hikâyemizin başladığı güzel gün…
+</p>
+
 </div>
 
 <div class="story-item">
-<strong>Birlikte</strong>
-<p>Günler geçtikçe sevgimiz daha da büyüdü.</p>
+
+<strong>
+Birlikte
+</strong>
+
+<p>
+Günler geçtikçe sevgimiz daha da büyüdü.
+</p>
+
 </div>
 
 <div class="story-item">
-<strong>Nişan</strong>
-<p>Birlikte kurduğumuz hayaller için ilk büyük adımımızı attık.</p>
+
+<strong>
+Nişan
+</strong>
+
+<p>
+Birlikte kurduğumuz hayaller için
+ilk büyük adımımızı attık.
+</p>
+
 </div>
 
 <div class="story-item">
-<strong>Düğünümüz</strong>
-<p>Şimdi hikâyemizin en güzel sayfasını birlikte açıyoruz. ❤️</p>
-</div>
+
+<strong>
+Düğünümüz
+</strong>
+
+<p>
+Şimdi hikâyemizin en güzel sayfasını
+birlikte açıyoruz. ❤️
+</p>
 
 </div>
 
 </div>
 
-<!-- ZARF -->
+</div>
+
+
+<!-- ==================================================
+     ZARF VE KALPLER
+     ================================================== -->
+
 <div class="card">
 
-<h2>Davetiye</h2>
+<h2>
+Davetiye
+</h2>
 
 <p>
 Zarfa dokunun; sevgimiz sizin için yola çıksın. ♡
@@ -838,86 +1073,207 @@ Zarfa dokunun; sevgimiz sizin için yola çıksın. ♡
 
 <div class="heart-area">
 
-<div id="bigHeart" class="big-heart">❤️</div>
-<div id="heart1" class="small-heart" style="--x:-80px;--y:-120px">💕</div>
-<div id="heart2" class="small-heart" style="--x:75px;--y:-140px">💗</div>
-<div id="heart3" class="small-heart" style="--x:-115px;--y:-65px">♡</div>
-<div id="heart4" class="small-heart" style="--x:110px;--y:-75px">💕</div>
+<div
+id="bigHeart"
+class="big-heart">
+
+❤️
 
 </div>
 
-<div class="envelope" onclick="openEnvelope()">
-<div class="seal">♡</div>
+<div
+id="heart1"
+class="small-heart"
+style="--x:-80px;--y:-120px">
+
+💕
+
+</div>
+
+<div
+id="heart2"
+class="small-heart"
+style="--x:75px;--y:-140px">
+
+💗
+
+</div>
+
+<div
+id="heart3"
+class="small-heart"
+style="--x:-115px;--y:-65px">
+
+♡
+
+</div>
+
+<div
+id="heart4"
+class="small-heart"
+style="--x:110px;--y:-75px">
+
+💕
+
+</div>
+
+</div>
+
+
+<div
+class="envelope"
+onclick="openEnvelope()">
+
+<div class="seal">
+♡
 </div>
 
 </div>
 
-<div id="happiness" class="happiness">
+</div>
+
+
+<div
+id="happiness"
+class="happiness">
+
 Sevginiz kalbimizde çoğalsın ✨
-</div>
 
 </div>
 
-<!-- PROGRAM -->
+</div>
+
+
+<!-- ==================================================
+     DÜĞÜN PROGRAMI
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">🥂</div>
+<div class="icon">
+🥂
+</div>
 
-<h2>Düğün Programımız</h2>
+<h2>
+Düğün Programımız
+</h2>
 
 <div class="timeline">
 
 <div class="event">
-<div class="event-time">19:00</div>
-<div>Hoş Geldiniz</div>
+
+<div class="event-time">
+19:00
+</div>
+
+<div>
+Hoş Geldiniz
+</div>
+
 </div>
 
 <div class="event">
-<div class="event-time">19:30</div>
-<div>Kına Gecemiz</div>
+
+<div class="event-time">
+19:30
+</div>
+
+<div>
+Kına Gecemiz
+</div>
+
 </div>
 
 <div class="event">
-<div class="event-time">20:00</div>
-<div>İlk Dans</div>
+
+<div class="event-time">
+20:00
+</div>
+
+<div>
+İlk Dans
+</div>
+
 </div>
 
 <div class="event">
-<div class="event-time">20:30</div>
-<div>Yemek &amp; Eğlence</div>
+
+<div class="event-time">
+20:30
+</div>
+
+<div>
+Yemek &amp; Eğlence
+</div>
+
 </div>
 
 <div class="event">
-<div class="event-time">21:30</div>
-<div>Pasta Kesimi</div>
+
+<div class="event-time">
+21:30
+</div>
+
+<div>
+Pasta Kesimi
+</div>
+
 </div>
 
 <div class="event">
-<div class="event-time">22:00</div>
-<div>Takı Töreni</div>
+
+<div class="event-time">
+22:00
+</div>
+
+<div>
+Takı Töreni
+</div>
+
 </div>
 
 <div class="event">
-<div class="event-time">23:00</div>
-<div>Kapanış</div>
+
+<div class="event-time">
+23:00
+</div>
+
+<div>
+Kapanış
 </div>
 
 </div>
 
 </div>
 
-<!-- AŞK MEKTUBU -->
+</div>
+
+
+<!-- ==================================================
+     AŞK MEKTUBU
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">💌</div>
+<div class="icon">
+💌
+</div>
 
-<h2>Size Küçük Bir Sürpriz</h2>
+<h2>
+Size Küçük Bir Sürpriz
+</h2>
 
-<button class="action" onclick="toggleLetter()">
+<button
+class="action"
+onclick="toggleLetter()">
+
 Mektubu Aç
+
 </button>
 
-<div id="letter" class="letter">
+<div
+id="letter"
+class="letter">
 
 <p>
 Bugün bizim için çok özel bir gün.
@@ -932,326 +1288,678 @@ yanımızdasınız. ❤️
 
 <p>
 Sevgilerimizle,<br>
-<strong>Neslişah &amp; Aydın</strong>
+<strong>
+Neslişah &amp; Aydın
+</strong>
 </p>
 
 </div>
 
 </div>
 
-<!-- QUIZ -->
+
+<!-- ==================================================
+     MİNİ TEST
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">🎲</div>
+<div class="icon">
+🎲
+</div>
 
-<h2>Bizi Ne Kadar Tanıyorsun?</h2>
+<h2>
+Bizi Ne Kadar Tanıyorsun?
+</h2>
 
-<p>Mini testimize katıl! 😄</p>
+<p>
+Mini testimize katıl! 😄
+</p>
 
 <div class="quiz">
 
-<button class="choice" onclick="quizAnswer(true)">
-Neslişah &amp; Aydın'ın düğün tarihi 24 Eylül 2026 mı? ❤️
+<button
+class="choice"
+onclick="quizAnswer(true)">
+
+Neslişah &amp; Aydın'ın düğün tarihi
+24 Eylül 2026 mı? ❤️
+
 </button>
 
-<button class="choice" onclick="quizAnswer(false)">
+<button
+class="choice"
+onclick="quizAnswer(false)">
+
 Düğünümüz Aralık ayında mı? 😄
+
 </button>
 
-<button class="choice" onclick="quizAnswer(true)">
+<button
+class="choice"
+onclick="quizAnswer(true)">
+
 Düğün salonumuz GRANDPARK mı?
+
 </button>
 
 </div>
 
-<div id="quizResult" class="quiz-result"></div>
+<div
+id="quizResult"
+class="quiz-result">
 
 </div>
 
-<!-- HEDİYE -->
+</div>
+
+
+<!-- ==================================================
+     HEDİYE
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">🎁</div>
+<div class="icon">
+🎁
+</div>
 
-<h2>Hediye</h2>
+<h2>
+Hediye
+</h2>
 
 <p>
 En güzel hediyeniz güzel dilekleriniz.
 </p>
 
-<button class="action" onclick="toggleGift()">
+<button
+class="action"
+onclick="toggleGift()">
+
 🎁 Hediye Bilgileri
+
 </button>
 
-<div id="gift" class="secret">
+<div
+id="gift"
+class="secret">
 
-<div class="label">IBAN</div>
+<div class="label">
+IBAN
+</div>
 
 <div id="iban">
 TR85 0004 6002 3088 8000 3127 39
 </div>
 
-<p><strong>Aydın Yıldız</strong></p>
+<p>
+<strong>
+Aydın Yıldız
+</strong>
+</p>
 
-<button class="action" onclick="copyIBAN()">
+<button
+class="action"
+onclick="copyIBAN()">
+
 IBAN'ı Kopyala
+
 </button>
 
 </div>
 
 </div>
 
-<!-- DİLEKLER -->
+
+<!-- ==================================================
+     DİLEK DEFTERİ
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">📖</div>
+<div class="icon">
+📖
+</div>
 
-<h2>Güzel Dilekleriniz</h2>
+<h2>
+Güzel Dilekleriniz
+</h2>
 
 <p>
 Bize bırakmak istediğiniz güzel bir mesajı
 buraya yazabilirsiniz.
 </p>
 
-<textarea id="wishText"
-style="width:100%;min-height:110px;border:1px solid #d8c8bb;border-radius:16px;padding:14px;font-family:inherit;resize:vertical"
-placeholder="Neslişah & Aydın'a güzel dileğiniz..."></textarea>
+<textarea
+id="wishText"
+style="
+width:100%;
+min-height:110px;
+border:1px solid #d8c8bb;
+border-radius:16px;
+padding:14px;
+font-family:inherit;
+resize:vertical;
+"
+placeholder="Neslişah & Aydın'a güzel dileğiniz...">
+</textarea>
 
-<button class="action" onclick="saveWish()">
+<button
+class="action"
+onclick="saveWish()">
+
 💌 Dileğimi Kaydet
+
 </button>
 
-<div id="wishesBox" class="wishes-box"></div>
+<div
+id="wishesBox"
+class="wishes-box">
 
 </div>
 
-<!-- KATILIM -->
+</div>
+
+
+<!-- ==================================================
+     KATILIM
+     ================================================== -->
+
 <div class="card">
 
-<div class="icon">💍</div>
+<div class="icon">
+💍
+</div>
 
-<h2>Katılım Durumu</h2>
+<h2>
+Katılım Durumu
+</h2>
 
 <p>
 Düğünümüzde sizi aramızda görebilecek miyiz?
 </p>
 
-<button class="choice" onclick="goToForm('yes')">
+<button
+class="choice"
+onclick="goToForm('yes')">
+
 💍 Katılacağım
+
 </button>
 
-<button class="choice" onclick="goToForm('no')">
+<button
+class="choice"
+onclick="goToForm('no')">
+
 🤍 Katılamayacağım
+
 </button>
 
 </div>
 
-<!-- GİZLİ SÜRPRİZ -->
+
+<!-- ==================================================
+     GİZLİ SÜRPRİZ
+     ================================================== -->
+
 <div class="card">
 
-<h2>♡</h2>
+<h2>
+♡
+</h2>
 
 <p>
 Küçük bir kalbe dokunmayı dene…
 </p>
 
-<button class="action" onclick="secretSurprise()">
+<button
+class="action"
+onclick="secretSurprise()">
+
 ♡
+
 </button>
 
-<div id="secret" class="secret">
-<h2>Birbirimizi seçtik… ❤️</h2>
+<div
+id="secret"
+class="secret">
+
+<h2>
+Birbirimizi seçtik… ❤️
+</h2>
+
 <p>
-Ve şimdi bu güzel günü sizinle paylaşmak için sabırsızlanıyoruz.
+Ve şimdi bu güzel günü sizinle paylaşmak
+için sabırsızlanıyoruz.
 </p>
+
 </div>
 
 </div>
+
 
 </section>
 
 </main>
 
-<!-- IŞIKBOX -->
-<div id="lightbox" class="lightbox" onclick="closePhoto()">
-<span class="close-lightbox">×</span>
+
+<!-- ==================================================
+     FOTOĞRAF IŞIKBOX
+     ================================================== -->
+
+<div
+id="lightbox"
+class="lightbox"
+onclick="closePhoto()">
+
+<span class="close-lightbox">
+×
+</span>
+
 <img id="lightboxImg">
+
 </div>
 
-<!-- MÜZİK -->
+
+<!-- ==================================================
+     MÜZİK OYNATICI
+     ================================================== -->
+
 <div class="music-player">
 
-<button class="music-button" onclick="toggleMusic()" id="musicButton">
+<button
+class="music-button"
+onclick="toggleMusic()"
+id="musicButton">
+
 🎵
+
 </button>
 
 <div>
-<strong>Nazende Sevgilim</strong><br>
-<small>Instrumental ♫</small>
-</div>
+
+<strong>
+Nazende Sevgilim
+</strong>
+
+<br>
+
+<small>
+Instrumental ♫
+</small>
 
 </div>
 
-<!-- GECE/GÜNDÜZ -->
-<button class="theme-button" onclick="toggleTheme()" id="themeButton">
+</div>
+
+
+<!-- ==================================================
+     GECE / GÜNDÜZ
+     ================================================== -->
+
+<button
+class="theme-button"
+onclick="toggleTheme()"
+id="themeButton">
+
 🌙
+
 </button>
 
-<div id="toast" class="toast"></div>
+
+<div
+id="toast"
+class="toast">
+
+</div>
+
 
 <footer>
+
 Neslişah &amp; Aydın · 24.09.2026
+
 </footer>
+
 
 <script>
 
-/* TOAST */
+/* ==================================================
+   TOAST
+   ================================================== */
+
 function showToast(text){
-const t=document.getElementById("toast");
+
+const t=
+document.getElementById("toast");
+
 t.textContent=text;
+
 t.classList.add("show");
-setTimeout(()=>t.classList.remove("show"),2200);
+
+setTimeout(function(){
+
+t.classList.remove("show");
+
+},2200);
+
 }
 
-/* MÜZİK */
-const music=document.getElementById("weddingMusic");
-const musicButton=document.getElementById("musicButton");
+
+/* ==================================================
+   MÜZİK
+   ================================================== */
+
+const music=
+document.getElementById("weddingMusic");
+
+const musicButton=
+document.getElementById("musicButton");
+
 
 function playMusic(){
-music.play().then(()=>{
+
+music.play()
+
+.then(function(){
+
 musicButton.textContent="🎵";
-document.querySelector(".music-player").classList.add("playing");
-}).catch(()=>{});
+
+document
+.querySelector(".music-player")
+.classList.add("playing");
+
+})
+
+.catch(function(){
+
+});
+
 }
+
 
 function toggleMusic(){
 
 if(music.paused){
 
-music.play().then(()=>{
+music.play()
+
+.then(function(){
+
 musicButton.textContent="🎵";
-document.querySelector(".music-player").classList.add("playing");
-showToast("Nazende Sevgilim çalıyor ♡");
-}).catch(()=>{
-showToast("Müzik dosyası bulunamadı. Dosya adını kontrol et.");
+
+document
+.querySelector(".music-player")
+.classList.add("playing");
+
+showToast(
+"Nazende Sevgilim çalıyor ♡"
+);
+
+})
+
+.catch(function(){
+
+showToast(
+"Müzik dosyası bulunamadı. Dosya adını kontrol et."
+);
+
 });
 
-}else{
+}
+
+else{
 
 music.pause();
-document.querySelector(".music-player").classList.remove("playing");
+
+document
+.querySelector(".music-player")
+.classList.remove("playing");
+
 musicButton.textContent="🔇";
-showToast("Müzik kapatıldı");
+
+showToast(
+"Müzik kapatıldı"
+);
 
 }
 
 }
 
-/* KAPAK */
+
+/* ==================================================
+   DAVETİYEYİ AÇ
+   ================================================== */
+
 function openInvitation(){
 
-document.getElementById("davetiye").scrollIntoView({
+document
+.getElementById("davetiye")
+.scrollIntoView({
 behavior:"smooth"
 });
 
 playMusic();
+
 confetti();
 
 }
 
-/* ZARF */
+
+/* ==================================================
+   ZARF
+   ================================================== */
+
 function openEnvelope(){
 
-const ids=["bigHeart","heart1","heart2","heart3","heart4"];
+const ids=[
+"bigHeart",
+"heart1",
+"heart2",
+"heart3",
+"heart4"
+];
 
-ids.forEach(id=>{
-const e=document.getElementById(id);
+ids.forEach(function(id){
+
+const e=
+document.getElementById(id);
+
 e.classList.remove("fly");
+
 void e.offsetWidth;
+
 e.classList.add("fly");
+
 });
 
-document.getElementById("happiness").classList.add("show");
+document
+.getElementById("happiness")
+.classList.add("show");
 
-showToast("Sevgi kalpten kalbe uçtu! ❤️");
+showToast(
+"Sevgi kalpten kalbe uçtu! ❤️"
+);
 
 }
 
-/* GERİ SAYIM */
+
+/* ==================================================
+   DÜĞÜN GERİ SAYIMI
+   ================================================== */
+
 function updateCountdown(){
 
-const target=new Date("2026-09-24T19:00:00").getTime();
-const now=Date.now();
-let diff=target-now;
+const target=
+new Date(
+"2026-09-24T19:00:00"
+).getTime();
 
-if(diff<0)diff=0;
+const now=
+Date.now();
 
-const d=Math.floor(diff/86400000);
-const h=Math.floor(diff/3600000)%24;
-const m=Math.floor(diff/60000)%60;
-const s=Math.floor(diff/1000)%60;
+let diff=
+target-now;
 
-document.getElementById("days").textContent=d;
-document.getElementById("hours").textContent=h;
-document.getElementById("minutes").textContent=m;
-document.getElementById("seconds").textContent=s;
+if(diff<0){
+diff=0;
+}
+
+const d=
+Math.floor(
+diff/86400000
+);
+
+const h=
+Math.floor(
+diff/3600000
+)%24;
+
+const m=
+Math.floor(
+diff/60000
+)%60;
+
+const s=
+Math.floor(
+diff/1000
+)%60;
+
+
+document
+.getElementById("days")
+.textContent=d;
+
+document
+.getElementById("hours")
+.textContent=h;
+
+document
+.getElementById("minutes")
+.textContent=m;
+
+document
+.getElementById("seconds")
+.textContent=s;
 
 }
 
 updateCountdown();
-setInterval(updateCountdown,1000);
 
-/* BİRLİKTE GEÇEN GÜNLER */
+setInterval(
+updateCountdown,
+1000
+);
+
+
+/* ==================================================
+   BİRLİKTE GEÇEN GÜNLER
+   27 KASIM 2021
+   ================================================== */
+
 function updateLoveDays(){
 
-/*
-Buraya ilişkinizin başlangıç tarihini
-YYYY-MM-DD şeklinde yazabilirsin.
-*/
-const start=new Date("2020-01-01");
-const today=new Date();
+const start=
+new Date(
+"2021-11-27T00:00:00"
+);
 
-const diff=today-start;
-const days=Math.floor(diff/86400000);
+const today=
+new Date();
 
-document.getElementById("loveDays").textContent=days;
+const diff=
+today-start;
+
+const days=
+Math.floor(
+diff/86400000
+);
+
+document
+.getElementById("loveDays")
+.textContent=days;
 
 }
 
 updateLoveDays();
 
-/* GECE GÜNDÜZ */
+
+/* ==================================================
+   GECE / GÜNDÜZ
+   ================================================== */
+
 function toggleTheme(){
 
-document.body.classList.toggle("dark");
+document
+.body
+.classList
+.toggle("dark");
 
-const dark=document.body.classList.contains("dark");
+const dark=
+document
+.body
+.classList
+.contains("dark");
 
-document.getElementById("themeButton").textContent=
+document
+.getElementById("themeButton")
+.textContent=
 dark ? "☀️" : "🌙";
 
-localStorage.setItem("darkMode",dark);
+localStorage.setItem(
+"darkMode",
+dark
+);
 
 }
 
-if(localStorage.getItem("darkMode")==="true"){
-document.body.classList.add("dark");
-document.getElementById("themeButton").textContent="☀️";
+
+if(
+localStorage.getItem("darkMode")
+==="true"
+){
+
+document
+.body
+.classList
+.add("dark");
+
+document
+.getElementById("themeButton")
+.textContent="☀️";
+
 }
 
-/* FOTOĞRAF */
+
+/* ==================================================
+   FOTOĞRAF BÜYÜTME
+   ================================================== */
+
 function showPhoto(src){
 
-document.getElementById("lightboxImg").src=src;
-document.getElementById("lightbox").style.display="flex";
+document
+.getElementById("lightboxImg")
+.src=src;
+
+document
+.getElementById("lightbox")
+.style.display="flex";
 
 }
+
 
 function closePhoto(){
-document.getElementById("lightbox").style.display="none";
+
+document
+.getElementById("lightbox")
+.style.display="none";
+
 }
 
-/* HARİTA */
+
+/* ==================================================
+   YOL TARİFİ
+   ================================================== */
+
 function openMaps(){
 
 window.open(
@@ -1261,82 +1969,150 @@ window.open(
 
 }
 
-/* TAKVİM */
+
+/* ==================================================
+   TAKVİME EKLE
+   ================================================== */
+
 function addCalendar(){
 
 const url=
-"https://calendar.google.com/calendar/render?action=TEMPLATE"+
+"https://calendar.google.com/calendar/render"+
+"?action=TEMPLATE"+
 "&text=Neslişah+%26+Aydın+Düğünü"+
 "&dates=20260924T190000/20260924T230000"+
 "&details=Neslişah+%26+Aydın+Düğün+Davetiyesi"+
 "&location=GRANDPARK+Düğün+Salonu";
 
-window.open(url,"_blank");
+window.open(
+url,
+"_blank"
+);
 
 }
 
-/* MEKTUP */
+
+/* ==================================================
+   MEKTUP
+   ================================================== */
+
 function toggleLetter(){
 
-const box=document.getElementById("letter");
+const box=
+document.getElementById("letter");
 
 box.style.display=
-box.style.display==="block" ? "none" : "block";
+box.style.display==="block"
+?"none"
+:"block";
 
 }
 
-/* QUIZ */
+
+/* ==================================================
+   TEST
+   ================================================== */
+
 function quizAnswer(correct){
 
-const result=document.getElementById("quizResult");
+const result=
+document.getElementById("quizResult");
 
 result.style.display="block";
 
 if(correct){
 
-result.textContent="🎉 Doğru! Bizi gerçekten tanıyorsun. ❤️";
+result.textContent=
+"🎉 Doğru! Bizi gerçekten tanıyorsun. ❤️";
 
-}else{
+}
 
-result.textContent="😄 Bir daha düşün!";
+else{
+
+result.textContent=
+"😄 Bir daha düşün!";
 
 }
 
 }
 
-/* HEDİYE */
+
+/* ==================================================
+   HEDİYE
+   ================================================== */
+
 function toggleGift(){
 
-const gift=document.getElementById("gift");
+const gift=
+document.getElementById("gift");
 
 gift.style.display=
-gift.style.display==="block" ? "none" : "block";
+gift.style.display==="block"
+?"none"
+:"block";
 
 }
+
+
+/* ==================================================
+   IBAN KOPYALA
+   ================================================== */
 
 function copyIBAN(){
 
-const iban=document.getElementById("iban").textContent.trim();
+const iban=
+document
+.getElementById("iban")
+.textContent
+.trim();
 
-navigator.clipboard.writeText(iban).then(()=>{
-showToast("IBAN kopyalandı ❤️");
-}).catch(()=>{
-showToast("IBAN kopyalanamadı.");
+navigator
+.clipboard
+.writeText(iban)
+
+.then(function(){
+
+showToast(
+"IBAN kopyalandı ❤️"
+);
+
+})
+
+.catch(function(){
+
+showToast(
+"IBAN kopyalanamadı."
+);
+
 });
 
 }
 
-/* DİLEK */
+
+/* ==================================================
+   DİLEK
+   ================================================== */
+
 function saveWish(){
 
-const text=document.getElementById("wishText").value.trim();
+const text=
+document
+.getElementById("wishText")
+.value
+.trim();
 
 if(!text){
-showToast("Önce güzel dileğini yaz ❤️");
+
+showToast(
+"Önce güzel dileğini yaz ❤️"
+);
+
 return;
+
 }
 
-const box=document.getElementById("wishesBox");
+const box=
+document.getElementById("wishesBox");
 
 box.style.display="block";
 
@@ -1344,21 +2120,42 @@ box.innerHTML=
 "💌 <strong>Güzel dileğiniz:</strong><br><br>"+
 text;
 
-localStorage.setItem("weddingWish",text);
+localStorage.setItem(
+"weddingWish",
+text
+);
 
-showToast("Dileğiniz kaydedildi ❤️");
+showToast(
+"Dileğiniz kaydedildi ❤️"
+);
 
 }
 
-const savedWish=localStorage.getItem("weddingWish");
+
+const savedWish=
+localStorage.getItem(
+"weddingWish"
+);
 
 if(savedWish){
-document.getElementById("wishesBox").style.display="block";
-document.getElementById("wishesBox").innerHTML=
-"💌 <strong>Güzel dileğiniz:</strong><br><br>"+savedWish;
+
+document
+.getElementById("wishesBox")
+.style.display="block";
+
+document
+.getElementById("wishesBox")
+.innerHTML=
+"💌 <strong>Güzel dileğiniz:</strong><br><br>"+
+savedWish;
+
 }
 
-/* FORM */
+
+/* ==================================================
+   GOOGLE FORM
+   ================================================== */
+
 function goToForm(type){
 
 if(type==="yes"){
@@ -1377,10 +2174,15 @@ window.location.href=
 
 }
 
-/* GİZLİ SÜRPRİZ */
+
+/* ==================================================
+   GİZLİ SÜRPRİZ
+   ================================================== */
+
 function secretSurprise(){
 
-const secret=document.getElementById("secret");
+const secret=
+document.getElementById("secret");
 
 secret.style.display="block";
 
@@ -1391,33 +2193,60 @@ window.innerHeight/2
 
 }
 
-/* DOKUNUNCA KALP */
-document.addEventListener("click",function(e){
+
+/* ==================================================
+   DOKUNUNCA KALPLER
+   ================================================== */
+
+document.addEventListener(
+"click",
+function(e){
 
 if(
 e.target.tagName==="BUTTON" ||
 e.target.tagName==="IMG" ||
 e.target.closest(".music-player") ||
 e.target.closest(".envelope")
-)return;
+){
 
-heartExplosion(e.clientX,e.clientY);
+return;
 
-});
+}
+
+heartExplosion(
+e.clientX,
+e.clientY
+);
+
+}
+);
+
 
 function heartExplosion(x,y){
 
-const layer=document.getElementById("heartsLayer");
+const layer=
+document.getElementById("heartsLayer");
 
 for(let i=0;i<5;i++){
 
-const h=document.createElement("div");
+const h=
+document.createElement("div");
 
 h.className="tap-heart";
-h.textContent=["♡","💕","💗","❤️"][Math.floor(Math.random()*4)];
 
-h.style.left=x+"px";
-h.style.top=y+"px";
+h.textContent=
+["♡","💕","💗","❤️"]
+[
+Math.floor(
+Math.random()*4
+)
+];
+
+h.style.left=
+x+"px";
+
+h.style.top=
+y+"px";
 
 h.style.setProperty(
 "--tx",
@@ -1431,51 +2260,94 @@ h.style.setProperty(
 
 layer.appendChild(h);
 
-setTimeout(()=>h.remove(),1400);
+setTimeout(
+function(){
+h.remove();
+},
+1400
+);
 
 }
 
 }
 
-/* KONFETİ */
+
+/* ==================================================
+   KONFETİ
+   ================================================== */
+
 function confetti(){
 
-const symbols=["♡","♥","✦","✧","✨"];
+const symbols=[
+"♡",
+"♥",
+"✦",
+"✧",
+"✨"
+];
 
 for(let i=0;i<35;i++){
 
-const c=document.createElement("div");
+const c=
+document.createElement("div");
 
 c.className="confetti";
 
 c.textContent=
-symbols[Math.floor(Math.random()*symbols.length)];
+symbols[
+Math.floor(
+Math.random()*symbols.length
+)
+];
 
-c.style.left=Math.random()*100+"vw";
-c.style.animationDelay=Math.random()*1.5+"s";
+c.style.left=
+Math.random()*100+"vw";
+
+c.style.animationDelay=
+Math.random()*1.5+"s";
 
 document.body.appendChild(c);
 
-setTimeout(()=>c.remove(),5000);
+setTimeout(
+function(){
+c.remove();
+},
+5000
+);
 
 }
 
 }
 
-/* OTOMATİK MÜZİK */
-/*
-iPhone/Safari otomatik müziği kullanıcı dokunuşu
-olmadan başlatmayı engelleyebilir.
-İlk dokunuşta müzik başlatılır.
-*/
 
-document.addEventListener("touchstart",function(){
-playMusic();
-},{once:true});
+/* ==================================================
+   İLK DOKUNUŞTA MÜZİK
+   ================================================== */
 
-document.addEventListener("click",function(){
+document.addEventListener(
+"touchstart",
+function(){
+
 playMusic();
-},{once:true});
+
+},
+{
+once:true
+}
+);
+
+
+document.addEventListener(
+"click",
+function(){
+
+playMusic();
+
+},
+{
+once:true
+}
+);
 
 </script>
 
