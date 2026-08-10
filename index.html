@@ -2,12 +2,13 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <meta name="theme-color" content="#8a6b59">
 
 <title>Neslişah & Aydın | Düğün Davetiyesi</title>
 
 <style>
+
 :root{
 --bg:#f6eee7;
 --paper:#fffdf9;
@@ -19,7 +20,9 @@
 --shadow:0 12px 35px rgba(72,52,40,.12);
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box;
+}
 
 html{
 scroll-behavior:smooth;
@@ -27,11 +30,14 @@ scroll-behavior:smooth;
 
 body{
 margin:0;
+padding:0;
+width:100%;
+min-width:0;
 background:linear-gradient(180deg,#f2e8df,#faf5ef);
 color:var(--ink);
 font-family:Georgia,"Times New Roman",serif;
 overflow-x:hidden;
-transition:background .5s,color .5s;
+transition:.4s;
 }
 
 body.dark{
@@ -51,16 +57,13 @@ cursor:pointer;
 -webkit-tap-highlight-color:transparent;
 }
 
-button:active{
-transform:scale(.96);
+img{
+max-width:100%;
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero{
 min-height:100svh;
+width:100%;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -85,7 +88,7 @@ content:"";
 position:absolute;
 border:1px solid rgba(138,107,89,.22);
 border-radius:50%;
-animation:slowRotate 25s linear infinite;
+pointer-events:none;
 }
 
 .hero:before{
@@ -100,15 +103,10 @@ width:300px;
 height:300px;
 left:-180px;
 top:-120px;
-animation-direction:reverse;
-}
-
-@keyframes slowRotate{
-from{transform:rotate(0)}
-to{transform:rotate(360deg)}
 }
 
 .hero-inner{
+width:100%;
 text-align:center;
 max-width:720px;
 position:relative;
@@ -119,11 +117,11 @@ animation:heroIn 1.5s ease;
 @keyframes heroIn{
 from{
 opacity:0;
-transform:translateY(40px) scale(.96);
+transform:translateY(30px);
 }
 to{
 opacity:1;
-transform:translateY(0) scale(1);
+transform:translateY(0);
 }
 }
 
@@ -139,12 +137,6 @@ font-size:clamp(48px,13vw,88px);
 line-height:.95;
 font-weight:400;
 margin:22px 0 12px;
-animation:titleGlow 3s ease-in-out infinite;
-}
-
-@keyframes titleGlow{
-0%,100%{text-shadow:0 0 0 transparent}
-50%{text-shadow:0 5px 30px rgba(138,107,89,.18)}
 }
 
 .amp{
@@ -168,24 +160,7 @@ width:70px;
 height:1px;
 background:var(--line);
 margin:20px auto;
-position:relative;
 }
-
-.divider:after{
-content:"♡";
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-background:inherit;
-padding:0 8px;
-color:var(--accent);
-font-size:14px;
-}
-
-/* =========================
-   BUTONLAR
-========================= */
 
 .open-btn,
 .action{
@@ -198,14 +173,12 @@ font-size:16px;
 margin-top:12px;
 box-shadow:0 8px 18px rgba(80,55,40,.12);
 transition:.3s;
-position:relative;
-overflow:hidden;
 }
 
 .open-btn:hover,
 .action:hover{
-transform:translateY(-3px);
-box-shadow:0 12px 25px rgba(80,55,40,.2);
+transform:translateY(-2px);
+box-shadow:0 12px 24px rgba(80,55,40,.18);
 }
 
 .open-btn{
@@ -220,39 +193,13 @@ background:rgba(40,30,28,.7);
 color:#f5e9df;
 }
 
-/* Parlayan buton efekti */
-.action:before,
-.open-btn:before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:60%;
-height:100%;
-background:linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.35),
-transparent
-);
-transform:skewX(-20deg);
-transition:.6s;
-}
-
-.action:hover:before,
-.open-btn:hover:before{
-left:130%;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
 section{
+width:100%;
 padding:24px 16px;
 }
 
 .card{
+width:100%;
 max-width:760px;
 margin:0 auto 22px;
 background:rgba(255,253,249,.95);
@@ -261,21 +208,7 @@ border-radius:28px;
 padding:34px 22px;
 box-shadow:var(--shadow);
 text-align:center;
-opacity:0;
-transform:translateY(35px);
-transition:
-opacity .8s ease,
-transform .8s ease,
-box-shadow .4s ease;
-}
-
-.card.visible{
-opacity:1;
-transform:translateY(0);
-}
-
-.card:hover{
-box-shadow:0 18px 45px rgba(72,52,40,.16);
+overflow:hidden;
 }
 
 .dark .card{
@@ -286,12 +219,6 @@ border-color:#5a4940;
 .icon{
 font-size:30px;
 margin-bottom:12px;
-animation:gentleFloat 3s ease-in-out infinite;
-}
-
-@keyframes gentleFloat{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-5px)}
 }
 
 h2{
@@ -306,10 +233,6 @@ color:var(--muted);
 font-size:16px;
 }
 
-/* =========================
-   INFO
-========================= */
-
 .info-grid,
 .family-grid{
 display:grid;
@@ -323,13 +246,6 @@ padding:18px;
 border:1px solid #e1d5cb;
 border-radius:18px;
 background:#fffaf5;
-transition:.3s;
-}
-
-.info:hover,
-.family:hover{
-transform:translateY(-4px);
-box-shadow:0 8px 20px rgba(70,50,35,.1);
 }
 
 .dark .info,
@@ -346,10 +262,6 @@ text-transform:uppercase;
 margin-bottom:8px;
 }
 
-/* =========================
-   COUNTDOWN
-========================= */
-
 .countdown{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -362,15 +274,6 @@ padding:15px 5px;
 background:#fffaf5;
 border:1px solid #e1d5cb;
 border-radius:16px;
-transition:.3s;
-}
-
-.count.tick{
-animation:countTick .35s ease;
-}
-
-@keyframes countTick{
-50%{transform:scale(1.08)}
 }
 
 .dark .count{
@@ -388,366 +291,41 @@ font-size:11px;
 color:var(--muted);
 }
 
-/* =========================
-   LOVE DAYS
-========================= */
 
-#loveDays{
-font-size:55px;
-color:var(--accent);
-animation:numberGlow 2.5s infinite;
-}
+/* FOTOĞRAF GALERİSİ */
 
-@keyframes numberGlow{
-50%{text-shadow:0 0 25px rgba(178,139,94,.35)}
-}
-
-/* =========================
-   STORY
-========================= */
-
-.story{
-max-width:620px;
-margin:auto;
-text-align:left;
-position:relative;
-}
-
-.story:before{
-content:"";
-position:absolute;
-left:21px;
-top:0;
-bottom:0;
-width:2px;
-background:var(--line);
-}
-
-.story-item{
-position:relative;
-padding:0 0 28px 55px;
-opacity:0;
-transform:translateX(-25px);
-transition:.7s;
-}
-
-.story-item.visible{
-opacity:1;
-transform:translateX(0);
-}
-
-.story-dot{
-position:absolute;
-left:12px;
-top:0;
-width:20px;
-height:20px;
-border-radius:50%;
-background:var(--accent);
-border:4px solid var(--paper);
-box-shadow:0 0 0 1px var(--accent);
-}
-
-.story-date{
-font-size:13px;
-letter-spacing:2px;
-color:var(--accent);
-}
-
-.story-title{
-font-size:22px;
-margin:5px 0;
-}
-
-/* =========================
-   PROGRAM
-========================= */
-
-.timeline{
-display:flex;
-flex-direction:column;
-gap:12px;
-max-width:650px;
-margin:auto;
-}
-
-.event{
-display:flex;
-align-items:center;
-gap:16px;
-padding:17px 18px;
-border:1px solid rgba(100,70,55,.16);
-border-radius:18px;
-background:rgba(255,255,255,.72);
-transition:.3s;
-}
-
-.event:hover{
-transform:translateX(6px);
-}
-
-.dark .event{
-background:#302522;
-border-color:#5c4a40;
-}
-
-.event-time{
-min-width:110px;
-font-weight:bold;
-color:var(--accent);
-}
-
-/* =========================
-   HIDDEN BOX
-========================= */
-
-.hidden-box{
-display:none;
-margin-top:20px;
-padding:22px;
-border-radius:20px;
-background:#f8efe8;
-border:1px solid #d7c3b3;
-animation:boxOpen .5s ease;
-}
-
-.dark .hidden-box{
-background:#302522;
-border-color:#665349;
-}
-
-@keyframes boxOpen{
-from{
-opacity:0;
-transform:scale(.9) translateY(10px);
-}
-to{
-opacity:1;
-transform:scale(1) translateY(0);
-}
-}
-
-/* =========================
-   SURPRISE
-========================= */
-
-.surprise-grid{
+.photo-gallery{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:10px;
+margin:20px auto 0;
+max-width:620px;
 }
 
-.surprise{
-border:1px solid #d8c8bb;
-background:#fffaf5;
-border-radius:18px;
-padding:25px 10px;
-font-size:30px;
-transition:.3s;
-}
-
-.surprise:hover{
-transform:translateY(-7px) rotate(-2deg);
-}
-
-.dark .surprise{
-background:#302522;
-color:white;
-}
-
-/* =========================
-   QUIZ
-========================= */
-
-.quiz{
-display:grid;
-gap:10px;
-max-width:520px;
-margin:auto;
-}
-
-.choice{
-border:1px solid #d8c8bb;
-background:#fffaf5;
+.photo-gallery img{
+display:block;
+width:100%;
+height:180px;
+object-fit:cover;
 border-radius:16px;
-padding:14px;
-font-size:16px;
-color:var(--ink);
-margin:4px;
-transition:.3s;
+border:1px solid #e1d5cb;
+box-shadow:0 5px 15px rgba(70,50,35,.10);
+cursor:pointer;
+transition:
+transform .3s ease,
+box-shadow .3s ease;
 }
 
-.choice:hover{
-transform:translateY(-2px);
-box-shadow:0 5px 15px rgba(70,50,35,.1);
+.photo-gallery img:hover{
+transform:scale(1.03);
+box-shadow:0 8px 20px rgba(70,50,35,.16);
 }
 
-.dark .choice{
-background:#302522;
-border-color:#5c4a40;
-}
 
-/* =========================
-   MUSIC
-========================= */
-
-.music-player{
-position:fixed;
-left:15px;
-bottom:15px;
-z-index:80;
-display:flex;
-align-items:center;
-gap:9px;
-padding:9px 13px;
-border-radius:40px;
-background:rgba(255,250,245,.96);
-border:1px solid #cdb9a8;
-box-shadow:0 6px 20px rgba(70,50,35,.15);
-font-size:13px;
-transition:.3s;
-}
-
-.dark .music-player{
-background:#302522;
-color:#fff;
-}
-
-.music-button{
-width:45px;
-height:45px;
-border-radius:50%;
-border:0;
-background:var(--accent);
-color:white;
-font-size:20px;
-}
-
-.music-player.playing .music-button{
-animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-50%{
-transform:scale(1.08);
-box-shadow:0 0 0 8px rgba(138,107,89,.1);
-}
-}
-
-/* =========================
-   THEME TOGGLE
-========================= */
-
-.theme-toggle{
-position:fixed;
-right:15px;
-bottom:15px;
-z-index:80;
-width:116px;
-height:48px;
-border-radius:30px;
-border:1px solid #cdb9a8;
-background:rgba(255,250,245,.96);
-padding:4px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-box-shadow:0 6px 20px rgba(70,50,35,.15);
-overflow:hidden;
-}
-
-.dark .theme-toggle{
-background:#302522;
-border-color:#665349;
-}
-
-.theme-text{
-position:absolute;
-left:14px;
-font-size:11px;
-font-weight:bold;
-letter-spacing:.5px;
-color:var(--ink);
-transition:.3s;
-}
-
-.theme-icon{
-width:40px;
-height:40px;
-border-radius:50%;
-background:var(--accent);
-display:grid;
-place-items:center;
-color:white;
-font-size:18px;
-position:absolute;
-right:4px;
-transition:.4s cubic-bezier(.68,-.55,.27,1.55);
-}
-
-.dark .theme-icon{
-right:72px;
-}
-
-.dark .theme-text{
-left:50px;
-}
-
-/* =========================
-   HEART RAIN
-========================= */
-
-#heartsLayer{
-position:fixed;
-inset:0;
-pointer-events:none;
-z-index:100;
-overflow:hidden;
-}
-
-.tap-heart{
-position:absolute;
-font-size:25px;
-animation:tapHeart 1.4s ease-out forwards;
-}
-
-@keyframes tapHeart{
-0%{
-opacity:1;
-transform:scale(.3);
-}
-100%{
-opacity:0;
-transform:translate(var(--tx),var(--ty)) scale(1.2) rotate(25deg);
-}
-}
-
-.rain-heart{
-position:fixed;
-top:-40px;
-pointer-events:none;
-z-index:90;
-animation:heartRain linear forwards;
-}
-
-@keyframes heartRain{
-0%{
-transform:translateY(-50px) rotate(0) scale(.5);
-opacity:0;
-}
-10%{opacity:.8}
-100%{
-transform:translateY(110vh) rotate(360deg) scale(1);
-opacity:0;
-}
-}
-
-/* =========================
-   ENVELOPE
-========================= */
+/* ZARF */
 
 .envelope-wrap{
-height:280px;
+height:250px;
 position:relative;
 overflow:hidden;
 margin:10px auto 0;
@@ -756,21 +334,16 @@ margin:10px auto 0;
 .envelope{
 position:absolute;
 left:50%;
-top:55px;
+top:45px;
 transform:translateX(-50%);
-width:150px;
-height:95px;
+width:120px;
+height:80px;
 background:#ead8c8;
 border:1px solid #b79c89;
 border-radius:7px;
 cursor:pointer;
-box-shadow:0 12px 25px rgba(70,50,35,.18);
+box-shadow:0 8px 20px rgba(70,50,35,.12);
 z-index:5;
-transition:.5s;
-}
-
-.envelope:hover{
-transform:translateX(-50%) translateY(-5px);
 }
 
 .envelope:before{
@@ -782,35 +355,24 @@ top:0;
 margin:auto;
 width:0;
 height:0;
-border-left:74px solid transparent;
-border-right:74px solid transparent;
-border-top:55px solid #d7bca7;
-transition:.5s;
-transform-origin:top;
-}
-
-.envelope.opened:before{
-transform:rotateX(180deg);
+border-left:59px solid transparent;
+border-right:59px solid transparent;
+border-top:45px solid #d7bca7;
 }
 
 .seal{
 position:absolute;
 left:50%;
-top:42px;
+top:35px;
 transform:translateX(-50%);
-width:34px;
-height:34px;
+width:30px;
+height:30px;
 border-radius:50%;
 background:#8a6b59;
 color:#fff;
 display:grid;
 place-items:center;
-z-index:7;
-transition:.5s;
-}
-
-.envelope.opened .seal{
-transform:translateX(-50%) scale(0);
+z-index:2;
 }
 
 .heart-area{
@@ -823,7 +385,7 @@ pointer-events:none;
 .small-heart{
 position:absolute;
 left:50%;
-top:125px;
+top:105px;
 opacity:0;
 z-index:10;
 }
@@ -854,7 +416,7 @@ opacity:1;
 transform:translate(-50%,0) scale(1.2);
 }
 100%{
-transform:translate(-50%,-160px) scale(.55);
+transform:translate(-50%,-145px) scale(.55);
 opacity:0;
 }
 }
@@ -864,7 +426,9 @@ opacity:0;
 opacity:0;
 transform:translate(0,0) scale(.3);
 }
-20%{opacity:1}
+20%{
+opacity:1;
+}
 100%{
 opacity:0;
 transform:translate(var(--x),var(--y)) scale(.7);
@@ -884,9 +448,274 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* =========================
-   CONFETTI
-========================= */
+
+/* AŞK HİKÂYESİ */
+
+.story{
+max-width:620px;
+margin:auto;
+text-align:left;
+position:relative;
+}
+
+.story:before{
+content:"";
+position:absolute;
+left:21px;
+top:0;
+bottom:0;
+width:2px;
+background:var(--line);
+}
+
+.story-item{
+position:relative;
+padding:0 0 28px 55px;
+}
+
+.story-dot{
+position:absolute;
+left:12px;
+top:0;
+width:20px;
+height:20px;
+border-radius:50%;
+background:var(--accent);
+border:4px solid var(--paper);
+box-shadow:0 0 0 1px var(--accent);
+}
+
+.story-date{
+font-size:13px;
+letter-spacing:2px;
+color:var(--accent);
+}
+
+.story-title{
+font-size:22px;
+margin:5px 0;
+}
+
+
+/* PROGRAM */
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:12px;
+max-width:650px;
+margin:auto;
+}
+
+.event{
+display:flex;
+align-items:center;
+gap:16px;
+padding:17px 18px;
+border:1px solid rgba(100,70,55,.16);
+border-radius:18px;
+background:rgba(255,255,255,.72);
+}
+
+.dark .event{
+background:#302522;
+border-color:#5c4a40;
+}
+
+.event-time{
+min-width:110px;
+font-weight:bold;
+}
+
+
+/* AÇILIR KUTULAR */
+
+.hidden-box{
+display:none;
+margin-top:20px;
+padding:22px;
+border-radius:20px;
+background:#f8efe8;
+border:1px solid #d7c3b3;
+animation:boxOpen .5s ease;
+}
+
+.dark .hidden-box{
+background:#302522;
+border-color:#665349;
+}
+
+@keyframes boxOpen{
+from{
+opacity:0;
+transform:scale(.95);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+
+/* SÜRPRİZ KUTULARI */
+
+.surprise-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+}
+
+.surprise{
+border:1px solid #d8c8bb;
+background:#fffaf5;
+border-radius:18px;
+padding:25px 10px;
+font-size:30px;
+transition:.3s;
+}
+
+.surprise:hover{
+transform:translateY(-4px);
+}
+
+.dark .surprise{
+background:#302522;
+color:white;
+}
+
+
+/* QUIZ */
+
+.quiz{
+display:grid;
+gap:10px;
+max-width:520px;
+margin:auto;
+}
+
+.choice{
+width:100%;
+border:1px solid #d8c8bb;
+background:#fffaf5;
+border-radius:16px;
+padding:14px;
+font-size:16px;
+color:var(--ink);
+margin:4px;
+transition:.3s;
+}
+
+.choice:hover{
+transform:translateY(-2px);
+}
+
+.dark .choice{
+background:#302522;
+border-color:#5c4a40;
+}
+
+
+/* MÜZİK */
+
+.music-player{
+position:fixed;
+left:15px;
+bottom:15px;
+z-index:80;
+display:flex;
+align-items:center;
+gap:9px;
+padding:9px 13px;
+border-radius:40px;
+background:rgba(255,250,245,.96);
+border:1px solid #cdb9a8;
+box-shadow:0 6px 20px rgba(70,50,35,.15);
+font-size:13px;
+}
+
+.dark .music-player{
+background:#302522;
+color:#fff;
+}
+
+.music-button{
+width:45px;
+height:45px;
+border-radius:50%;
+border:0;
+background:var(--accent);
+color:white;
+font-size:20px;
+}
+
+.music-player.playing .music-button{
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+}
+}
+
+
+/* TEMA */
+
+.theme-button{
+position:fixed;
+right:15px;
+bottom:15px;
+z-index:80;
+width:50px;
+height:50px;
+border-radius:50%;
+border:1px solid #cdb9a8;
+background:rgba(255,250,245,.96);
+font-size:20px;
+}
+
+.dark .theme-button{
+background:#302522;
+}
+
+
+/* PAYLAŞ */
+
+.share-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+
+/* KALP DOKUNUŞ */
+
+#heartsLayer{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:100;
+}
+
+.tap-heart{
+position:absolute;
+font-size:25px;
+animation:tapHeart 1.4s ease-out forwards;
+}
+
+@keyframes tapHeart{
+0%{
+opacity:1;
+transform:scale(.3);
+}
+100%{
+opacity:0;
+transform:translate(var(--tx),var(--ty)) scale(1.2);
+}
+}
+
+
+/* KONFETİ */
 
 .confetti{
 position:fixed;
@@ -904,33 +733,27 @@ opacity:0;
 }
 }
 
-/* =========================
-   LIGHTBOX
-========================= */
+
+/* IŞIKBOX */
 
 .lightbox{
 position:fixed;
 inset:0;
-background:rgba(0,0,0,.9);
+background:rgba(0,0,0,.88);
 display:none;
 align-items:center;
 justify-content:center;
 z-index:200;
 padding:20px;
-animation:fadeIn .3s;
 }
 
 .lightbox img{
 max-width:95%;
 max-height:90%;
+width:auto;
+height:auto;
+object-fit:contain;
 border-radius:18px;
-box-shadow:0 15px 50px rgba(0,0,0,.5);
-animation:photoZoom .4s ease;
-}
-
-@keyframes photoZoom{
-from{transform:scale(.8)}
-to{transform:scale(1)}
 }
 
 .close-lightbox{
@@ -939,12 +762,10 @@ top:20px;
 right:20px;
 color:white;
 font-size:35px;
-cursor:pointer;
 }
 
-/* =========================
-   TOAST
-========================= */
+
+/* TOAST */
 
 .toast{
 position:fixed;
@@ -956,70 +777,26 @@ color:#fff;
 padding:12px 18px;
 border-radius:30px;
 transition:.3s;
-z-index:250;
+z-index:150;
 font-family:Arial,sans-serif;
-text-align:center;
 max-width:90%;
+text-align:center;
 }
 
 .toast.show{
 transform:translate(-50%,0);
 }
 
-/* =========================
-   RSVP
-========================= */
 
-.rsvp-form{
-display:none;
-margin-top:20px;
-animation:boxOpen .5s ease;
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:25px 15px 45px;
+color:#8c7d72;
+font-size:13px;
 }
 
-.rsvp-form.show{
-display:block;
-}
-
-.rsvp-input{
-width:100%;
-padding:14px;
-border:1px solid #d8c8bb;
-border-radius:15px;
-background:#fffaf5;
-color:var(--ink);
-font-family:inherit;
-font-size:16px;
-margin-bottom:10px;
-outline:none;
-}
-
-.dark .rsvp-input{
-background:#302522;
-color:white;
-border-color:#5c4a40;
-}
-
-.rsvp-input:focus{
-border-color:var(--accent);
-box-shadow:0 0 0 3px rgba(138,107,89,.1);
-}
-
-.rsvp-success{
-display:none;
-margin-top:15px;
-padding:18px;
-border-radius:18px;
-background:#f3e7dd;
-animation:boxOpen .5s;
-}
-
-.dark .rsvp-success{
-background:#302522;
-}
-
-/* =========================
-   TEXTAREA
-========================= */
 
 textarea{
 width:100%;
@@ -1032,11 +809,6 @@ font-size:15px;
 resize:vertical;
 background:#fffaf5;
 color:var(--ink);
-outline:none;
-}
-
-textarea:focus{
-border-color:var(--accent);
 }
 
 .dark textarea{
@@ -1044,136 +816,203 @@ background:#302522;
 color:white;
 }
 
-/* =========================
-   SCROLL TOP
-========================= */
 
-#topButton{
-position:fixed;
-right:15px;
-bottom:75px;
-width:45px;
-height:45px;
-border-radius:50%;
-border:0;
-background:var(--accent);
-color:white;
-font-size:20px;
-z-index:79;
-opacity:0;
-visibility:hidden;
-transform:translateY(20px);
-transition:.3s;
-box-shadow:0 8px 20px rgba(70,50,35,.18);
+/* TABLET */
+
+@media(max-width:760px){
+
+section{
+padding:20px 12px;
 }
 
-#topButton.show{
-opacity:1;
-visibility:visible;
-transform:translateY(0);
+.card{
+max-width:100%;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-text-align:center;
-padding:25px 15px 45px;
-color:#8c7d72;
-font-size:13px;
 }
 
-/* =========================
-   MOBILE
-========================= */
 
-@media(max-width:560px){
+/* MOBİL */
+
+@media(max-width:600px){
+
+.hero{
+padding:25px 15px;
+}
+
+.smallcaps{
+font-size:11px;
+letter-spacing:3px;
+}
+
+h1{
+font-size:clamp(45px,15vw,68px);
+}
+
+.date{
+font-size:15px;
+letter-spacing:2px;
+}
+
+.venue{
+font-size:16px;
+}
+
+section{
+padding:16px 10px;
+}
+
+.card{
+padding:28px 15px;
+border-radius:22px;
+margin-bottom:16px;
+}
+
+h2{
+font-size:29px;
+}
+
+p{
+font-size:15px;
+}
 
 .info-grid,
 .family-grid{
 grid-template-columns:1fr;
 }
 
-.card{
-padding:30px 17px;
+.countdown{
+gap:5px;
 }
 
-h2{
-font-size:30px;
+.count{
+padding:13px 3px;
 }
 
 .count strong{
 font-size:21px;
 }
 
-.theme-toggle{
-right:10px;
-bottom:70px;
+.count span{
+font-size:10px;
 }
 
-#topButton{
-right:10px;
-bottom:125px;
+
+/* MOBİL FOTOĞRAFLAR */
+
+.photo-gallery{
+grid-template-columns:repeat(2,1fr);
+gap:8px;
+max-width:100%;
 }
 
+.photo-gallery img{
+height:145px;
+border-radius:14px;
 }
 
-@media(max-width:520px){
+
+/* PROGRAM */
 
 .event{
 display:block;
+padding:15px;
 }
 
 .event-time{
+min-width:auto;
 margin-bottom:5px;
 }
 
+
+/* SÜRPRİZ */
+
 .surprise-grid{
-grid-template-columns:1fr;
+grid-template-columns:repeat(3,1fr);
+}
+
+.surprise{
+padding:20px 5px;
+font-size:27px;
+}
+
+
+/* ALT BUTONLAR */
+
+.music-player{
+left:10px;
+bottom:10px;
+max-width:205px;
+padding:7px 10px;
+}
+
+.music-button{
+width:42px;
+height:42px;
+}
+
+.theme-button{
+right:10px;
+bottom:10px;
+width:46px;
+height:46px;
+}
+
+}
+
+
+/* ÇOK KÜÇÜK TELEFON */
+
+@media(max-width:380px){
+
+.photo-gallery img{
+height:125px;
+}
+
+.card{
+padding:25px 12px;
+}
+
+h2{
+font-size:27px;
+}
+
+.count strong{
+font-size:19px;
 }
 
 .music-player{
-max-width:220px;
-left:10px;
-bottom:10px;
+max-width:190px;
+font-size:11px;
 }
 
 }
 
-/* Hareket azaltma tercihi */
-@media(prefers-reduced-motion:reduce){
-
-*,
-*::before,
-*::after{
-animation-duration:.01ms!important;
-animation-iteration-count:1!important;
-scroll-behavior:auto!important;
-transition-duration:.01ms!important;
-}
-
-}
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     MÜZİK
-========================= -->
 
-<audio id="weddingMusic" loop preload="auto">
+<!-- MÜZİK -->
+
+<audio
+id="weddingMusic"
+loop
+preload="auto">
+
 <source
 src="vidssave.com%20Nazende%20Sevgilim%20(%20Instrumental%20)%20256KBPS.mp3"
 type="audio/mpeg">
+
 </audio>
+
 
 <div id="heartsLayer"></div>
 
-<!-- =========================
-     KAPAK
-========================= -->
+
+<!-- KAPAK -->
 
 <header class="hero">
 
@@ -1202,16 +1041,20 @@ GRANDPARK Düğün Salonu
 <button
 class="open-btn"
 onclick="openInvitation()">
+
 ♡ DAVETİYEMİZİ AÇ ♡
+
 </button>
 
 </div>
 
 </header>
 
+
 <main id="davetiye">
 
 <section>
+
 
 <!-- HOŞ GELDİNİZ -->
 
@@ -1234,6 +1077,7 @@ kutlamak dileğiyle…
 </p>
 
 </div>
+
 
 <!-- GERİ SAYIM -->
 
@@ -1269,12 +1113,8 @@ Büyük Güne Kalan
 
 </div>
 
-<div id="weddingToday" class="hidden-box">
-🎉 <strong>Bugün bizim günümüz!</strong><br><br>
-Sizleri düğünümüzde görmek için sabırsızlanıyoruz. ❤️
 </div>
 
-</div>
 
 <!-- BİRLİKTE GEÇEN SÜRE -->
 
@@ -1290,13 +1130,16 @@ Birlikte Geçen Günlerimiz
 27 Kasım 2021'den bugüne…
 </p>
 
-<h2 id="loveDays">0</h2>
+<h2 id="loveDays">
+0
+</h2>
 
 <p>
 gündür birlikteyiz. ❤️
 </p>
 
 </div>
+
 
 <!-- HİKÂYEMİZ -->
 
@@ -1316,47 +1159,87 @@ en güzel sayfaları…
 <div class="story">
 
 <div class="story-item">
+
 <div class="story-dot"></div>
-<div class="story-date">27 KASIM 2021</div>
-<div class="story-title">❤️ Hikâyemiz Başladı</div>
+
+<div class="story-date">
+27 KASIM 2021
+</div>
+
+<div class="story-title">
+❤️ Hikâyemiz Başladı
+</div>
+
 <p>
 Her güzel hikâyenin bir başlangıcı vardır.
 Bizim hikâyemiz de o güzel günde başladı.
 </p>
+
 </div>
 
+
 <div class="story-item">
+
 <div class="story-dot"></div>
-<div class="story-date">BİRLİKTE</div>
-<div class="story-title">🌹 Güzel Anılar</div>
+
+<div class="story-date">
+BİRLİKTE
+</div>
+
+<div class="story-title">
+🌹 Güzel Anılar
+</div>
+
 <p>
 Birlikte güldük, gezdik, hayaller kurduk
 ve birbirimizin hayatına anlam kattık.
 </p>
+
 </div>
 
+
 <div class="story-item">
+
 <div class="story-dot"></div>
-<div class="story-date">HAYALLERİMİZ</div>
-<div class="story-title">💍 Geleceğe Doğru</div>
+
+<div class="story-date">
+HAYALLERİMİZ
+</div>
+
+<div class="story-title">
+💍 Geleceğe Doğru
+</div>
+
 <p>
 Kurulan hayaller artık gerçeğe dönüşüyor.
 </p>
+
 </div>
 
+
 <div class="story-item">
+
 <div class="story-dot"></div>
-<div class="story-date">24 EYLÜL 2026</div>
-<div class="story-title">💍 Sonsuza Kadar</div>
+
+<div class="story-date">
+24 EYLÜL 2026
+</div>
+
+<div class="story-title">
+💍 Sonsuza Kadar
+</div>
+
 <p>
 Hikâyemizin en güzel sayfalarından
 birini birlikte açıyoruz.
 </p>
-</div>
 
 </div>
 
 </div>
+
+</div>
+
 
 <!-- DÜĞÜN BİLGİLERİ -->
 
@@ -1364,71 +1247,137 @@ birini birlikte açıyoruz.
 
 <div class="icon">💍</div>
 
-<h2>Düğün Bilgileri</h2>
+<h2>
+Düğün Bilgileri
+</h2>
 
 <div class="info-grid">
 
 <div class="info">
-<div class="label">Tarih</div>
-<strong>24 Eylül 2026</strong>
+
+<div class="label">
+Tarih
 </div>
+
+<strong>
+24 Eylül 2026
+</strong>
+
+</div>
+
 
 <div class="info">
-<div class="label">Saat</div>
-<strong>19:00</strong>
+
+<div class="label">
+Saat
 </div>
+
+<strong>
+19:00
+</strong>
+
+</div>
+
 
 <div class="info">
-<div class="label">Yer</div>
-<strong>GRANDPARK Düğün Salonu</strong>
+
+<div class="label">
+Yer
 </div>
+
+<strong>
+GRANDPARK Düğün Salonu
+</strong>
+
+</div>
+
 
 <div class="info">
-<div class="label">Çift</div>
-<strong>Neslişah &amp; Aydın</strong>
+
+<div class="label">
+Çift
 </div>
+
+<strong>
+Neslişah &amp; Aydın
+</strong>
 
 </div>
 
-<button class="action" onclick="openMaps()">
+</div>
+
+
+<button
+class="action"
+onclick="openMaps()">
+
 📍 Yol Tarifi
+
 </button>
 
-<button class="action" onclick="addCalendar()">
+
+<button
+class="action"
+onclick="addCalendar()">
+
 📅 Takvime Ekle
+
 </button>
 
 </div>
+
 
 <!-- AİLELER -->
 
 <div class="card">
 
-<h2>Ailelerimiz</h2>
+<h2>
+Ailelerimiz
+</h2>
 
 <div class="family-grid">
 
 <div class="family">
-<div class="label">Gelin</div>
-<strong>Nesrin ve Ahmet Azaklı</strong>
+
+<div class="label">
+Gelin
 </div>
+
+<strong>
+Nesrin ve Ahmet Azaklı
+</strong>
+
+</div>
+
 
 <div class="family">
-<div class="label">Damat</div>
-<strong>Cemile ve Cemal Yıldız</strong>
+
+<div class="label">
+Damat
 </div>
+
+<strong>
+Cemile ve Cemal Yıldız
+</strong>
 
 </div>
 
 </div>
+
+</div>
+
 
 <!-- FOTOĞRAFLAR -->
 
 <div class="card">
 
-<div class="icon">📸</div>
+<div class="icon">
+📸
+</div>
 
-<h2>Bizden Kareler</h2>
+<h2>
+Bizden Kareler
+</h2>
 
 <p>
 Birlikte biriktirdiğimiz güzel anılardan… ♡
@@ -1455,11 +1404,14 @@ onclick="showPhoto(this.src)">
 
 </div>
 
+
 <!-- ZARF -->
 
 <div class="card">
 
-<h2>Davetiye</h2>
+<h2>
+Davetiye
+</h2>
 
 <p>
 Zarfa dokunun; sevgimiz sizin için yola çıksın. ♡
@@ -1469,56 +1421,100 @@ Zarfa dokunun; sevgimiz sizin için yola çıksın. ♡
 
 <div class="heart-area">
 
-<div id="bigHeart" class="big-heart">❤️</div>
+<div
+id="bigHeart"
+class="big-heart">
 
-<div id="heart1"
-class="small-heart"
-style="--x:-80px;--y:-120px">💕</div>
-
-<div id="heart2"
-class="small-heart"
-style="--x:75px;--y:-140px">💗</div>
-
-<div id="heart3"
-class="small-heart"
-style="--x:-115px;--y:-65px">♡</div>
-
-<div id="heart4"
-class="small-heart"
-style="--x:110px;--y:-75px">💕</div>
+❤️
 
 </div>
 
 <div
+id="heart1"
+class="small-heart"
+style="--x:-80px;--y:-120px">
+
+💕
+
+</div>
+
+<div
+id="heart2"
+class="small-heart"
+style="--x:75px;--y:-140px">
+
+💗
+
+</div>
+
+<div
+id="heart3"
+class="small-heart"
+style="--x:-115px;--y:-65px">
+
+♡
+
+</div>
+
+<div
+id="heart4"
+class="small-heart"
+style="--x:110px;--y:-75px">
+
+💕
+
+</div>
+
+</div>
+
+
+<div
 class="envelope"
-id="envelope"
 onclick="openEnvelope()">
 
-<div class="seal">♡</div>
-
+<div class="seal">
+♡
 </div>
 
 </div>
 
-<div id="happiness" class="happiness">
+</div>
+
+
+<div
+id="happiness"
+class="happiness">
+
 Sevginiz kalbimizde çoğalsın ✨
+
 </div>
 
 </div>
+
 
 <!-- AŞK MEKTUBU -->
 
 <div class="card">
 
-<div class="icon">💌</div>
+<div class="icon">
+💌
+</div>
 
-<h2>Size Küçük Bir Mektup</h2>
+<h2>
+Size Küçük Bir Mektup
+</h2>
 
-<button class="action" onclick="toggleBox('letter')">
+<button
+class="action"
+onclick="toggleBox('letter')">
+
 Mektubu Aç
+
 </button>
 
-<div id="letter" class="hidden-box">
+<div
+id="letter"
+class="hidden-box">
 
 <p>
 Bugün bizim için çok özel bir gün.
@@ -1542,35 +1538,65 @@ Neslişah &amp; Aydın
 
 </div>
 
+
 <!-- SÜRPRİZ KUTULARI -->
 
 <div class="card">
 
-<div class="icon">🎁</div>
+<div class="icon">
+🎁
+</div>
 
-<h2>Bir Sürpriz Seç</h2>
+<h2>
+Bir Sürpriz Seç
+</h2>
 
-<p>Hangisini açmak istersin?</p>
+<p>
+Hangisini açmak istersin?
+</p>
 
 <div class="surprise-grid">
 
-<button class="surprise" onclick="surprise(1)">💖</button>
-<button class="surprise" onclick="surprise(2)">💍</button>
-<button class="surprise" onclick="surprise(3)">🌹</button>
+<button
+class="surprise"
+onclick="surprise(1)">
+💖
+</button>
+
+<button
+class="surprise"
+onclick="surprise(2)">
+💍
+</button>
+
+<button
+class="surprise"
+onclick="surprise(3)">
+🌹
+</button>
 
 </div>
 
-<div id="surpriseText" class="hidden-box"></div>
+<div
+id="surpriseText"
+class="hidden-box">
 
 </div>
+
+</div>
+
 
 <!-- DÜĞÜN PROGRAMI -->
 
 <div class="card">
 
-<div class="icon">🥂</div>
+<div class="icon">
+🥂
+</div>
 
-<h2>Düğün Programımız</h2>
+<h2>
+Düğün Programımız
+</h2>
 
 <div class="timeline">
 
@@ -1613,79 +1639,126 @@ Neslişah &amp; Aydın
 
 </div>
 
+
 <!-- MINI OYUN -->
 
 <div class="card">
 
-<div class="icon">🎲</div>
+<div class="icon">
+🎲
+</div>
 
-<h2>Bizi Ne Kadar Tanıyorsun?</h2>
+<h2>
+Bizi Ne Kadar Tanıyorsun?
+</h2>
 
-<p>Doğru cevabı seç!</p>
+<p>
+Doğru cevabı seç!
+</p>
 
 <div class="quiz">
 
-<button class="choice" onclick="quiz(true)">
+<button
+class="choice"
+onclick="quiz(true)">
+
 Düğün tarihi 24 Eylül 2026 mı?
+
 </button>
 
-<button class="choice" onclick="quiz(false)">
+<button
+class="choice"
+onclick="quiz(false)">
+
 Düğün tarihi 1 Ocak 2027 mi?
+
 </button>
 
-<button class="choice" onclick="quiz(true)">
+<button
+class="choice"
+onclick="quiz(true)">
+
 Düğün salonumuz GRANDPARK mı?
+
 </button>
 
 </div>
 
-<div id="quizResult" class="hidden-box"></div>
+<div
+id="quizResult"
+class="hidden-box">
 
 </div>
+
+</div>
+
 
 <!-- HEDİYE -->
 
 <div class="card">
 
-<div class="icon">🎁</div>
+<div class="icon">
+🎁
+</div>
 
-<h2>Hediye</h2>
+<h2>
+Hediye
+</h2>
 
 <p>
 En güzel hediyeniz güzel dilekleriniz.
 </p>
 
-<button class="action" onclick="toggleBox('gift')">
+<button
+class="action"
+onclick="toggleBox('gift')">
+
 Hediye Bilgileri
+
 </button>
 
-<div id="gift" class="hidden-box">
+<div
+id="gift"
+class="hidden-box">
 
-<div class="label">IBAN</div>
+<div class="label">
+IBAN
+</div>
 
 <div id="iban">
 TR85 0004 6002 3088 8000 3127 39
 </div>
 
 <p>
-<strong>Aydın Yıldız</strong>
+<strong>
+Aydın Yıldız
+</strong>
 </p>
 
-<button class="action" onclick="copyIBAN()">
+<button
+class="action"
+onclick="copyIBAN()">
+
 IBAN'ı Kopyala
+
 </button>
 
 </div>
 
 </div>
 
+
 <!-- DİLEK DEFTERİ -->
 
 <div class="card">
 
-<div class="icon">💌</div>
+<div class="icon">
+💌
+</div>
 
-<h2>Güzel Dilekleriniz</h2>
+<h2>
+Güzel Dilekleriniz
+</h2>
 
 <p>
 Bize bırakmak istediğiniz güzel mesajı yazabilirsiniz.
@@ -1696,106 +1769,124 @@ id="wishText"
 placeholder="Neslişah & Aydın'a güzel dileğiniz...">
 </textarea>
 
-<button class="action" onclick="saveWish()">
+<button
+class="action"
+onclick="saveWish()">
+
 Dileğimi Kaydet
+
 </button>
 
-<div id="wishResult" class="hidden-box"></div>
+<div
+id="wishResult"
+class="hidden-box">
 
 </div>
+
+</div>
+
 
 <!-- PAYLAŞ -->
 
 <div class="card">
 
-<div class="icon">🔗</div>
+<div class="icon">
+🔗
+</div>
 
-<h2>Davetiye'yi Paylaş</h2>
+<h2>
+Davetiye'yi Paylaş
+</h2>
 
 <div class="share-grid">
 
-<button class="action" onclick="shareSite()">
+<button
+class="action"
+onclick="shareSite()">
+
 📤 Paylaş
+
 </button>
 
-<button class="action" onclick="copySite()">
+<button
+class="action"
+onclick="copySite()">
+
 📋 Linki Kopyala
+
 </button>
 
 </div>
 
 </div>
+
 
 <!-- KATILIM -->
 
 <div class="card">
 
-<div class="icon">💍</div>
+<div class="icon">
+💍
+</div>
 
-<h2>Katılım Durumu</h2>
+<h2>
+Katılım Durumu
+</h2>
 
 <p>
 Düğünümüzde sizi aramızda görebilecek miyiz?
 </p>
 
-<button class="choice" onclick="goToForm('yes')">
+<button
+class="choice"
+onclick="goToForm('yes')">
+
 💍 Katılacağım
+
 </button>
 
-<button class="choice" onclick="goToForm('no')">
+<button
+class="choice"
+onclick="goToForm('no')">
+
 🤍 Katılamayacağım
-</button>
 
-<div id="rsvpForm" class="rsvp-form">
-
-<input
-id="guestName"
-class="rsvp-input"
-type="text"
-placeholder="Adınız Soyadınız">
-
-<input
-id="guestCount"
-class="rsvp-input"
-type="number"
-min="1"
-max="20"
-placeholder="Kaç kişi geleceksiniz?">
-
-<textarea
-id="guestNote"
-class="rsvp-input"
-placeholder="Notunuz..."></textarea>
-
-<button class="action" onclick="submitRSVP()">
-💌 Katılımı Gönder
 </button>
 
 </div>
 
-<div id="rsvpSuccess" class="rsvp-success"></div>
-
-</div>
 
 <!-- GİZLİ SÜRPRİZ -->
 
 <div class="card">
 
-<div class="icon">🔐</div>
+<div class="icon">
+🔐
+</div>
 
-<h2>Gizli Sürpriz</h2>
+<h2>
+Gizli Sürpriz
+</h2>
 
 <p>
 Butona dokun ve sürprizi keşfet…
 </p>
 
-<button class="action" onclick="secretSurprise()">
+<button
+class="action"
+onclick="secretSurprise()">
+
 ♡ Sürprizi Aç ♡
+
 </button>
 
-<div id="secret" class="hidden-box">
+<div
+id="secret"
+class="hidden-box">
 
-<h2>Seni Seviyoruz ❤️</h2>
+<h2>
+Seni Seviyoruz ❤️
+</h2>
 
 <p>
 Bu güzel günümüzde bizimle olduğun için
@@ -1806,13 +1897,18 @@ teşekkür ederiz.
 
 </div>
 
+
 <!-- SON -->
 
 <div class="card">
 
-<div class="icon">🌹</div>
+<div class="icon">
+🌹
+</div>
 
-<h2>Sizi Bekliyoruz</h2>
+<h2>
+Sizi Bekliyoruz
+</h2>
 
 <p>
 24 Eylül 2026 Perşembe günü
@@ -1821,20 +1917,29 @@ GRANDPARK Düğün Salonu'nda
 buluşmak dileğiyle…
 </p>
 
-<button class="action" onclick="confetti()">
+<button
+class="action"
+onclick="confetti()">
+
 🎉 Kutlayalım
+
 </button>
 
-<button class="action"
+<button
+class="action"
 onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
 Başa Dön
+
 </button>
 
 </div>
 
+
 </section>
 
 </main>
+
 
 <!-- FOTOĞRAF BÜYÜTME -->
 
@@ -1843,11 +1948,14 @@ id="lightbox"
 class="lightbox"
 onclick="closePhoto()">
 
-<span class="close-lightbox">×</span>
+<span class="close-lightbox">
+×
+</span>
 
 <img id="lightboxImg">
 
 </div>
+
 
 <!-- MÜZİK -->
 
@@ -1857,80 +1965,85 @@ onclick="closePhoto()">
 id="musicButton"
 class="music-button"
 onclick="toggleMusic()">
+
 🎵
+
 </button>
 
 <div>
-<strong>Nazende Sevgilim</strong>
+
+<strong>
+Nazende Sevgilim
+</strong>
+
 <br>
-<small>Instrumental ♫</small>
-</div>
+
+<small>
+Instrumental ♫
+</small>
 
 </div>
 
-<!-- AÇIK / KOYU -->
+</div>
+
+
+<!-- GECE MODU -->
 
 <button
-id="themeToggle"
-class="theme-toggle"
+id="themeButton"
+class="theme-button"
 onclick="toggleTheme()">
 
-<span class="theme-text">Açık / Koyu</span>
-
-<span
-id="themeIcon"
-class="theme-icon">
-☀️
-</span>
+🌙
 
 </button>
 
-<!-- YUKARI ÇIK -->
 
-<button
-id="topButton"
-onclick="window.scrollTo({top:0,behavior:'smooth'})">
-↑
-</button>
+<div
+id="toast"
+class="toast">
+</div>
 
-<div id="toast" class="toast"></div>
 
 <footer>
 Neslişah &amp; Aydın · 24.09.2026
 </footer>
 
+
 <script>
 
-/* =========================
-   TOAST
-========================= */
+
+/* TOAST */
 
 function showToast(text){
 
 const t=document.getElementById("toast");
 
 t.textContent=text;
+
 t.classList.add("show");
 
-clearTimeout(window.toastTimer);
+setTimeout(function(){
 
-window.toastTimer=setTimeout(function(){
 t.classList.remove("show");
+
 },2200);
 
 }
 
 
-/* =========================
-   MÜZİK
-========================= */
+/* MÜZİK */
 
 const music=document.getElementById("weddingMusic");
+
 const musicButton=document.getElementById("musicButton");
+
 
 function playMusic(){
 
-music.play().then(function(){
+music.play()
+
+.then(function(){
 
 musicButton.textContent="🎵";
 
@@ -1938,15 +2051,20 @@ document
 .querySelector(".music-player")
 .classList.add("playing");
 
-}).catch(function(){});
+})
+
+.catch(function(){});
 
 }
+
 
 function toggleMusic(){
 
 if(music.paused){
 
-music.play().then(function(){
+music.play()
+
+.then(function(){
 
 musicButton.textContent="🎵";
 
@@ -1954,15 +2072,23 @@ document
 .querySelector(".music-player")
 .classList.add("playing");
 
-showToast("Nazende Sevgilim çalıyor ♡");
+showToast(
+"Nazende Sevgilim çalıyor ♡"
+);
 
-}).catch(function(){
+})
 
-showToast("Müzik dosyası bulunamadı.");
+.catch(function(){
+
+showToast(
+"Müzik dosyası bulunamadı."
+);
 
 });
 
-}else{
+}
+
+else{
 
 music.pause();
 
@@ -1972,16 +2098,16 @@ document
 .querySelector(".music-player")
 .classList.remove("playing");
 
-showToast("Müzik kapatıldı");
+showToast(
+"Müzik kapatıldı"
+);
 
 }
 
 }
 
 
-/* =========================
-   DAVETİYE AÇILIŞI
-========================= */
+/* DAVETİYE AÇILIŞI */
 
 function openInvitation(){
 
@@ -1995,59 +2121,36 @@ playMusic();
 
 confetti();
 
-startHeartRain(18);
-
 }
 
 
-/* =========================
-   COUNTDOWN
-========================= */
-
-let lastSecond=-1;
+/* GERİ SAYIM */
 
 function updateCountdown(){
 
 const target=
-new Date("2026-09-24T19:00:00").getTime();
+new Date(
+"2026-09-24T19:00:00"
+).getTime();
 
-let diff=target-Date.now();
+let diff=
+target-Date.now();
 
 if(diff<0){
 diff=0;
 }
 
-const days=Math.floor(diff/86400000);
-const hours=Math.floor(diff/3600000)%24;
-const minutes=Math.floor(diff/60000)%60;
-const seconds=Math.floor(diff/1000)%60;
+document.getElementById("days").textContent=
+Math.floor(diff/86400000);
 
-document.getElementById("days").textContent=days;
-document.getElementById("hours").textContent=hours;
-document.getElementById("minutes").textContent=minutes;
-document.getElementById("seconds").textContent=seconds;
+document.getElementById("hours").textContent=
+Math.floor(diff/3600000)%24;
 
-if(seconds!==lastSecond){
+document.getElementById("minutes").textContent=
+Math.floor(diff/60000)%60;
 
-const el=document.getElementById("seconds");
-
-el.classList.remove("tick");
-
-void el.offsetWidth;
-
-el.classList.add("tick");
-
-lastSecond=seconds;
-
-}
-
-if(diff===0){
-
-document
-.getElementById("weddingToday")
-.style.display="block";
-
-}
+document.getElementById("seconds").textContent=
+Math.floor(diff/1000)%60;
 
 }
 
@@ -2056,37 +2159,31 @@ updateCountdown();
 setInterval(updateCountdown,1000);
 
 
-/* =========================
-   LOVE DAYS
-========================= */
+/* BİRLİKTE GEÇEN GÜNLER */
 
 function updateLoveDays(){
 
 const start=
 new Date("2021-11-27T00:00:00");
 
-const diff=Date.now()-start;
+const diff=
+Date.now()-start;
 
-const days=Math.floor(diff/86400000);
+const days=
+Math.floor(diff/86400000);
 
-document.getElementById("loveDays").textContent=days;
+document
+.getElementById("loveDays")
+.textContent=days;
 
 }
 
 updateLoveDays();
 
-setInterval(updateLoveDays,60000);
 
-
-/* =========================
-   ZARF
-========================= */
+/* ZARF */
 
 function openEnvelope(){
-
-const envelope=document.getElementById("envelope");
-
-envelope.classList.add("opened");
 
 const ids=[
 "bigHeart",
@@ -2098,7 +2195,8 @@ const ids=[
 
 ids.forEach(function(id){
 
-const e=document.getElementById(id);
+const e=
+document.getElementById(id);
 
 e.classList.remove("fly");
 
@@ -2112,23 +2210,19 @@ document
 .getElementById("happiness")
 .classList.add("show");
 
-showToast("Sevgi kalpten kalbe uçtu! ❤️");
-
-heartExplosion(
-window.innerWidth/2,
-window.innerHeight/2
+showToast(
+"Sevgi kalpten kalbe uçtu! ❤️"
 );
 
 }
 
 
-/* =========================
-   AÇILIR KUTULAR
-========================= */
+/* AÇILIR KUTULAR */
 
 function toggleBox(id){
 
-const box=document.getElementById(id);
+const box=
+document.getElementById(id);
 
 box.style.display=
 box.style.display==="block"
@@ -2138,13 +2232,12 @@ box.style.display==="block"
 }
 
 
-/* =========================
-   SÜRPRİZLER
-========================= */
+/* SÜRPRİZLER */
 
 function surprise(number){
 
-const box=document.getElementById("surpriseText");
+const box=
+document.getElementById("surpriseText");
 
 box.style.display="block";
 
@@ -2182,13 +2275,12 @@ window.innerHeight/2
 }
 
 
-/* =========================
-   QUIZ
-========================= */
+/* TEST */
 
 function quiz(correct){
 
-const result=document.getElementById("quizResult");
+const result=
+document.getElementById("quizResult");
 
 result.style.display="block";
 
@@ -2197,12 +2289,8 @@ if(correct){
 result.innerHTML=
 "🎉 Tebrikler! Doğru cevap. ❤️";
 
-heartExplosion(
-window.innerWidth/2,
-window.innerHeight/2
-);
-
-}else{
+}
+else{
 
 result.innerHTML=
 "😄 Bir daha düşün!";
@@ -2212,70 +2300,98 @@ result.innerHTML=
 }
 
 
-/* =========================
-   FOTOĞRAF
-========================= */
+/* FOTOĞRAF */
 
 function showPhoto(src){
 
-document.getElementById("lightboxImg").src=src;
+document
+.getElementById("lightboxImg")
+.src=src;
 
-document.getElementById("lightbox").style.display="flex";
+document
+.getElementById("lightbox")
+.style.display="flex";
 
 }
+
 
 function closePhoto(){
 
-document.getElementById("lightbox").style.display="none";
+document
+.getElementById("lightbox")
+.style.display="none";
 
 }
 
 
-/* =========================
-   IBAN
-========================= */
+/* IBAN */
 
 function copyIBAN(){
 
 const iban=
-document.getElementById("iban").textContent.trim();
+document
+.getElementById("iban")
+.textContent
+.trim();
 
 if(navigator.clipboard){
 
-navigator.clipboard.writeText(iban).then(function(){
+navigator.clipboard
+.writeText(iban)
 
-showToast("IBAN kopyalandı ❤️");
+.then(function(){
 
-}).catch(function(){
+showToast(
+"IBAN kopyalandı ❤️"
+);
 
-showToast("IBAN kopyalanamadı.");
+})
+
+.catch(function(){
+
+showToast(
+"IBAN kopyalanamadı."
+);
 
 });
 
 }
+else{
+
+showToast("Tarayıcınız kopyalamayı desteklemiyor.");
+
+}
 
 }
 
 
-/* =========================
-   DİLEK
-========================= */
+/* DİLEK */
 
 function saveWish(){
 
 const text=
-document.getElementById("wishText").value.trim();
+document
+.getElementById("wishText")
+.value
+.trim();
 
 if(!text){
 
-showToast("Önce dileğini yaz ❤️");
+showToast(
+"Önce dileğini yaz ❤️"
+);
+
 return;
 
 }
 
-localStorage.setItem("weddingWish",text);
+localStorage.setItem(
+"weddingWish",
+text
+);
 
-const result=document.getElementById("wishResult");
+const result=
+document.getElementById("wishResult");
 
 result.style.display="block";
 
@@ -2283,9 +2399,14 @@ result.innerHTML=
 "💌 <strong>Güzel dileğiniz:</strong><br><br>"+
 escapeHTML(text);
 
-showToast("Dileğiniz kaydedildi ❤️");
+showToast(
+"Dileğiniz kaydedildi ❤️"
+);
 
 }
+
+
+/* GÜVENLİ METİN */
 
 function escapeHTML(text){
 
@@ -2297,24 +2418,26 @@ return div.innerHTML;
 
 }
 
-const savedWish=localStorage.getItem("weddingWish");
+
+const savedWish=
+localStorage.getItem("weddingWish");
 
 if(savedWish){
 
-const result=document.getElementById("wishResult");
+document
+.getElementById("wishResult")
+.style.display="block";
 
-result.style.display="block";
-
-result.innerHTML=
+document
+.getElementById("wishResult")
+.innerHTML=
 "💌 <strong>Güzel dileğiniz:</strong><br><br>"+
 escapeHTML(savedWish);
 
 }
 
 
-/* =========================
-   HARİTA
-========================= */
+/* HARİTA */
 
 function openMaps(){
 
@@ -2326,9 +2449,7 @@ window.open(
 }
 
 
-/* =========================
-   TAKVİM
-========================= */
+/* TAKVİM */
 
 function addCalendar(){
 
@@ -2340,26 +2461,32 @@ const url=
 "&details=Neslişah+%26+Aydın+Düğün+Davetiyesi"+
 "&location=GRANDPARK+Düğün+Salonu";
 
-window.open(url,"_blank");
+window.open(
+url,
+"_blank"
+);
 
 }
 
 
-/* =========================
-   PAYLAŞ
-========================= */
+/* PAYLAŞ */
 
 function shareSite(){
 
 if(navigator.share){
 
 navigator.share({
+
 title:"Neslişah & Aydın",
 text:"Düğün davetiyemiz ❤️",
 url:window.location.href
-}).catch(function(){});
 
-}else{
+})
+.catch(function(){});
+
+}
+
+else{
 
 copySite();
 
@@ -2367,130 +2494,68 @@ copySite();
 
 }
 
+
 function copySite(){
 
-if(navigator.clipboard){
-
-navigator.clipboard
-.writeText(window.location.href)
-.then(function(){
-
-showToast("Davetiye linki kopyalandı ❤️");
-
-})
-.catch(function(){
+if(!navigator.clipboard){
 
 showToast("Link kopyalanamadı.");
 
-});
-
-}
-
-}
-
-
-/* =========================
-   RSVP
-========================= */
-
-let rsvpStatus="";
-
-function goToForm(status){
-
-rsvpStatus=status;
-
-const form=document.getElementById("rsvpForm");
-
-form.classList.add("show");
-
-form.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
-
-if(status==="no"){
-
-document.getElementById("guestCount").value="0";
-
-document.getElementById("guestCount").style.display="none";
-
-document.getElementById("guestNote").placeholder=
-"Katılamama sebebinizi veya güzel dileğinizi yazabilirsiniz...";
-
-}else{
-
-document.getElementById("guestCount").style.display="block";
-
-document.getElementById("guestNote").placeholder=
-"Notunuz...";
-
-}
-
-}
-
-function submitRSVP(){
-
-const name=
-document.getElementById("guestName").value.trim();
-
-const count=
-document.getElementById("guestCount").value;
-
-const note=
-document.getElementById("guestNote").value.trim();
-
-if(!name){
-
-showToast("Lütfen adınızı yazın ❤️");
 return;
 
 }
 
-const response={
-name:name,
-count:count,
-note:note,
-status:rsvpStatus,
-date:new Date().toISOString()
-};
+navigator.clipboard
+.writeText(window.location.href)
 
-localStorage.setItem(
-"weddingRSVP",
-JSON.stringify(response)
+.then(function(){
+
+showToast(
+"Davetiye linki kopyalandı ❤️"
 );
 
-const success=document.getElementById("rsvpSuccess");
+})
 
-success.style.display="block";
+.catch(function(){
 
-if(rsvpStatus==="yes"){
+showToast(
+"Link kopyalanamadı."
+);
 
-success.innerHTML=
-"💍 <strong>Teşekkür ederiz "+escapeHTML(name)+"!</strong><br><br>"+
-"Sizi "+count+" kişi olarak bekliyoruz. ❤️";
-
-}else{
-
-success.innerHTML=
-"🤍 <strong>Teşekkür ederiz "+escapeHTML(name)+"!</strong><br><br>"+
-"Katılamayacak olsanız da güzel dilekleriniz bizim için çok değerli.";
-
-}
-
-showToast("Katılım bilginiz kaydedildi ❤️");
-
-confetti();
+});
 
 }
 
 
-/* =========================
-   GİZLİ SÜRPRİZ
-========================= */
+/* KATILIM */
+
+function goToForm(type){
+
+if(type==="yes"){
+
+showToast(
+"Katılacağınızı bilmek bizi çok mutlu etti! ❤️"
+);
+
+}
+else{
+
+showToast(
+"Canınız sağ olsun, güzel dilekleriniz bizim için yeterli. 🤍"
+);
+
+}
+
+}
+
+
+/* GİZLİ SÜRPRİZ */
 
 function secretSurprise(){
 
-document.getElementById("secret").style.display="block";
+document
+.getElementById("secret")
+.style.display="block";
 
 confetti();
 
@@ -2499,64 +2564,64 @@ window.innerWidth/2,
 window.innerHeight/2
 );
 
-startHeartRain(30);
-
 }
 
 
-/* =========================
-   TEMA
-========================= */
-
-function applyTheme(dark){
-
-document.body.classList.toggle("dark",dark);
-
-const icon=document.getElementById("themeIcon");
-
-icon.textContent=dark?"☀️":"🌙";
-
-}
+/* GECE MODU */
 
 function toggleTheme(){
 
-const dark=
-!document.body.classList.contains("dark");
+document
+.body
+.classList
+.toggle("dark");
 
-applyTheme(dark);
+const dark=
+document
+.body
+.classList
+.contains("dark");
+
+document
+.getElementById("themeButton")
+.textContent=
+dark?"☀️":"🌙";
 
 localStorage.setItem(
 "darkMode",
-dark?"true":"false"
-);
-
-showToast(
 dark
-?"Koyu tema açıldı 🌙"
-:"Açık tema açıldı ☀️"
 );
 
 }
 
-if(localStorage.getItem("darkMode")==="true"){
 
-applyTheme(true);
+if(
+localStorage.getItem("darkMode")==="true"
+){
+
+document
+.body
+.classList
+.add("dark");
+
+document
+.getElementById("themeButton")
+.textContent="☀️";
 
 }
 
 
-/* =========================
-   KALP PATLAMASI
-========================= */
+/* KALP EFEKTİ */
 
-document.addEventListener("click",function(e){
+document.addEventListener(
+"click",
+function(e){
 
 if(
 e.target.tagName==="BUTTON" ||
 e.target.tagName==="IMG" ||
 e.target.closest(".music-player") ||
-e.target.closest(".envelope") ||
-e.target.closest(".theme-toggle")
+e.target.closest(".envelope")
 ){
 
 return;
@@ -2568,108 +2633,50 @@ e.clientX,
 e.clientY
 );
 
-});
+}
+);
 
 
 function heartExplosion(x,y){
 
-const layer=document.getElementById("heartsLayer");
+const layer=
+document.getElementById("heartsLayer");
 
-for(let i=0;i<6;i++){
+for(let i=0;i<5;i++){
 
-const h=document.createElement("div");
+const h=
+document.createElement("div");
 
 h.className="tap-heart";
 
 h.textContent=
-["♡","💕","💗","❤️","✨","🌸"]
-[Math.floor(Math.random()*6)];
+["♡","💕","💗","❤️","✨"]
+[
+Math.floor(
+Math.random()*5
+)
+];
 
 h.style.left=x+"px";
 h.style.top=y+"px";
 
 h.style.setProperty(
 "--tx",
-(Math.random()*180-90)+"px"
+(Math.random()*160-80)+"px"
 );
 
 h.style.setProperty(
 "--ty",
-(-Math.random()*170-30)+"px"
+(-Math.random()*150-30)+"px"
 );
 
 layer.appendChild(h);
 
-setTimeout(function(){
-h.remove();
-},1400);
-
-}
-
-}
-
-
-/* =========================
-   KALP YAĞMURU
-========================= */
-
-let heartRainTimer=null;
-
-function createRainHeart(){
-
-const heart=document.createElement("div");
-
-heart.className="rain-heart";
-
-const symbols=[
-"❤️",
-"💕",
-"💗",
-"💖",
-"♡",
-"💞",
-"🌸"
-];
-
-heart.textContent=
-symbols[Math.floor(Math.random()*symbols.length)];
-
-heart.style.left=
-Math.random()*100+"vw";
-
-heart.style.fontSize=
-(12+Math.random()*22)+"px";
-
-heart.style.animationDuration=
-(4+Math.random()*5)+"s";
-
-heart.style.opacity=
-.35+Math.random()*.5;
-
-document.body.appendChild(heart);
-
-setTimeout(function(){
-heart.remove();
-},9000);
-
-}
-
-function startHeartRain(amount){
-
-for(let i=0;i<amount;i++){
-
 setTimeout(
-createRainHeart,
-i*80
-);
-
-}
-
-if(!heartRainTimer){
-
-heartRainTimer=setInterval(
-createRainHeart,
-850
+function(){
+h.remove();
+},
+1400
 );
 
 }
@@ -2677,17 +2684,7 @@ createRainHeart,
 }
 
 
-/* Sayfa açıldıktan biraz sonra hafif kalp yağmuru */
-setTimeout(function(){
-
-startHeartRain(10);
-
-},2500);
-
-
-/* =========================
-   KONFETİ
-========================= */
+/* KONFETİ */
 
 function confetti(){
 
@@ -2697,19 +2694,21 @@ const symbols=[
 "✦",
 "✧",
 "✨",
-"🌸",
-"💕"
+"🌸"
 ];
 
-for(let i=0;i<40;i++){
+for(let i=0;i<35;i++){
 
-const c=document.createElement("div");
+const c=
+document.createElement("div");
 
 c.className="confetti";
 
 c.textContent=
 symbols[
-Math.floor(Math.random()*symbols.length)
+Math.floor(
+Math.random()*symbols.length
+)
 ];
 
 c.style.left=
@@ -2718,107 +2717,21 @@ Math.random()*100+"vw";
 c.style.animationDelay=
 Math.random()*1.5+"s";
 
-c.style.fontSize=
-(12+Math.random()*14)+"px";
-
 document.body.appendChild(c);
 
-setTimeout(function(){
+setTimeout(
+function(){
 c.remove();
-},5000);
-
-}
-
-}
-
-
-/* =========================
-   SCROLL ANİMASYONLARI
-========================= */
-
-const observer=
-new IntersectionObserver(
-function(entries){
-
-entries.forEach(function(entry){
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("visible");
-
-}
-
-});
-
 },
-{
-threshold:.12
-}
+5000
 );
 
-document
-.querySelectorAll(".card")
-.forEach(function(card){
-
-observer.observe(card);
-
-});
-
-
-const storyObserver=
-new IntersectionObserver(
-function(entries){
-
-entries.forEach(function(entry){
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("visible");
+}
 
 }
 
-});
 
-},
-{
-threshold:.2
-}
-);
-
-document
-.querySelectorAll(".story-item")
-.forEach(function(item){
-
-storyObserver.observe(item);
-
-});
-
-
-/* =========================
-   YUKARI ÇIK BUTONU
-========================= */
-
-const topButton=
-document.getElementById("topButton");
-
-window.addEventListener("scroll",function(){
-
-if(window.scrollY>500){
-
-topButton.classList.add("show");
-
-}else{
-
-topButton.classList.remove("show");
-
-}
-
-});
-
-
-/* =========================
-   İLK DOKUNUŞTA MÜZİK
-========================= */
+/* İLK DOKUNUŞTA MÜZİK */
 
 document.addEventListener(
 "touchstart",
@@ -2832,6 +2745,7 @@ once:true
 }
 );
 
+
 document.addEventListener(
 "click",
 function(){
@@ -2843,49 +2757,6 @@ playMusic();
 once:true
 }
 );
-
-
-/* =========================
-   KLAVYE
-========================= */
-
-document.addEventListener("keydown",function(e){
-
-if(e.key==="Escape"){
-
-closePhoto();
-
-}
-
-});
-
-
-/* =========================
-   RSVP KAYITLI BİLGİ
-========================= */
-
-const savedRSVP=
-localStorage.getItem("weddingRSVP");
-
-if(savedRSVP){
-
-try{
-
-const data=JSON.parse(savedRSVP);
-
-document.getElementById("guestName").value=
-data.name||"";
-
-if(data.status==="yes"){
-
-document.getElementById("guestCount").value=
-data.count||"";
-
-}
-
-}catch(e){}
-
-}
 
 </script>
 
