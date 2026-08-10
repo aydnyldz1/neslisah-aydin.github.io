@@ -18,7 +18,9 @@
 
 *{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
@@ -110,6 +112,12 @@ h1{
   font-size:16px;
   letter-spacing:2px;
   cursor:pointer;
+  transition:.25s;
+}
+
+.open-btn:hover{
+  transform:translateY(-2px);
+  background:#fffaf4;
 }
 
 section{
@@ -243,14 +251,12 @@ p{
   font-family:inherit;
   font-size:16px;
   color:var(--ink);
+  transition:.2s;
 }
 
 .choice:hover{
   background:#ead9ca;
 }
-
-
-/* FOTOĞRAFLAR */
 
 .photo-gallery{
   display:grid;
@@ -269,31 +275,33 @@ p{
 }
 
 
-/* ZARF */
+/* =========================
+   ROMANTİK ZARF
+========================= */
 
-.envelope-wrap{
+.kalp-zarf-alani{
   height:250px;
   position:relative;
   overflow:hidden;
-  margin:10px auto 0;
+  margin:15px auto 0;
 }
 
-.envelope{
+.romantik-zarf{
   position:absolute;
-  left:50%;
-  top:45px;
-  transform:translateX(-50%);
   width:120px;
   height:80px;
+  left:50%;
+  top:55px;
+  transform:translateX(-50%);
   background:#ead8c8;
   border:1px solid #b79c89;
-  border-radius:7px;
+  border-radius:8px;
   cursor:pointer;
+  z-index:20;
   box-shadow:0 8px 20px rgba(70,50,35,.12);
-  z-index:5;
 }
 
-.envelope:before{
+.romantik-zarf:before{
   content:"";
   position:absolute;
   left:0;
@@ -307,7 +315,7 @@ p{
   border-top:45px solid #d7bca7;
 }
 
-.seal{
+.romantik-muhur{
   position:absolute;
   left:50%;
   top:35px;
@@ -316,49 +324,38 @@ p{
   height:30px;
   border-radius:50%;
   background:#8a6b59;
-  color:#fff;
+  color:white;
   display:grid;
   place-items:center;
-  font-size:13px;
-  z-index:2;
+  font-size:14px;
+  z-index:25;
 }
 
-
-/* KALP ANİMASYONU */
-
-.heart-area{
+.buyuk-kalp{
   position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
+  left:50%;
+  top:65px;
+  transform:translate(-50%,0) scale(.2);
+  font-size:65px;
+  opacity:0;
+  z-index:10;
   pointer-events:none;
 }
 
-.big-heart{
-  position:absolute;
-  left:50%;
-  top:105px;
-  transform:translate(-50%,0) scale(.2);
-  font-size:70px;
-  opacity:0;
-  z-index:10;
+.buyuk-kalp.kalp-ucuyor{
+  animation:kalpYukseliyor 2.5s ease-out forwards;
 }
 
-.big-heart.fly{
-  animation:heartFly 2.4s ease-out forwards;
-}
-
-@keyframes heartFly{
+@keyframes kalpYukseliyor{
 
   0%{
-    transform:translate(-50%,0) scale(.2);
     opacity:0;
+    transform:translate(-50%,20px) scale(.2);
   }
 
   15%{
     opacity:1;
-    transform:translate(-50%,0) scale(1.2);
+    transform:translate(-50%,0) scale(1.25);
   }
 
   35%{
@@ -366,41 +363,38 @@ p{
   }
 
   100%{
-    transform:translate(-50%,-145px) scale(.55);
     opacity:0;
+    transform:translate(-50%,-145px) scale(.55);
   }
-
 }
 
-
-/* KÜÇÜK KALPLER */
-
-.small-heart{
+.kucuk-kalp{
   position:absolute;
   left:50%;
-  top:110px;
+  top:75px;
   font-size:22px;
   opacity:0;
   z-index:9;
+  pointer-events:none;
 }
 
-.small-heart.fly1{
-  animation:smallHeart1 2.2s ease-out forwards;
+.kucuk-kalp.uc1{
+  animation:kalpSol 2.3s ease-out forwards;
 }
 
-.small-heart.fly2{
-  animation:smallHeart2 2.4s ease-out forwards;
+.kucuk-kalp.uc2{
+  animation:kalpSag 2.4s ease-out forwards;
 }
 
-.small-heart.fly3{
-  animation:smallHeart3 2.1s ease-out forwards;
+.kucuk-kalp.uc3{
+  animation:kalpSol2 2.2s ease-out forwards;
 }
 
-.small-heart.fly4{
-  animation:smallHeart4 2.5s ease-out forwards;
+.kucuk-kalp.uc4{
+  animation:kalpSag2 2.5s ease-out forwards;
 }
 
-@keyframes smallHeart1{
+@keyframes kalpSol{
 
   0%{
     opacity:0;
@@ -413,12 +407,11 @@ p{
 
   100%{
     opacity:0;
-    transform:translate(-80px,-120px) scale(.8) rotate(-15deg);
+    transform:translate(-90px,-115px) scale(.8);
   }
-
 }
 
-@keyframes smallHeart2{
+@keyframes kalpSag{
 
   0%{
     opacity:0;
@@ -431,12 +424,11 @@ p{
 
   100%{
     opacity:0;
-    transform:translate(75px,-140px) scale(.7) rotate(15deg);
+    transform:translate(85px,-130px) scale(.7);
   }
-
 }
 
-@keyframes smallHeart3{
+@keyframes kalpSol2{
 
   0%{
     opacity:0;
@@ -449,12 +441,11 @@ p{
 
   100%{
     opacity:0;
-    transform:translate(-115px,-65px) scale(.6);
+    transform:translate(-120px,-65px) scale(.6);
   }
-
 }
 
-@keyframes smallHeart4{
+@keyframes kalpSag2{
 
   0%{
     opacity:0;
@@ -467,28 +458,28 @@ p{
 
   100%{
     opacity:0;
-    transform:translate(110px,-75px) scale(.65);
+    transform:translate(115px,-75px) scale(.65);
   }
-
 }
 
-
-.happiness{
+.kalp-mesaji{
   opacity:0;
-  transform:translateY(15px);
+  transform:translateY(12px);
   font-size:25px;
   color:#7c5e4e;
   transition:1s;
   margin-top:5px;
 }
 
-.happiness.show{
+.kalp-mesaji.goster{
   opacity:1;
   transform:translateY(0);
 }
 
 
-/* ETKİNLİKLER */
+/* =========================
+   ETKİNLİKLER
+========================= */
 
 .events{
   padding:55px 20px;
@@ -542,7 +533,9 @@ p{
 }
 
 
-/* MÜZİK */
+/* =========================
+   MÜZİK
+========================= */
 
 .music-button{
   position:fixed;
@@ -573,11 +566,12 @@ p{
   50%{
     transform:scale(1.08);
   }
-
 }
 
 
-/* TOAST */
+/* =========================
+   TOAST
+========================= */
 
 .toast{
   position:fixed;
@@ -604,6 +598,11 @@ footer{
   color:#8c7d72;
   font-size:13px;
 }
+
+
+/* =========================
+   TELEFON
+========================= */
 
 @media(max-width:560px){
 
@@ -645,18 +644,18 @@ footer{
 <body>
 
 
-<!-- MÜZİK -->
+<!-- =========================
+     MÜZİK
+========================= -->
 
 <audio id="weddingMusic" loop preload="auto">
-
-  <source
-    src="muzik.mp3"
-    type="audio/mpeg">
-
+  <source src="muzik.mp3" type="audio/mpeg">
 </audio>
 
 
-<!-- KAPAK -->
+<!-- =========================
+     KAPAK
+========================= -->
 
 <header class="hero" id="top">
 
@@ -700,7 +699,9 @@ footer{
 <section>
 
 
-<!-- HOŞ GELDİNİZ -->
+<!-- =========================
+     HOŞ GELDİNİZ
+========================= -->
 
 <div class="card">
 
@@ -723,7 +724,9 @@ footer{
 </div>
 
 
-<!-- BİLGİLER -->
+<!-- =========================
+     BİLGİLER
+========================= -->
 
 <div class="card">
 
@@ -756,7 +759,9 @@ footer{
 </div>
 
 
-<!-- AİLELER -->
+<!-- =========================
+     AİLELER
+========================= -->
 
 <div class="card">
 
@@ -794,7 +799,9 @@ footer{
 </div>
 
 
-<!-- FOTOĞRAFLAR -->
+<!-- =========================
+     FOTOĞRAFLAR
+========================= -->
 
 <div class="card">
 
@@ -833,7 +840,9 @@ footer{
 </div>
 
 
-<!-- ZARF VE KALP -->
+<!-- =========================
+     ZARF VE KALP
+========================= -->
 
 <div class="card">
 
@@ -846,42 +855,50 @@ footer{
   </p>
 
 
-  <div class="envelope-wrap">
+  <div class="kalp-zarf-alani">
+
+    <!-- BÜYÜK KALP -->
+
+    <div
+      id="buyukKalp"
+      class="buyuk-kalp">
+
+      ❤️
+
+    </div>
 
 
-    <!-- KALPLER -->
+    <!-- KÜÇÜK KALPLER -->
 
-    <div class="heart-area">
+    <div
+      id="kucukKalp1"
+      class="kucuk-kalp">
 
-      <div
-        id="bigHeart"
-        class="big-heart">
-        ❤️
-      </div>
+      💕
 
-      <div
-        id="heart1"
-        class="small-heart">
-        💕
-      </div>
+    </div>
 
-      <div
-        id="heart2"
-        class="small-heart">
-        💗
-      </div>
+    <div
+      id="kucukKalp2"
+      class="kucuk-kalp">
 
-      <div
-        id="heart3"
-        class="small-heart">
-        ♡
-      </div>
+      💗
 
-      <div
-        id="heart4"
-        class="small-heart">
-        💕
-      </div>
+    </div>
+
+    <div
+      id="kucukKalp3"
+      class="kucuk-kalp">
+
+      ♡
+
+    </div>
+
+    <div
+      id="kucukKalp4"
+      class="kucuk-kalp">
+
+      💕
 
     </div>
 
@@ -889,10 +906,10 @@ footer{
     <!-- ZARF -->
 
     <div
-      class="envelope"
-      onclick="openEnvelope()">
+      class="romantik-zarf"
+      onclick="kalbiAc()">
 
-      <div class="seal">
+      <div class="romantik-muhur">
         ♡
       </div>
 
@@ -902,8 +919,8 @@ footer{
 
 
   <div
-    id="happiness"
-    class="happiness">
+    id="kalpMesaji"
+    class="kalp-mesaji">
 
     Sevginiz kalbimizde çoğalsın ✨
 
@@ -912,7 +929,9 @@ footer{
 </div>
 
 
-<!-- HEDİYE -->
+<!-- =========================
+     HEDİYE
+========================= -->
 
 <div class="card">
 
@@ -970,7 +989,9 @@ footer{
 </div>
 
 
-<!-- KATILIM -->
+<!-- =========================
+     KATILIM
+========================= -->
 
 <div class="card">
 
@@ -1008,7 +1029,9 @@ footer{
 </div>
 
 
-<!-- SON -->
+<!-- =========================
+     SON
+========================= -->
 
 <div class="card">
 
@@ -1037,12 +1060,13 @@ footer{
 </section>
 
 
-<!-- ETKİNLİKLER -->
+<!-- =========================
+     ETKİNLİKLER
+========================= -->
 
 <section
   class="events"
   id="etkinlikler">
-
 
   <div class="section-title">
 
@@ -1176,7 +1200,9 @@ footer{
 </main>
 
 
-<!-- TOAST -->
+<!-- =========================
+     BİLDİRİM
+========================= -->
 
 <div
   id="toast"
@@ -1184,7 +1210,9 @@ footer{
 </div>
 
 
-<!-- MÜZİK BUTONU -->
+<!-- =========================
+     MÜZİK BUTONU
+========================= -->
 
 <button
   id="musicButton"
@@ -1205,7 +1233,9 @@ footer{
 <script>
 
 
-/* TOAST */
+/* =========================
+   BİLDİRİM
+========================= */
 
 function showToast(text){
 
@@ -1225,7 +1255,9 @@ function showToast(text){
 }
 
 
-/* MÜZİK */
+/* =========================
+   MÜZİK
+========================= */
 
 const weddingMusic =
   document.getElementById("weddingMusic");
@@ -1237,21 +1269,18 @@ const musicButton =
 function startMusic(){
 
   weddingMusic.play()
+    .then(function(){
 
-  .then(function(){
+      musicButton.classList.add("playing");
+      musicButton.textContent = "🎵";
 
-    musicButton.classList.add("playing");
+    })
+    .catch(function(){
 
-    musicButton.textContent = "🎵";
+      /* iPhone otomatik oynatmayı
+         engellerse ilk dokunuşta çalışır */
 
-  })
-
-  .catch(function(){
-
-    /* iPhone otomatik oynatmayı
-       engellerse ilk dokunuşta çalışır */
-
-  });
+    });
 
 }
 
@@ -1261,22 +1290,19 @@ function toggleMusic(){
   if(weddingMusic.paused){
 
     weddingMusic.play()
+      .then(function(){
 
-    .then(function(){
+        musicButton.classList.add("playing");
+        musicButton.textContent = "🎵";
 
-      musicButton.classList.add("playing");
+        showToast("Müzik açıldı ♡");
 
-      musicButton.textContent = "🎵";
+      })
+      .catch(function(){
 
-      showToast("Müzik açıldı ♡");
+        showToast("Müzik dosyası bulunamadı.");
 
-    })
-
-    .catch(function(){
-
-      showToast("Müzik dosyası bulunamadı.");
-
-    });
+      });
 
   }
 
@@ -1295,7 +1321,9 @@ function toggleMusic(){
 }
 
 
-/* SAYFA AÇILINCA MÜZİK */
+/* =========================
+   SAYFA AÇILINCA MÜZİK
+========================= */
 
 window.addEventListener(
   "load",
@@ -1307,7 +1335,9 @@ window.addEventListener(
 );
 
 
-/* İLK DOKUNUŞTA MÜZİK */
+/* =========================
+   İLK DOKUNUŞTA MÜZİK
+========================= */
 
 document.addEventListener(
   "touchstart",
@@ -1322,7 +1352,9 @@ document.addEventListener(
 );
 
 
-/* DAVETİYEYİ AÇ */
+/* =========================
+   DAVETİYEYİ AÇ
+========================= */
 
 function openInvitation(){
 
@@ -1337,7 +1369,9 @@ function openInvitation(){
 }
 
 
-/* GOOGLE FORM */
+/* =========================
+   GOOGLE FORM
+========================= */
 
 function goToForm(type){
 
@@ -1359,64 +1393,63 @@ function goToForm(type){
 }
 
 
-/* ZARFA DOKUNUNCA KALPLER */
+/* =========================
+   ZARFA DOKUNUNCA KALPLER
+========================= */
 
-function openEnvelope(){
+function kalbiAc(){
 
-  const bigHeart =
-    document.getElementById("bigHeart");
+  const buyuk =
+    document.getElementById("buyukKalp");
 
-  const heart1 =
-    document.getElementById("heart1");
+  const k1 =
+    document.getElementById("kucukKalp1");
 
-  const heart2 =
-    document.getElementById("heart2");
+  const k2 =
+    document.getElementById("kucukKalp2");
 
-  const heart3 =
-    document.getElementById("heart3");
+  const k3 =
+    document.getElementById("kucukKalp3");
 
-  const heart4 =
-    document.getElementById("heart4");
+  const k4 =
+    document.getElementById("kucukKalp4");
 
-
-  const happiness =
-    document.getElementById("happiness");
+  const mesaj =
+    document.getElementById("kalpMesaji");
 
 
   /* Animasyonu sıfırla */
 
-  bigHeart.classList.remove("fly");
+  buyuk.classList.remove("kalp-ucuyor");
 
-  heart1.classList.remove("fly1");
+  k1.classList.remove("uc1");
+  k2.classList.remove("uc2");
+  k3.classList.remove("uc3");
+  k4.classList.remove("uc4");
 
-  heart2.classList.remove("fly2");
-
-  heart3.classList.remove("fly3");
-
-  heart4.classList.remove("fly4");
+  mesaj.classList.remove("goster");
 
 
-  void bigHeart.offsetWidth;
+  /* Tarayıcıya animasyonu yeniden başlatmasını söyle */
+
+  void buyuk.offsetWidth;
 
 
   /* Kalpleri başlat */
 
-  bigHeart.classList.add("fly");
+  buyuk.classList.add("kalp-ucuyor");
 
-  heart1.classList.add("fly1");
-
-  heart2.classList.add("fly2");
-
-  heart3.classList.add("fly3");
-
-  heart4.classList.add("fly4");
+  k1.classList.add("uc1");
+  k2.classList.add("uc2");
+  k3.classList.add("uc3");
+  k4.classList.add("uc4");
 
 
   setTimeout(function(){
 
-    happiness.classList.add("show");
+    mesaj.classList.add("goster");
 
-  },1200);
+  },1000);
 
 
   showToast(
@@ -1426,7 +1459,9 @@ function openEnvelope(){
 }
 
 
-/* HEDİYE */
+/* =========================
+   HEDİYE
+========================= */
 
 function toggleGift(){
 
@@ -1441,7 +1476,9 @@ function toggleGift(){
 }
 
 
-/* IBAN */
+/* =========================
+   IBAN KOPYALA
+========================= */
 
 function copyIBAN(){
 
