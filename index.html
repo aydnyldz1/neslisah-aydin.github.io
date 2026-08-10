@@ -2,1634 +2,1480 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#8a6b59">
 <title>Neslişah & Aydın | Düğün Davetiyesi</title>
 
 <style>
 :root{
-  --bg:#f6eee7;
-  --paper:#fffdf9;
-  --ink:#403731;
-  --muted:#786e66;
-  --line:#d8c8bb;
-  --accent:#8a6b59;
-  --accent2:#b9977d;
-  --shadow:0 12px 35px rgba(72,52,40,.10);
+--bg:#f6eee7;
+--paper:#fffdf9;
+--ink:#403732;
+--muted:#786e66;
+--line:#d8c8bb;
+--accent:#8a6b59;
+--gold:#b28b5e;
+--shadow:0 12px 35px rgba(72,52,40,.12);
 }
 
 *{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
-  margin:0;
-  background:linear-gradient(180deg,#f2e8df,#faf5ef);
-  color:var(--ink);
-  font-family:Georgia,"Times New Roman",serif;
-  overflow-x:hidden;
+margin:0;
+background:linear-gradient(180deg,#f2e8df,#faf5ef);
+color:var(--ink);
+font-family:Georgia,"Times New Roman",serif;
+overflow-x:hidden;
+transition:.4s;
 }
 
-/* AÇILIŞ */
-
-#intro{
-  position:fixed;
-  inset:0;
-  z-index:999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#f8f0e9,#ead9ca);
-  transition:opacity 1s,visibility 1s;
+body.dark{
+--bg:#171313;
+--paper:#241d1b;
+--ink:#f4e9df;
+--muted:#c5b6aa;
+--line:#5c4a40;
+--accent:#c6a28c;
+--gold:#d2ad79;
+background:linear-gradient(180deg,#171313,#2b211e);
 }
 
-#intro.hide{
-  opacity:0;
-  visibility:hidden;
+button{
+font-family:inherit;
+cursor:pointer;
 }
-
-.intro-content{
-  text-align:center;
-  padding:30px;
-}
-
-.intro-heart{
-  font-size:65px;
-  animation:heartbeat 1.5s infinite;
-}
-
-.intro-title{
-  font-size:clamp(38px,10vw,70px);
-  margin:15px 0;
-  font-weight:400;
-}
-
-.intro-sub{
-  letter-spacing:4px;
-  color:var(--accent);
-  font-size:13px;
-}
-
-.intro-button{
-  margin-top:30px;
-  padding:15px 28px;
-  border-radius:50px;
-  border:1px solid var(--accent);
-  background:#fffaf5;
-  color:#654f42;
-  font-family:inherit;
-  font-size:16px;
-  cursor:pointer;
-}
-
-@keyframes heartbeat{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.18)}
-}
-
-
-/* HERO */
 
 .hero{
-  min-height:100svh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:30px 18px;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 15% 15%,rgba(255,255,255,.9),transparent 30%),
-    radial-gradient(circle at 90% 65%,rgba(214,191,173,.45),transparent 34%),
-    linear-gradient(135deg,#f8f0e9,#ead9ca);
+min-height:100svh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:30px 18px;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(circle at 15% 15%,rgba(255,255,255,.9),transparent 30%),
+radial-gradient(circle at 90% 65%,rgba(214,191,173,.45),transparent 34%),
+linear-gradient(135deg,#f8f0e9,#ead9ca);
 }
 
-.hero:before,
-.hero:after{
-  content:"";
-  position:absolute;
-  border:1px solid rgba(138,107,89,.25);
-  border-radius:50%;
-}
-
-.hero:before{
-  width:420px;
-  height:420px;
-  right:-170px;
-  bottom:-130px;
-}
-
-.hero:after{
-  width:300px;
-  height:300px;
-  left:-180px;
-  top:-120px;
+.dark .hero{
+background:
+radial-gradient(circle at 50% 20%,rgba(190,150,120,.15),transparent 30%),
+linear-gradient(135deg,#211918,#30231f);
 }
 
 .hero-inner{
-  text-align:center;
-  max-width:700px;
-  position:relative;
-  z-index:2;
+text-align:center;
+max-width:720px;
+position:relative;
+z-index:2;
 }
 
 .smallcaps{
-  letter-spacing:5px;
-  font-size:13px;
-  text-transform:uppercase;
-  color:var(--accent);
+letter-spacing:5px;
+font-size:13px;
+text-transform:uppercase;
+color:var(--accent);
 }
 
 h1{
-  font-size:clamp(48px,13vw,88px);
-  line-height:.95;
-  font-weight:400;
-  margin:22px 0 12px;
+font-size:clamp(48px,13vw,88px);
+line-height:.95;
+font-weight:400;
+margin:22px 0 12px;
 }
 
 .amp{
-  font-style:italic;
-  color:var(--accent);
+font-style:italic;
+color:var(--accent);
 }
 
 .date{
-  font-size:18px;
-  letter-spacing:3px;
-  margin:25px 0;
+font-size:18px;
+letter-spacing:3px;
+margin:25px 0;
 }
 
 .venue{
-  font-size:18px;
-  color:var(--muted);
+font-size:18px;
+color:var(--muted);
+}
+
+.divider{
+width:70px;
+height:1px;
+background:var(--line);
+margin:20px auto;
 }
 
 .open-btn,
 .action{
-  border-radius:50px;
-  cursor:pointer;
-  font-family:inherit;
+border:0;
+border-radius:50px;
+padding:14px 25px;
+background:var(--accent);
+color:white;
+font-size:16px;
+margin-top:12px;
+box-shadow:0 8px 18px rgba(80,55,40,.12);
 }
 
 .open-btn{
-  margin-top:34px;
-  border:1px solid var(--accent);
-  background:rgba(255,250,244,.65);
-  color:#5d4b40;
-  padding:15px 28px;
-  font-size:16px;
-  letter-spacing:2px;
-  transition:.3s;
+border:1px solid var(--accent);
+background:rgba(255,250,244,.55);
+color:#5d4b40;
+letter-spacing:2px;
 }
 
-.open-btn:hover{
-  transform:translateY(-3px);
+.dark .open-btn{
+background:rgba(40,30,28,.7);
+color:#f5e9df;
 }
-
-
-/* GENEL */
 
 section{
-  padding:24px 16px;
+padding:24px 16px;
 }
 
 .card{
-  max-width:760px;
-  margin:0 auto 22px;
-  background:rgba(255,253,249,.95);
-  border:1px solid rgba(216,200,187,.75);
-  border-radius:28px;
-  padding:34px 22px;
-  box-shadow:var(--shadow);
-  text-align:center;
+max-width:760px;
+margin:0 auto 22px;
+background:rgba(255,253,249,.95);
+border:1px solid rgba(216,200,187,.75);
+border-radius:28px;
+padding:34px 22px;
+box-shadow:var(--shadow);
+text-align:center;
+}
+
+.dark .card{
+background:rgba(36,29,27,.95);
+border-color:#5a4940;
 }
 
 .icon{
-  font-size:30px;
-  margin-bottom:12px;
+font-size:30px;
+margin-bottom:12px;
 }
 
 h2{
-  font-size:34px;
-  font-weight:400;
-  margin:5px 0 18px;
+font-size:34px;
+font-weight:400;
+margin:5px 0 18px;
 }
 
 p{
-  line-height:1.7;
-  color:var(--muted);
-  font-size:16px;
+line-height:1.7;
+color:var(--muted);
+font-size:16px;
 }
 
-.divider{
-  width:70px;
-  height:1px;
-  background:var(--line);
-  margin:20px auto;
+.info-grid,
+.family-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
 }
 
-
-/* GERİ SAYIM */
-
-.countdown{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:20px;
+.info,
+.family{
+padding:18px;
+border:1px solid #e1d5cb;
+border-radius:18px;
+background:#fffaf5;
 }
 
-.count-box{
-  padding:16px 8px;
-  background:#fffaf5;
-  border:1px solid #e1d5cb;
-  border-radius:18px;
-}
-
-.count-number{
-  font-size:28px;
-  color:#654f42;
-}
-
-.count-label{
-  font-size:10px;
-  letter-spacing:1px;
-  color:#a28d7e;
-  margin-top:5px;
-}
-
-
-/* BİLGİLER */
-
-.info-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  text-align:left;
-}
-
-.info{
-  padding:18px;
-  border:1px solid #e1d5cb;
-  border-radius:18px;
-  background:#fffaf5;
+.dark .info,
+.dark .family{
+background:#302522;
+border-color:#5c4a40;
 }
 
 .label{
-  font-size:11px;
-  letter-spacing:2px;
-  color:#a28d7e;
-  text-transform:uppercase;
-  margin-bottom:8px;
+font-size:11px;
+letter-spacing:2px;
+color:#a28d7e;
+text-transform:uppercase;
+margin-bottom:8px;
 }
-
-
-/* AİLELER */
-
-.family-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.family{
-  border:1px solid #e1d5cb;
-  border-radius:20px;
-  padding:22px 12px;
-  background:#fffaf5;
-}
-
-.family strong{
-  font-size:20px;
-  font-weight:400;
-}
-
-
-/* FOTOĞRAFLAR */
 
 .photo-gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:20px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:20px;
 }
 
 .photo-gallery img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:20px;
-  border:1px solid #e1d5cb;
-  box-shadow:0 6px 18px rgba(70,50,35,.10);
-  cursor:pointer;
-  transition:.3s;
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:20px;
+border:1px solid #e1d5cb;
+box-shadow:0 6px 18px rgba(70,50,35,.10);
+cursor:pointer;
+transition:.3s;
 }
 
 .photo-gallery img:hover{
-  transform:scale(1.02);
+transform:scale(1.02);
 }
-
-
-/* FOTOĞRAF TAM EKRAN */
-
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(35,28,24,.92);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:900;
-  padding:20px;
-}
-
-.lightbox.show{
-  display:flex;
-}
-
-.lightbox img{
-  max-width:95%;
-  max-height:90vh;
-  object-fit:contain;
-  border-radius:15px;
-}
-
-.lightbox-close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  border:0;
-  background:#fffaf5;
-  color:#654f42;
-  font-size:25px;
-}
-
-
-/* HİKAYEMİZ */
-
-.story{
-  display:grid;
-  gap:12px;
-  margin-top:20px;
-}
-
-.story-item{
-  text-align:left;
-  padding:18px;
-  border-left:3px solid #b9977d;
-  background:#fffaf5;
-  border-radius:0 18px 18px 0;
-}
-
-.story-year{
-  font-size:12px;
-  letter-spacing:2px;
-  color:#a28d7e;
-}
-
-.story-title{
-  font-size:20px;
-  margin:5px 0;
-}
-
-
-/* ZARF */
 
 .envelope-wrap{
-  height:270px;
-  position:relative;
-  overflow:hidden;
-  margin:10px auto 0;
+height:250px;
+position:relative;
+overflow:hidden;
+margin:10px auto 0;
 }
 
 .envelope{
-  position:absolute;
-  left:50%;
-  top:65px;
-  transform:translateX(-50%);
-  width:120px;
-  height:80px;
-  background:#ead8c8;
-  border:1px solid #b79c89;
-  border-radius:7px;
-  cursor:pointer;
-  box-shadow:0 8px 20px rgba(70,50,35,.12);
-  z-index:20;
+position:absolute;
+left:50%;
+top:45px;
+transform:translateX(-50%);
+width:120px;
+height:80px;
+background:#ead8c8;
+border:1px solid #b79c89;
+border-radius:7px;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(70,50,35,.12);
+z-index:5;
 }
 
 .envelope:before{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  margin:auto;
-  width:0;
-  height:0;
-  border-left:59px solid transparent;
-  border-right:59px solid transparent;
-  border-top:45px solid #d7bca7;
+content:"";
+position:absolute;
+left:0;
+right:0;
+top:0;
+margin:auto;
+width:0;
+height:0;
+border-left:59px solid transparent;
+border-right:59px solid transparent;
+border-top:45px solid #d7bca7;
 }
 
 .seal{
-  position:absolute;
-  left:50%;
-  top:35px;
-  transform:translateX(-50%);
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  background:#8a6b59;
-  color:#fff;
-  display:grid;
-  place-items:center;
-  font-size:13px;
-  z-index:25;
+position:absolute;
+left:50%;
+top:35px;
+transform:translateX(-50%);
+width:30px;
+height:30px;
+border-radius:50%;
+background:#8a6b59;
+color:#fff;
+display:grid;
+place-items:center;
+z-index:2;
 }
 
-
-/* KALPLER */
+.heart-area{
+position:absolute;
+inset:0;
+pointer-events:none;
+}
 
 .big-heart,
 .small-heart{
-  position:absolute;
-  left:50%;
-  opacity:0;
-  pointer-events:none;
+position:absolute;
+left:50%;
+top:105px;
+opacity:0;
+z-index:10;
 }
 
 .big-heart{
-  top:115px;
-  font-size:65px;
-  z-index:10;
+font-size:70px;
 }
 
 .small-heart{
-  top:125px;
-  font-size:23px;
-  z-index:9;
+font-size:22px;
 }
 
 .big-heart.fly{
-  animation:heartFly 2.3s ease-out forwards;
+animation:heartFly 2.4s ease-out forwards;
 }
 
-.small-heart.fly1{
-  animation:heart1 2.2s ease-out forwards;
-}
-
-.small-heart.fly2{
-  animation:heart2 2.4s ease-out forwards;
-}
-
-.small-heart.fly3{
-  animation:heart3 2.1s ease-out forwards;
-}
-
-.small-heart.fly4{
-  animation:heart4 2.5s ease-out forwards;
+.small-heart.fly{
+animation:heartSmall 2.3s ease-out forwards;
 }
 
 @keyframes heartFly{
-  0%{transform:translate(-50%,0) scale(.2);opacity:0}
-  15%{opacity:1;transform:translate(-50%,0) scale(1.2)}
-  100%{transform:translate(-50%,-150px) scale(.55);opacity:0}
+0%{transform:translate(-50%,0) scale(.2);opacity:0}
+15%{opacity:1;transform:translate(-50%,0) scale(1.2)}
+100%{transform:translate(-50%,-145px) scale(.55);opacity:0}
 }
 
-@keyframes heart1{
-  0%{transform:translate(0,0);opacity:0}
-  20%{opacity:1}
-  100%{transform:translate(-90px,-130px);opacity:0}
-}
-
-@keyframes heart2{
-  0%{transform:translate(0,0);opacity:0}
-  20%{opacity:1}
-  100%{transform:translate(80px,-145px);opacity:0}
-}
-
-@keyframes heart3{
-  0%{transform:translate(0,0);opacity:0}
-  20%{opacity:1}
-  100%{transform:translate(-120px,-75px);opacity:0}
-}
-
-@keyframes heart4{
-  0%{transform:translate(0,0);opacity:0}
-  20%{opacity:1}
-  100%{transform:translate(115px,-80px);opacity:0}
+@keyframes heartSmall{
+0%{opacity:0;transform:translate(0,0) scale(.3)}
+20%{opacity:1}
+100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.7)}
 }
 
 .happiness{
-  opacity:0;
-  transform:translateY(15px);
-  font-size:25px;
-  color:#7c5e4e;
-  transition:1s;
+opacity:0;
+transform:translateY(15px);
+font-size:24px;
+color:var(--accent);
+transition:1s;
 }
 
 .happiness.show{
-  opacity:1;
-  transform:translateY(0);
+opacity:1;
+transform:translateY(0);
 }
 
-
-/* BUTONLAR */
-
-.action{
-  display:inline-block;
-  border:0;
-  padding:13px 24px;
-  background:var(--accent);
-  color:white;
-  font-size:16px;
-  margin-top:10px;
+.countdown{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+margin-top:20px;
 }
 
-.action.secondary{
-  background:#fffaf5;
-  color:#654f42;
-  border:1px solid #cdb9a8;
+.count{
+padding:15px 5px;
+background:#fffaf5;
+border:1px solid #e1d5cb;
+border-radius:16px;
 }
 
-.map-button{
-  display:inline-block;
-  text-decoration:none;
-  margin-top:12px;
-  padding:13px 24px;
-  border-radius:50px;
-  background:#8a6b59;
-  color:white;
+.dark .count{
+background:#302522;
+border-color:#5c4a40;
 }
 
-
-/* HEDİYE */
-
-.gift-box{
-  display:none;
-  margin-top:20px;
-  padding:20px;
-  border-radius:20px;
-  background:#f8efe8;
-  border:1px dashed #bca28e;
+.count strong{
+display:block;
+font-size:25px;
 }
 
-.iban{
-  font-family:Arial,sans-serif;
-  font-size:18px;
-  letter-spacing:1px;
-  word-break:break-word;
-}
-
-
-/* KATILIM */
-
-.survey{
-  display:grid;
-  gap:10px;
-  max-width:440px;
-  margin:20px auto 0;
-}
-
-.choice{
-  border:1px solid #d8c8bb;
-  background:#fffaf5;
-  border-radius:16px;
-  padding:14px;
-  cursor:pointer;
-  font-family:inherit;
-  font-size:16px;
-  color:var(--ink);
-}
-
-
-/* ETKİNLİKLER */
-
-.events{
-  padding:55px 20px;
-  max-width:760px;
-  margin:auto;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:28px;
-}
-
-.section-title span{
-  font-size:24px;
-}
-
-.section-title h2{
-  margin:8px 0;
-}
-
-.section-title p{
-  margin:0;
-  opacity:.7;
+.count span{
+font-size:11px;
+color:var(--muted);
 }
 
 .timeline{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+display:flex;
+flex-direction:column;
+gap:12px;
+max-width:650px;
+margin:auto;
 }
 
 .event{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  padding:17px 18px;
-  border:1px solid rgba(100,70,55,.16);
-  border-radius:18px;
-  background:rgba(255,255,255,.72);
-  box-shadow:0 5px 18px rgba(80,55,40,.05);
+display:flex;
+align-items:center;
+gap:16px;
+padding:17px 18px;
+border:1px solid rgba(100,70,55,.16);
+border-radius:18px;
+background:rgba(255,255,255,.72);
+}
+
+.dark .event{
+background:#302522;
+border-color:#5c4a40;
 }
 
 .event-time{
-  min-width:125px;
-  font-weight:700;
+min-width:130px;
+font-weight:bold;
 }
 
-.event-name{
-  font-size:16px;
+.story{
+position:relative;
+max-width:650px;
+margin:auto;
+text-align:left;
 }
 
+.story-item{
+border-left:2px solid var(--accent);
+padding:5px 0 20px 22px;
+margin-left:15px;
+}
 
-/* MÜZİK */
+.story-item strong{
+font-size:20px;
+font-weight:400;
+}
+
+.secret,
+.letter,
+.quiz-result,
+.wishes-box{
+display:none;
+margin-top:20px;
+padding:22px;
+border-radius:20px;
+background:#f8efe8;
+border:1px solid #d7c3b3;
+}
+
+.dark .secret,
+.dark .letter,
+.dark .quiz-result,
+.dark .wishes-box{
+background:#302522;
+border-color:#665349;
+}
+
+.quiz{
+display:grid;
+gap:10px;
+max-width:500px;
+margin:auto;
+}
+
+.choice{
+border:1px solid #d8c8bb;
+background:#fffaf5;
+border-radius:16px;
+padding:14px;
+font-size:16px;
+color:var(--ink);
+}
+
+.dark .choice{
+background:#302522;
+border-color:#5c4a40;
+}
+
+.music-player{
+position:fixed;
+left:15px;
+bottom:15px;
+z-index:80;
+display:flex;
+align-items:center;
+gap:9px;
+padding:9px 13px;
+border-radius:40px;
+background:rgba(255,250,245,.96);
+border:1px solid #cdb9a8;
+box-shadow:0 6px 20px rgba(70,50,35,.15);
+font-size:13px;
+}
+
+.dark .music-player{
+background:#302522;
+color:#fff;
+}
 
 .music-button{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:500;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  border:1px solid #c8b09f;
-  background:rgba(255,250,245,.97);
-  color:#654f42;
-  font-size:23px;
-  cursor:pointer;
-  box-shadow:0 6px 20px rgba(70,50,35,.15);
+width:45px;
+height:45px;
+border-radius:50%;
+border:0;
+background:var(--accent);
+color:white;
+font-size:20px;
 }
 
+.music-player.playing .music-button{
+animation:pulse 1.5s infinite;
+}
 
-/* TOAST */
+@keyframes pulse{
+50%{transform:scale(1.08)}
+}
+
+.theme-button{
+position:fixed;
+right:15px;
+bottom:15px;
+z-index:80;
+width:50px;
+height:50px;
+border-radius:50%;
+border:1px solid #cdb9a8;
+background:rgba(255,250,245,.96);
+font-size:20px;
+}
+
+.dark .theme-button{
+background:#302522;
+}
+
+#heartsLayer{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:100;
+}
+
+.tap-heart{
+position:absolute;
+font-size:25px;
+animation:tapHeart 1.4s ease-out forwards;
+}
+
+@keyframes tapHeart{
+0%{opacity:1;transform:scale(.3)}
+100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(1.2)}
+}
+
+.confetti{
+position:fixed;
+top:-20px;
+font-size:20px;
+z-index:110;
+animation:confettiFall 4s linear forwards;
+pointer-events:none;
+}
+
+@keyframes confettiFall{
+to{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+}
+
+.lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:200;
+padding:20px;
+}
+
+.lightbox img{
+max-width:95%;
+max-height:90%;
+border-radius:18px;
+}
+
+.close-lightbox{
+position:absolute;
+top:20px;
+right:20px;
+color:white;
+font-size:30px;
+}
 
 .toast{
-  position:fixed;
-  left:50%;
-  bottom:85px;
-  transform:translate(-50%,120px);
-  background:#403832;
-  color:#fff;
-  padding:12px 18px;
-  border-radius:30px;
-  transition:.3s;
-  z-index:1000;
-  font-family:Arial,sans-serif;
-  font-size:14px;
+position:fixed;
+left:50%;
+bottom:80px;
+transform:translate(-50%,120px);
+background:#403832;
+color:#fff;
+padding:12px 18px;
+border-radius:30px;
+transition:.3s;
+z-index:150;
+font-family:Arial,sans-serif;
 }
 
 .toast.show{
-  transform:translate(-50%,0);
+transform:translate(-50%,0);
 }
 
-
-/* YÜZEN KALPLER */
-
-.floating-heart{
-  position:fixed;
-  bottom:-30px;
-  font-size:20px;
-  pointer-events:none;
-  animation:floatHeart 5s linear forwards;
-  z-index:100;
+footer{
+text-align:center;
+padding:25px 15px 45px;
+color:#8c7d72;
+font-size:13px;
 }
-
-@keyframes floatHeart{
-  0%{
-    transform:translateY(0) scale(.7);
-    opacity:0;
-  }
-  15%{opacity:.8}
-  100%{
-    transform:translateY(-110vh) translateX(40px) scale(1.1);
-    opacity:0;
-  }
-}
-
-
-/* MOBİL */
 
 @media(max-width:560px){
-
-  .info-grid,
-  .family-grid{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    padding:30px 17px;
-  }
-
-  h2{
-    font-size:30px;
-  }
-
-  .countdown{
-    grid-template-columns:1fr 1fr;
-  }
+.info-grid,.family-grid{grid-template-columns:1fr}
+.card{padding:30px 17px}
+h2{font-size:30px}
+.count strong{font-size:21px}
 }
 
 @media(max-width:520px){
-
-  .event{
-    display:block;
-  }
-
-  .event-time{
-    min-width:0;
-    margin-bottom:5px;
-  }
+.event{display:block}
+.event-time{margin-bottom:5px}
 }
 </style>
 </head>
 
 <body>
 
-
-<!-- AÇILIŞ -->
-
-<div id="intro">
-
-  <div class="intro-content">
-
-    <div class="intro-heart">❤️</div>
-
-    <div class="intro-sub">
-      DÜĞÜN DAVETİYESİ
-    </div>
-
-    <div class="intro-title">
-      Neslişah &amp; Aydın
-    </div>
-
-    <div class="divider"></div>
-
-    <div>
-      24 EYLÜL 2026
-    </div>
-
-    <button class="intro-button" onclick="openInvitation()">
-      ✦ Davetiyeyi Aç ✦
-    </button>
-
-  </div>
-
-</div>
-
-
 <!-- MÜZİK -->
-
 <audio id="weddingMusic" loop preload="auto">
-
-  <!-- BURAYA MÜZİK DOSYANIN GERÇEK ADINI YAZ -->
-  <source src="muzik.mp3" type="audio/mpeg">
-
+<source src="vidssave.com%20Nazende%20Sevgilim%20(%20Instrumental%20)%20256KBPS.mp3" type="audio/mpeg">
 </audio>
 
+<div id="heartsLayer"></div>
 
 <!-- KAPAK -->
+<header class="hero">
 
-<header class="hero" id="top">
+<div class="hero-inner">
 
-  <div class="hero-inner">
+<div class="smallcaps">Düğün Davetiyesi</div>
 
-    <div class="smallcaps">
-      Düğün Davetiyesi
-    </div>
+<h1>
+Neslişah <span class="amp">&amp;</span> Aydın
+</h1>
 
-    <h1>
-      Neslişah
-      <span class="amp">&amp;</span>
-      Aydın
-    </h1>
+<div class="divider"></div>
 
-    <div class="divider"></div>
+<div class="date">
+24 EYLÜL 2026 · 19:00
+</div>
 
-    <div class="date">
-      24 EYLÜL 2026 · 19:00
-    </div>
+<div class="venue">
+GRANDPARK Düğün Salonu
+</div>
 
-    <div class="venue">
-      GRANDPARK Düğün Salonu
-    </div>
+<button class="open-btn" onclick="openInvitation()">
+♡ DAVETİYEMİZİ AÇ ♡
+</button>
 
-    <button class="open-btn" onclick="openInvitation()">
-      ✦ DAVETİYEMİZİ AÇ ✦
-    </button>
-
-  </div>
-
+</div>
 </header>
-
 
 <main id="davetiye">
 
 <section>
 
-
 <!-- HOŞ GELDİNİZ -->
-
 <div class="card">
 
-  <div class="icon">♡</div>
+<div class="icon">♡</div>
 
-  <h2>
-    Bu özel günümüzde<br>
-    sizleri de aramızda görmekten<br>
-    mutluluk duyarız.
-  </h2>
+<h2>
+Bu özel günümüzde<br>
+sizleri de aramızda görmekten<br>
+mutluluk duyarız.
+</h2>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <p>
-    Sevgiyle başlayan hikâyemizi,
-    siz değerli sevdiklerimizle birlikte
-    kutlamak dileğiyle…
-  </p>
+<p>
+Sevgiyle başlayan hikâyemizi,
+siz değerli sevdiklerimizle birlikte
+kutlamak dileğiyle…
+</p>
 
 </div>
-
 
 <!-- GERİ SAYIM -->
-
 <div class="card">
 
-  <div class="icon">⏳</div>
+<div class="icon">⏳</div>
 
-  <h2>
-    Büyük Güne Kalan
-  </h2>
+<h2>Büyük Güne Kalan</h2>
 
-  <div class="countdown">
+<div class="countdown">
 
-    <div class="count-box">
-      <div id="days" class="count-number">0</div>
-      <div class="count-label">GÜN</div>
-    </div>
+<div class="count">
+<strong id="days">0</strong>
+<span>GÜN</span>
+</div>
 
-    <div class="count-box">
-      <div id="hours" class="count-number">0</div>
-      <div class="count-label">SAAT</div>
-    </div>
+<div class="count">
+<strong id="hours">0</strong>
+<span>SAAT</span>
+</div>
 
-    <div class="count-box">
-      <div id="minutes" class="count-number">0</div>
-      <div class="count-label">DAKİKA</div>
-    </div>
+<div class="count">
+<strong id="minutes">0</strong>
+<span>DAKİKA</span>
+</div>
 
-    <div class="count-box">
-      <div id="seconds" class="count-number">0</div>
-      <div class="count-label">SANİYE</div>
-    </div>
-
-  </div>
+<div class="count">
+<strong id="seconds">0</strong>
+<span>SANİYE</span>
+</div>
 
 </div>
 
+</div>
+
+<!-- BİRLİKTE GEÇEN GÜNLER -->
+<div class="card">
+
+<div class="icon">🌹</div>
+
+<h2>Birlikte Geçen Günlerimiz</h2>
+
+<p>
+Sevgimizin başladığı günden bugüne…
+</p>
+
+<h2 id="loveDays">0</h2>
+
+<p>gündür birlikteyiz. ❤️</p>
+
+</div>
 
 <!-- BİLGİLER -->
-
 <div class="card">
 
-  <h2>Düğünümüz</h2>
+<h2>Düğün Bilgileri</h2>
 
-  <div class="info-grid">
+<div class="info-grid">
 
-    <div class="info">
-      <div class="label">Tarih</div>
-      <strong>24 Eylül 2026</strong>
-    </div>
+<div class="info">
+<div class="label">Tarih</div>
+<strong>24 Eylül 2026</strong>
+</div>
 
-    <div class="info">
-      <div class="label">Saat</div>
-      <strong>19:00</strong>
-    </div>
+<div class="info">
+<div class="label">Saat</div>
+<strong>19:00</strong>
+</div>
 
-    <div class="info">
-      <div class="label">Yer</div>
-      <strong>GRANDPARK Düğün Salonu</strong>
-    </div>
+<div class="info">
+<div class="label">Yer</div>
+<strong>GRANDPARK Düğün Salonu</strong>
+</div>
 
-    <div class="info">
-      <div class="label">Çift</div>
-      <strong>Neslişah &amp; Aydın</strong>
-    </div>
-
-  </div>
+<div class="info">
+<div class="label">Çift</div>
+<strong>Neslişah &amp; Aydın</strong>
+</div>
 
 </div>
 
+<button class="action" onclick="openMaps()">
+📍 Yol Tarifi
+</button>
 
-<!-- KONUM -->
-
-<div class="card">
-
-  <div class="icon">📍</div>
-
-  <h2>
-    Bizi Nasıl Bulabilirsiniz?
-  </h2>
-
-  <p>
-    Düğünümüzde buluşmak üzere…
-  </p>
-
-  <!-- GRANDPARK'ın doğru Google Maps bağlantısını buraya koyabilirsin -->
-  <a
-    class="map-button"
-    href="https://www.google.com/maps/search/?api=1&query=GRANDPARK+D%C3%BC%C4%9F%C3%BCn+Salonu"
-    target="_blank">
-    📍 Yol Tarifi Al
-  </a>
+<button class="action" onclick="addCalendar()">
+📅 Takvime Ekle
+</button>
 
 </div>
-
-
-<!-- TAKVİM -->
-
-<div class="card">
-
-  <div class="icon">📅</div>
-
-  <h2>
-    Tarihi Takvimine Ekle
-  </h2>
-
-  <p>
-    24 Eylül 2026 tarihini telefonundaki
-    takvime ekleyebilirsin.
-  </p>
-
-  <button class="action" onclick="addToCalendar()">
-    📅 Takvime Ekle
-  </button>
-
-</div>
-
 
 <!-- AİLELER -->
-
 <div class="card">
 
-  <h2>Ailelerimiz</h2>
+<h2>Ailelerimiz</h2>
 
-  <div class="family-grid">
+<div class="family-grid">
 
-    <div class="family">
+<div class="family">
+<div class="label">Gelin</div>
+<strong>Nesrin ve Ahmet Azaklı</strong>
+</div>
 
-      <div class="label">
-        Gelin
-      </div>
-
-      <strong>
-        Nesrin ve Ahmet Azaklı
-      </strong>
-
-    </div>
-
-    <div class="family">
-
-      <div class="label">
-        Damat
-      </div>
-
-      <strong>
-        Cemile ve Cemal Yıldız
-      </strong>
-
-    </div>
-
-  </div>
+<div class="family">
+<div class="label">Damat</div>
+<strong>Cemile ve Cemal Yıldız</strong>
+</div>
 
 </div>
 
+</div>
 
 <!-- FOTOĞRAFLAR -->
-
 <div class="card">
 
-  <div class="icon">
-    📸
-  </div>
+<div class="icon">📸</div>
 
-  <h2>
-    Bizden Kareler
-  </h2>
+<h2>Bizden Kareler</h2>
 
-  <p>
-    Birlikte biriktirdiğimiz güzel anılardan… ♡
-  </p>
+<p>Birlikte biriktirdiğimiz güzel anılardan… ♡</p>
 
-  <div class="photo-gallery">
+<div class="photo-gallery">
 
-    <img src="IMG_9588.jpeg" alt="Neslişah ve Aydın" onclick="openPhoto(this.src)">
-
-    <img src="IMG_9322.jpeg" alt="Neslişah ve Aydın" onclick="openPhoto(this.src)">
-
-    <img src="IMG_5306.jpeg" alt="Neslişah ve Aydın" onclick="openPhoto(this.src)">
-
-    <img src="9828ee68-2f0e-4068-984c-0f3944c55b77.jpeg" alt="Neslişah ve Aydın" onclick="openPhoto(this.src)">
-
-  </div>
+<img src="IMG_9588.jpeg" onclick="showPhoto(this.src)">
+<img src="IMG_9322.jpeg" onclick="showPhoto(this.src)">
+<img src="IMG_5306.jpeg" onclick="showPhoto(this.src)">
+<img src="9828ee68-2f0e-4068-984c-0f3944c55b77.jpeg" onclick="showPhoto(this.src)">
 
 </div>
 
+</div>
 
 <!-- HİKAYEMİZ -->
-
 <div class="card">
 
-  <div class="icon">💍</div>
+<div class="icon">📖</div>
 
-  <h2>
-    Hikâyemiz
-  </h2>
+<h2>Hikâyemiz</h2>
 
-  <div class="story">
+<div class="story">
 
-    <div class="story-item">
-      <div class="story-year">BAŞLANGIÇ</div>
-      <div class="story-title">Birlikte başlayan hikâyemiz</div>
-      <div>İki güzel kalbin yollarının kesiştiği an… ♡</div>
-    </div>
+<div class="story-item">
+<strong>İlk Tanışma</strong>
+<p>Her güzel hikâye gibi bizim hikâyemiz de küçük bir anla başladı.</p>
+</div>
 
-    <div class="story-item">
-      <div class="story-year">NİŞAN</div>
-      <div class="story-title">Birlikte yeni bir adım</div>
-      <div>Hayatımızı birlikte sürdürme kararımızı kutladık.</div>
-    </div>
+<div class="story-item">
+<strong>Birlikte</strong>
+<p>Günler geçtikçe sevgimiz daha da büyüdü.</p>
+</div>
 
-    <div class="story-item">
-      <div class="story-year">24 EYLÜL 2026</div>
-      <div class="story-title">Düğünümüz</div>
-      <div>Hikâyemizin en güzel gününü sizlerle kutluyoruz. ❤️</div>
-    </div>
+<div class="story-item">
+<strong>Nişan</strong>
+<p>Birlikte kurduğumuz hayaller için ilk büyük adımımızı attık.</p>
+</div>
 
-  </div>
+<div class="story-item">
+<strong>Düğünümüz</strong>
+<p>Şimdi hikâyemizin en güzel sayfasını birlikte açıyoruz. ❤️</p>
+</div>
 
 </div>
 
+</div>
 
 <!-- ZARF -->
-
 <div class="card">
 
-  <h2>
-    Davetiye
-  </h2>
+<h2>Davetiye</h2>
 
-  <p>
-    Zarfa dokunun; sevgi kalpten kalbe uçsun. ♡
-  </p>
+<p>
+Zarfa dokunun; sevgimiz sizin için yola çıksın. ♡
+</p>
 
-  <div class="envelope-wrap">
+<div class="envelope-wrap">
 
-    <div
-      id="bigHeart"
-      class="big-heart">
-      ❤️
-    </div>
+<div class="heart-area">
 
-    <div id="heart1" class="small-heart">💕</div>
-    <div id="heart2" class="small-heart">💗</div>
-    <div id="heart3" class="small-heart">♡</div>
-    <div id="heart4" class="small-heart">💕</div>
-
-    <div
-      class="envelope"
-      onclick="openEnvelope()">
-
-      <div class="seal">
-        ♡
-      </div>
-
-    </div>
-
-  </div>
-
-  <div id="happiness" class="happiness">
-    Sevginiz kalbimizde çoğalsın ✨
-  </div>
+<div id="bigHeart" class="big-heart">❤️</div>
+<div id="heart1" class="small-heart" style="--x:-80px;--y:-120px">💕</div>
+<div id="heart2" class="small-heart" style="--x:75px;--y:-140px">💗</div>
+<div id="heart3" class="small-heart" style="--x:-115px;--y:-65px">♡</div>
+<div id="heart4" class="small-heart" style="--x:110px;--y:-75px">💕</div>
 
 </div>
 
+<div class="envelope" onclick="openEnvelope()">
+<div class="seal">♡</div>
+</div>
+
+</div>
+
+<div id="happiness" class="happiness">
+Sevginiz kalbimizde çoğalsın ✨
+</div>
+
+</div>
+
+<!-- PROGRAM -->
+<div class="card">
+
+<div class="icon">🥂</div>
+
+<h2>Düğün Programımız</h2>
+
+<div class="timeline">
+
+<div class="event">
+<div class="event-time">19:00</div>
+<div>Hoş Geldiniz</div>
+</div>
+
+<div class="event">
+<div class="event-time">19:30</div>
+<div>Kına Gecemiz</div>
+</div>
+
+<div class="event">
+<div class="event-time">20:00</div>
+<div>İlk Dans</div>
+</div>
+
+<div class="event">
+<div class="event-time">20:30</div>
+<div>Yemek &amp; Eğlence</div>
+</div>
+
+<div class="event">
+<div class="event-time">21:30</div>
+<div>Pasta Kesimi</div>
+</div>
+
+<div class="event">
+<div class="event-time">22:00</div>
+<div>Takı Töreni</div>
+</div>
+
+<div class="event">
+<div class="event-time">23:00</div>
+<div>Kapanış</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- AŞK MEKTUBU -->
+<div class="card">
+
+<div class="icon">💌</div>
+
+<h2>Size Küçük Bir Sürpriz</h2>
+
+<button class="action" onclick="toggleLetter()">
+Mektubu Aç
+</button>
+
+<div id="letter" class="letter">
+
+<p>
+Bugün bizim için çok özel bir gün.
+Bu mutluluğu sizinle paylaşmak,
+bizim için en güzel hediyelerden biri.
+</p>
+
+<p>
+İyi ki hayatımızın bu güzel gününde
+yanımızdasınız. ❤️
+</p>
+
+<p>
+Sevgilerimizle,<br>
+<strong>Neslişah &amp; Aydın</strong>
+</p>
+
+</div>
+
+</div>
+
+<!-- QUIZ -->
+<div class="card">
+
+<div class="icon">🎲</div>
+
+<h2>Bizi Ne Kadar Tanıyorsun?</h2>
+
+<p>Mini testimize katıl! 😄</p>
+
+<div class="quiz">
+
+<button class="choice" onclick="quizAnswer(true)">
+Neslişah &amp; Aydın'ın düğün tarihi 24 Eylül 2026 mı? ❤️
+</button>
+
+<button class="choice" onclick="quizAnswer(false)">
+Düğünümüz Aralık ayında mı? 😄
+</button>
+
+<button class="choice" onclick="quizAnswer(true)">
+Düğün salonumuz GRANDPARK mı?
+</button>
+
+</div>
+
+<div id="quizResult" class="quiz-result"></div>
+
+</div>
 
 <!-- HEDİYE -->
-
 <div class="card">
 
-  <h2>
-    Hediye
-  </h2>
+<div class="icon">🎁</div>
 
-  <p>
-    En güzel hediyeniz güzel dilekleriniz.
-    Dilerseniz aşağıdaki butondan hediye
-    bilgilerine ulaşabilirsiniz.
-  </p>
+<h2>Hediye</h2>
 
-  <button class="action" onclick="toggleGift()">
-    🎁 Hediye Bilgileri
-  </button>
+<p>
+En güzel hediyeniz güzel dilekleriniz.
+</p>
 
-  <div id="gift" class="gift-box">
+<button class="action" onclick="toggleGift()">
+🎁 Hediye Bilgileri
+</button>
 
-    <div class="label">
-      IBAN
-    </div>
+<div id="gift" class="secret">
 
-    <div class="iban" id="iban">
-      TR85 0004 6002 3088 8000 3127 39
-    </div>
+<div class="label">IBAN</div>
 
-    <p>
-      <strong>Aydın Yıldız</strong>
-    </p>
+<div id="iban">
+TR85 0004 6002 3088 8000 3127 39
+</div>
 
-    <button
-      class="action secondary"
-      onclick="copyIBAN()">
-      IBAN'ı Kopyala
-    </button>
+<p><strong>Aydın Yıldız</strong></p>
 
-  </div>
+<button class="action" onclick="copyIBAN()">
+IBAN'ı Kopyala
+</button>
 
 </div>
 
+</div>
+
+<!-- DİLEKLER -->
+<div class="card">
+
+<div class="icon">📖</div>
+
+<h2>Güzel Dilekleriniz</h2>
+
+<p>
+Bize bırakmak istediğiniz güzel bir mesajı
+buraya yazabilirsiniz.
+</p>
+
+<textarea id="wishText"
+style="width:100%;min-height:110px;border:1px solid #d8c8bb;border-radius:16px;padding:14px;font-family:inherit;resize:vertical"
+placeholder="Neslişah & Aydın'a güzel dileğiniz..."></textarea>
+
+<button class="action" onclick="saveWish()">
+💌 Dileğimi Kaydet
+</button>
+
+<div id="wishesBox" class="wishes-box"></div>
+
+</div>
 
 <!-- KATILIM -->
-
 <div class="card">
 
-  <h2>
-    Katılım Durumu
-  </h2>
+<div class="icon">💍</div>
 
-  <p>
-    Düğünümüzde sizi aramızda görebilecek miyiz?
-  </p>
+<h2>Katılım Durumu</h2>
 
-  <div class="survey">
+<p>
+Düğünümüzde sizi aramızda görebilecek miyiz?
+</p>
 
-    <button
-      class="choice"
-      onclick="goToForm('yes')">
-      💍 Katılacağım
-    </button>
+<button class="choice" onclick="goToForm('yes')">
+💍 Katılacağım
+</button>
 
-    <button
-      class="choice"
-      onclick="goToForm('no')">
-      🤍 Katılamayacağım
-    </button>
-
-  </div>
+<button class="choice" onclick="goToForm('no')">
+🤍 Katılamayacağım
+</button>
 
 </div>
 
-
-<!-- ETKİNLİKLER -->
-
-<section class="events" id="etkinlikler">
-
-  <div class="section-title">
-
-    <span>✦</span>
-
-    <h2>
-      Etkinliklerimiz
-    </h2>
-
-    <p>
-      Bu güzel günümüzde bizi bekleyen anlar...
-    </p>
-
-  </div>
-
-  <div class="timeline">
-
-    <div class="event">
-      <div class="event-time">Başlangıç</div>
-      <div class="event-name">Hoş Geldiniz</div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">Kına</div>
-      <div class="event-name">Kına Gecemiz</div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">Dans</div>
-      <div class="event-name">Dans</div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">Eğlence</div>
-      <div class="event-name">Eğlence</div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">Düğün</div>
-      <div class="event-name">Düğünümüz</div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">İlk Dans &amp; Pasta</div>
-      <div class="event-name">İlk Dans ve Pasta Kesimi</div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">Takı</div>
-      <div class="event-name">Takı Töreni</div>
-    </div>
-
-    <div class="event">
-      <div class="event-time">23:00</div>
-      <div class="event-name">Kapanış</div>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- SON -->
-
+<!-- GİZLİ SÜRPRİZ -->
 <div class="card">
 
-  <h2>
-    Sizi Bekliyoruz
-  </h2>
+<h2>♡</h2>
 
-  <p>
-    24 Eylül 2026 Perşembe günü
-    saat 19:00'da<br>
-    GRANDPARK Düğün Salonu'nda
-    buluşmak dileğiyle…
-  </p>
+<p>
+Küçük bir kalbe dokunmayı dene…
+</p>
 
-  <button
-    class="action"
-    onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    Başa Dön
-  </button>
+<button class="action" onclick="secretSurprise()">
+♡
+</button>
 
+<div id="secret" class="secret">
+<h2>Birbirimizi seçtik… ❤️</h2>
+<p>
+Ve şimdi bu güzel günü sizinle paylaşmak için sabırsızlanıyoruz.
+</p>
 </div>
 
+</div>
 
 </section>
 
 </main>
 
+<!-- IŞIKBOX -->
+<div id="lightbox" class="lightbox" onclick="closePhoto()">
+<span class="close-lightbox">×</span>
+<img id="lightboxImg">
+</div>
 
-<!-- FOTOĞRAF PENCERESİ -->
+<!-- MÜZİK -->
+<div class="music-player">
 
-<div
-  id="lightbox"
-  class="lightbox"
-  onclick="closePhoto()">
+<button class="music-button" onclick="toggleMusic()" id="musicButton">
+🎵
+</button>
 
-  <button
-    class="lightbox-close"
-    onclick="closePhoto()">
-    ×
-  </button>
-
-  <img id="lightboxImage" src="" alt="Fotoğraf">
+<div>
+<strong>Nazende Sevgilim</strong><br>
+<small>Instrumental ♫</small>
+</div>
 
 </div>
 
-
-<!-- TOAST -->
+<!-- GECE/GÜNDÜZ -->
+<button class="theme-button" onclick="toggleTheme()" id="themeButton">
+🌙
+</button>
 
 <div id="toast" class="toast"></div>
 
-
-<!-- MÜZİK BUTONU -->
-
-<button
-  id="musicButton"
-  class="music-button"
-  onclick="toggleMusic()">
-  🎵
-</button>
-
-
 <footer>
-  Neslişah &amp; Aydın · 24.09.2026
+Neslişah &amp; Aydın · 24.09.2026
 </footer>
-
 
 <script>
 
 /* TOAST */
-
 function showToast(text){
-
-  const toast=document.getElementById("toast");
-
-  toast.textContent=text;
-
-  toast.classList.add("show");
-
-  setTimeout(function(){
-    toast.classList.remove("show");
-  },2200);
+const t=document.getElementById("toast");
+t.textContent=text;
+t.classList.add("show");
+setTimeout(()=>t.classList.remove("show"),2200);
 }
 
-
 /* MÜZİK */
-
-const weddingMusic=document.getElementById("weddingMusic");
+const music=document.getElementById("weddingMusic");
 const musicButton=document.getElementById("musicButton");
 
-function startMusic(){
-
-  weddingMusic.play()
-  .then(function(){
-
-    musicButton.textContent="🎵";
-
-  })
-  .catch(function(){
-
-    // iPhone otomatik müziği engellerse
-    // kullanıcı müzik butonuna basabilir.
-
-  });
-
+function playMusic(){
+music.play().then(()=>{
+musicButton.textContent="🎵";
+document.querySelector(".music-player").classList.add("playing");
+}).catch(()=>{});
 }
 
 function toggleMusic(){
 
-  if(weddingMusic.paused){
+if(music.paused){
 
-    weddingMusic.play()
-    .then(function(){
+music.play().then(()=>{
+musicButton.textContent="🎵";
+document.querySelector(".music-player").classList.add("playing");
+showToast("Nazende Sevgilim çalıyor ♡");
+}).catch(()=>{
+showToast("Müzik dosyası bulunamadı. Dosya adını kontrol et.");
+});
 
-      musicButton.textContent="🎵";
-      showToast("Müzik açıldı ♡");
+}else{
 
-    })
-    .catch(function(){
-
-      showToast("Müzik dosyasını kontrol et.");
-
-    });
-
-  }else{
-
-    weddingMusic.pause();
-
-    musicButton.textContent="🔇";
-
-    showToast("Müzik kapatıldı");
-
-  }
+music.pause();
+document.querySelector(".music-player").classList.remove("playing");
+musicButton.textContent="🔇";
+showToast("Müzik kapatıldı");
 
 }
 
+}
 
-/* DAVETİYEYİ AÇ */
-
+/* KAPAK */
 function openInvitation(){
 
-  document.getElementById("intro").classList.add("hide");
+document.getElementById("davetiye").scrollIntoView({
+behavior:"smooth"
+});
 
-  document.getElementById("davetiye").scrollIntoView({
-    behavior:"smooth"
-  });
-
-  startMusic();
+playMusic();
+confetti();
 
 }
 
+/* ZARF */
+function openEnvelope(){
+
+const ids=["bigHeart","heart1","heart2","heart3","heart4"];
+
+ids.forEach(id=>{
+const e=document.getElementById(id);
+e.classList.remove("fly");
+void e.offsetWidth;
+e.classList.add("fly");
+});
+
+document.getElementById("happiness").classList.add("show");
+
+showToast("Sevgi kalpten kalbe uçtu! ❤️");
+
+}
 
 /* GERİ SAYIM */
-
-const weddingDate =
-  new Date("2026-09-24T19:00:00").getTime();
-
 function updateCountdown(){
 
-  const now=new Date().getTime();
+const target=new Date("2026-09-24T19:00:00").getTime();
+const now=Date.now();
+let diff=target-now;
 
-  const distance=weddingDate-now;
+if(diff<0)diff=0;
 
-  if(distance<=0){
+const d=Math.floor(diff/86400000);
+const h=Math.floor(diff/3600000)%24;
+const m=Math.floor(diff/60000)%60;
+const s=Math.floor(diff/1000)%60;
 
-    document.getElementById("days").textContent="0";
-    document.getElementById("hours").textContent="0";
-    document.getElementById("minutes").textContent="0";
-    document.getElementById("seconds").textContent="0";
+document.getElementById("days").textContent=d;
+document.getElementById("hours").textContent=h;
+document.getElementById("minutes").textContent=m;
+document.getElementById("seconds").textContent=s;
 
-    return;
-  }
-
-  const days=Math.floor(
-    distance/(1000*60*60*24)
-  );
-
-  const hours=Math.floor(
-    (distance%(1000*60*60*24))/(1000*60*60)
-  );
-
-  const minutes=Math.floor(
-    (distance%(1000*60*60))/(1000*60)
-  );
-
-  const seconds=Math.floor(
-    (distance%(1000*60))/1000
-  );
-
-  document.getElementById("days").textContent=days;
-  document.getElementById("hours").textContent=hours;
-  document.getElementById("minutes").textContent=minutes;
-  document.getElementById("seconds").textContent=seconds;
 }
 
 updateCountdown();
-
 setInterval(updateCountdown,1000);
 
+/* BİRLİKTE GEÇEN GÜNLER */
+function updateLoveDays(){
+
+/*
+Buraya ilişkinizin başlangıç tarihini
+YYYY-MM-DD şeklinde yazabilirsin.
+*/
+const start=new Date("2020-01-01");
+const today=new Date();
+
+const diff=today-start;
+const days=Math.floor(diff/86400000);
+
+document.getElementById("loveDays").textContent=days;
+
+}
+
+updateLoveDays();
+
+/* GECE GÜNDÜZ */
+function toggleTheme(){
+
+document.body.classList.toggle("dark");
+
+const dark=document.body.classList.contains("dark");
+
+document.getElementById("themeButton").textContent=
+dark ? "☀️" : "🌙";
+
+localStorage.setItem("darkMode",dark);
+
+}
+
+if(localStorage.getItem("darkMode")==="true"){
+document.body.classList.add("dark");
+document.getElementById("themeButton").textContent="☀️";
+}
 
 /* FOTOĞRAF */
+function showPhoto(src){
 
-function openPhoto(src){
-
-  document.getElementById("lightboxImage").src=src;
-
-  document.getElementById("lightbox").classList.add("show");
+document.getElementById("lightboxImg").src=src;
+document.getElementById("lightbox").style.display="flex";
 
 }
 
 function closePhoto(){
+document.getElementById("lightbox").style.display="none";
+}
 
-  document.getElementById("lightbox").classList.remove("show");
+/* HARİTA */
+function openMaps(){
+
+window.open(
+"https://www.google.com/maps/search/?api=1&query=GRANDPARK+Düğün+Salonu",
+"_blank"
+);
 
 }
 
+/* TAKVİM */
+function addCalendar(){
 
-/* TAKVİME EKLE */
+const url=
+"https://calendar.google.com/calendar/render?action=TEMPLATE"+
+"&text=Neslişah+%26+Aydın+Düğünü"+
+"&dates=20260924T190000/20260924T230000"+
+"&details=Neslişah+%26+Aydın+Düğün+Davetiyesi"+
+"&location=GRANDPARK+Düğün+Salonu";
 
-function addToCalendar(){
-
-  const title="Neslişah & Aydın Düğünü";
-
-  const start="20260924T190000";
-
-  const end="20260924T230000";
-
-  const url=
-    "https://calendar.google.com/calendar/render?action=TEMPLATE"+
-    "&text="+encodeURIComponent(title)+
-    "&dates="+start+"/"+end+
-    "&details="+encodeURIComponent("Neslişah & Aydın düğün davetiyesi")+
-    "&location="+encodeURIComponent("GRANDPARK Düğün Salonu");
-
-  window.open(url,"_blank");
+window.open(url,"_blank");
 
 }
 
+/* MEKTUP */
+function toggleLetter(){
 
-/* ZARF / KALPLER */
+const box=document.getElementById("letter");
 
-function openEnvelope(){
-
-  const ids=[
-    ["bigHeart","fly"],
-    ["heart1","fly1"],
-    ["heart2","fly2"],
-    ["heart3","fly3"],
-    ["heart4","fly4"]
-  ];
-
-  ids.forEach(function(item){
-
-    const el=document.getElementById(item[0]);
-
-    el.classList.remove(item[1]);
-
-    void el.offsetWidth;
-
-    el.classList.add(item[1]);
-
-  });
-
-  setTimeout(function(){
-
-    document
-      .getElementById("happiness")
-      .classList.add("show");
-
-  },1000);
-
-  showToast("Sevgi kalpten kalbe uçtu! ❤️");
+box.style.display=
+box.style.display==="block" ? "none" : "block";
 
 }
 
+/* QUIZ */
+function quizAnswer(correct){
+
+const result=document.getElementById("quizResult");
+
+result.style.display="block";
+
+if(correct){
+
+result.textContent="🎉 Doğru! Bizi gerçekten tanıyorsun. ❤️";
+
+}else{
+
+result.textContent="😄 Bir daha düşün!";
+
+}
+
+}
 
 /* HEDİYE */
-
 function toggleGift(){
 
-  const box=document.getElementById("gift");
+const gift=document.getElementById("gift");
 
-  box.style.display=
-    box.style.display==="block"
-    ? "none"
-    : "block";
+gift.style.display=
+gift.style.display==="block" ? "none" : "block";
 
 }
-
-
-/* IBAN */
 
 function copyIBAN(){
 
-  const iban=
-    document.getElementById("iban").textContent.trim();
+const iban=document.getElementById("iban").textContent.trim();
 
-  navigator.clipboard.writeText(iban)
-  .then(function(){
-
-    showToast("IBAN kopyalandı.");
-
-  })
-  .catch(function(){
-
-    showToast("IBAN kopyalanamadı.");
-
-  });
+navigator.clipboard.writeText(iban).then(()=>{
+showToast("IBAN kopyalandı ❤️");
+}).catch(()=>{
+showToast("IBAN kopyalanamadı.");
+});
 
 }
 
+/* DİLEK */
+function saveWish(){
 
-/* GOOGLE FORM */
+const text=document.getElementById("wishText").value.trim();
 
+if(!text){
+showToast("Önce güzel dileğini yaz ❤️");
+return;
+}
+
+const box=document.getElementById("wishesBox");
+
+box.style.display="block";
+
+box.innerHTML=
+"💌 <strong>Güzel dileğiniz:</strong><br><br>"+
+text;
+
+localStorage.setItem("weddingWish",text);
+
+showToast("Dileğiniz kaydedildi ❤️");
+
+}
+
+const savedWish=localStorage.getItem("weddingWish");
+
+if(savedWish){
+document.getElementById("wishesBox").style.display="block";
+document.getElementById("wishesBox").innerHTML=
+"💌 <strong>Güzel dileğiniz:</strong><br><br>"+savedWish;
+}
+
+/* FORM */
 function goToForm(type){
 
-  if(type==="yes"){
+if(type==="yes"){
 
-    window.location.href=
-    "https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1laca%C4%9F%C4%B1m+%E2%9D%A4%EF%B8%8F";
-
-  }
-
-  if(type==="no"){
-
-    window.location.href=
-    "https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1lamayaca%C4%9F%C4%B1m+%F0%9F%92%94";
-
-  }
+window.location.href=
+"https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1laca%C4%9F%C4%B1m+%E2%9D%A4%EF%B8%8F";
 
 }
 
+if(type==="no"){
 
-/* SAYFA AÇILINCA HAFİF KALP */
+window.location.href=
+"https://docs.google.com/forms/d/e/1FAIpQLSejGc-nF1QluWXqIkW9hE_zWMJf9YV_dGEnr2ur7a42BAXseA/viewform?usp=pp_url&entry.989751142=Kat%C4%B1lamayaca%C4%9F%C4%B1m+%F0%9F%92%94";
 
-setInterval(function(){
+}
 
-  const heart=document.createElement("div");
+}
 
-  heart.className="floating-heart";
+/* GİZLİ SÜRPRİZ */
+function secretSurprise(){
 
-  const hearts=["♡","💕","🤍","💗"];
+const secret=document.getElementById("secret");
 
-  heart.textContent=
-    hearts[Math.floor(Math.random()*hearts.length)];
+secret.style.display="block";
 
-  heart.style.left=
-    Math.random()*100+"vw";
+heartExplosion(
+window.innerWidth/2,
+window.innerHeight/2
+);
 
-  heart.style.fontSize=
-    (14+Math.random()*12)+"px";
+}
 
-  document.body.appendChild(heart);
+/* DOKUNUNCA KALP */
+document.addEventListener("click",function(e){
 
-  setTimeout(function(){
+if(
+e.target.tagName==="BUTTON" ||
+e.target.tagName==="IMG" ||
+e.target.closest(".music-player") ||
+e.target.closest(".envelope")
+)return;
 
-    heart.remove();
+heartExplosion(e.clientX,e.clientY);
 
-  },5000);
+});
 
-},1800);
+function heartExplosion(x,y){
+
+const layer=document.getElementById("heartsLayer");
+
+for(let i=0;i<5;i++){
+
+const h=document.createElement("div");
+
+h.className="tap-heart";
+h.textContent=["♡","💕","💗","❤️"][Math.floor(Math.random()*4)];
+
+h.style.left=x+"px";
+h.style.top=y+"px";
+
+h.style.setProperty(
+"--tx",
+(Math.random()*160-80)+"px"
+);
+
+h.style.setProperty(
+"--ty",
+(-Math.random()*150-30)+"px"
+);
+
+layer.appendChild(h);
+
+setTimeout(()=>h.remove(),1400);
+
+}
+
+}
+
+/* KONFETİ */
+function confetti(){
+
+const symbols=["♡","♥","✦","✧","✨"];
+
+for(let i=0;i<35;i++){
+
+const c=document.createElement("div");
+
+c.className="confetti";
+
+c.textContent=
+symbols[Math.floor(Math.random()*symbols.length)];
+
+c.style.left=Math.random()*100+"vw";
+c.style.animationDelay=Math.random()*1.5+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>c.remove(),5000);
+
+}
+
+}
+
+/* OTOMATİK MÜZİK */
+/*
+iPhone/Safari otomatik müziği kullanıcı dokunuşu
+olmadan başlatmayı engelleyebilir.
+İlk dokunuşta müzik başlatılır.
+*/
+
+document.addEventListener("touchstart",function(){
+playMusic();
+},{once:true});
+
+document.addEventListener("click",function(){
+playMusic();
+},{once:true});
 
 </script>
 
